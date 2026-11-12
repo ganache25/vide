@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { ICONE_METHODE } from '../../components/FicheView';
+import { Verre } from '../../components/Illustrations';
 import { Card, Chips, Hero, Ligne, Liste, P, Page, Recherche, Tag } from '../../components/ui';
 import { COCKTAILS } from '../../data/cocktails';
 import { LIB_METHODE, type Methode } from '../../data/types';
@@ -93,7 +94,7 @@ export default function Socle() {
             <Ligne
               key={c.id}
               delai={Math.min(k, 8) * 35}
-              icone={ICONE_METHODE[c.methode]}
+              visuel={<Verre verre={c.verre} couleur={c.couleur} taille={30} />}
               titre={c.nom}
               sousTitre={`${c.descripteurs} · ${LIB_METHODE[c.methode]} · ${c.verre}`}
               droite={<Tag>{c.tavOfficiel} %</Tag>}

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Card, Depliant, GrandTitre, P, Page, Recherche, Rubriques, Tag, Titre } from '../../components/ui';
+import { Card, Depliant, GrandTitre, P, Page, Recherche, Rubriques, Tag, Titre } from '../components/ui';
 import {
   BONNES_PRATIQUES,
   CATEGORIES,
@@ -11,9 +11,10 @@ import {
   METHODES,
   TYPES,
   VERRERIE,
-} from '../../data/guide';
-import { normaliser } from '../../lib/texte';
-import { C, S } from '../../theme';
+} from '../data/guide';
+import { Triangle3S } from '../components/Illustrations';
+import { normaliser } from '../lib/texte';
+import { C, S } from '../theme';
 
 function Etapes({ etapes }: { etapes: string[] }) {
   return (
@@ -46,11 +47,12 @@ export default function Guide() {
   }, [q]);
 
   return (
-    <Page onglet>
-      <GrandTitre sousTitre="L’essentiel du socle, toujours sous la main.">Guide du barman</GrandTitre>
+    <Page>
+      <GrandTitre sousTitre="Bonnes pratiques, familles, méthodes et lexique du référentiel.">Guide du socle</GrandTitre>
       <View style={{ gap: S.md }}>
         <Titre>Le socle en bref</Titre>
         <Depliant icone="sparkles" titre="Guide des bonnes pratiques pour les créations">
+          <Triangle3S />
           <Rubriques items={BONNES_PRATIQUES.map((r, k) => ({ ...r, titre: `${k + 1}. ${r.titre}` }))} />
         </Depliant>
         <Depliant icone="pricetags" titre="Catégories et types de cocktails">

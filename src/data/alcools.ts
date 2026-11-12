@@ -3,6 +3,7 @@
 // réglementation européenne sur les boissons spiritueuses (règlement UE 2019/787) ou des cahiers
 // des charges des appellations concernées.
 
+import { NOUVEAUX, PLUS, type Plus } from './alcoolsPlus';
 import type { Rubrique } from './guide';
 
 export type Alcool = {
@@ -17,7 +18,7 @@ export type Alcool = {
   aSavoir: string[];
   /** Identifiants des cocktails du socle qui l'utilisent. */
   cocktails: string[];
-};
+} & Partial<Plus>;
 
 export type Article = {
   id: string;
@@ -34,10 +35,11 @@ const EDV_VIN = 'Eaux-de-vie de vin et de fruit';
 const LIQ = 'Liqueurs, amers et anisés';
 const VINS = 'Vins, vermouths et vins mutés';
 const FERM = 'Bières et boissons fermentées';
+const FRAIS = 'Produits frais et sans alcool';
 
-export const FAMILLES_ALCOOLS = [EDV_GRAIN, EDV_CANNE, EDV_AGAVE, EDV_VIN, LIQ, VINS, FERM];
+export const FAMILLES_ALCOOLS = [EDV_GRAIN, EDV_CANNE, EDV_AGAVE, EDV_VIN, LIQ, VINS, FERM, FRAIS];
 
-export const ALCOOLS: Alcool[] = [
+const BASE: Alcool[] = [
   {
     id: 'gin',
     nom: 'Gin',
@@ -704,6 +706,8 @@ export const ALCOOLS: Alcool[] = [
     cocktails: [],
   },
 ];
+
+export const ALCOOLS: Alcool[] = [...BASE.map((a) => ({ ...a, ...PLUS[a.id] })), ...NOUVEAUX];
 
 export const ALCOOL_PAR_ID: Record<string, Alcool> = Object.fromEntries(ALCOOLS.map((a) => [a.id, a]));
 

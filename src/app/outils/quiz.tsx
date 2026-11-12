@@ -3,21 +3,22 @@ import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 
-import { Apparition, Bouton, Card, Hero, Ligne, Liste, P, Page, Titre, Touche } from '../../components/ui';
-import { COCKTAIL_PAR_ID } from '../../data/cocktails';
-import { genererQuiz, type Question } from '../../lib/quiz';
+import { Apparition, Bouton, Card, Chips, Hero, Ligne, Liste, P, Page, Tag, Titre, Touche } from '../../components/ui';
+import { THEMES, genererQuiz, type Question, type Theme } from '../../lib/quiz';
 import { C, R, S } from '../../theme';
 
 export default function Quiz() {
   const router = useRouter();
-  const [questions, setQuestions] = useState<Question[]>(() => genererQuiz());
+  const [theme, setTheme] = useState<Theme>('tout');
+  const [nombre, setNombre] = useState('10');
+  const [questions, setQuestions] = useState<Question[] | null>(null);
   const [index, setIndex] = useState(0);
   const [reponses, setReponses] = useState<(string | null)[]>([]);
   const progression = useRef(new Animated.Value(0)).current;
 
-  const total = questions.length;
-  const fini = index >= total;
-  const q = questions[index];
+  const total = questions?.length ?? 1;
+  const fini = !!questions && index >= total;
+  const q = questions?.[index];
   const choisie = reponses[index] ?? null;
 
   useEffect(() => {
@@ -28,16 +29,35 @@ export default function Quiz() {
     }).start();
   }, [index, choisie, total, progression]);
 
-  const recommencer = () => {
-    setQuestions(genererQuiz());
+  const lancer = () => {
+    setQuestions(genererQuiz(theme, Number(nombre)));
     setIndex(0);
     setReponses([]);
   };
 
+  if (!questions) {
+    return (
+      <Page>
+        <Hero surtitre="Révision" titre="Composez votre quiz" texte="Les questions sont tirées au hasard dans les contenus de l’application : aucune série ne se ressemble." />
+        <Card>
+          <Titre>Thème</Titre>
+          <Chips<Theme> valeur={theme} onChange={setTheme} options={THEMES} />
+          <Titre>Nombre de questions</Titre>
+          <Chips<string>
+            valeur={nombre}
+            onChange={setNombre}
+            options={['5', '10', '20', '30'].map((v) => ({ v, l: v }))}
+          />
+        </Card>
+        <Bouton label="Commencer" icone="play" onPress={lancer} />
+      </Page>
+    );
+  }
+
   if (fini) {
     const score = questions.filter((x, k) => reponses[k] === x.bonne).length;
     const ratees = questions.filter((x, k) => reponses[k] !== x.bonne);
-    const aRevoir = [...new Set(ratees.map((x) => x.cocktailId))];
+    const aRevoir = [...new Map(ratees.map((x) => [x.sujet, x])).values()];
     return (
       <Page>
         <Hero
@@ -45,29 +65,24 @@ export default function Quiz() {
           titre={`${score} / ${total}`}
           texte={
             score === total
-              ? 'Sans faute : le socle n’a plus de secret pour vous.'
+              ? 'Sans faute : bravo.'
               : score >= total * 0.7
-                ? 'Solide. Encore quelques fiches à revoir.'
-                : 'Le socle se travaille : reprenez les fiches ci-dessous.'
+                ? 'Solide. Encore quelques points à revoir.'
+                : 'Ça se travaille : reprenez les points ci-dessous.'
           }
         />
         {aRevoir.length ? (
           <>
             <Titre>À revoir</Titre>
             <Liste>
-              {aRevoir.map((id) => (
-                <Ligne
-                  key={id}
-                  icone="refresh"
-                  titre={COCKTAIL_PAR_ID[id].nom}
-                  sousTitre={ratees.find((x) => x.cocktailId === id)?.enonce}
-                  onPress={() => router.push(`/cocktail/${id}`)}
-                />
+              {aRevoir.map((x) => (
+                <Ligne key={x.sujet} icone="refresh" titre={x.sujet} sousTitre={x.enonce} onPress={() => router.push(x.lien)} />
               ))}
             </Liste>
           </>
         ) : null}
-        <Bouton label="Recommencer" icone="refresh" onPress={recommencer} />
+        <Bouton label="Rejouer le même thème" icone="refresh" onPress={lancer} />
+        <Bouton label="Changer de thème" icone="options" variante="contour" onPress={() => setQuestions(null)} />
       </Page>
     );
   }
@@ -84,9 +99,12 @@ export default function Quiz() {
         ) : undefined
       }>
       <View style={{ gap: S.sm }}>
-        <Text style={s.compteur}>
-          Question {index + 1} sur {total}
-        </Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Text style={s.compteur}>
+            Question {index + 1} sur {total}
+          </Text>
+          <Tag>{THEMES.find((t) => t.v === q!.theme)?.l}</Tag>
+        </View>
         <View style={s.barre}>
           <Animated.View
             style={[
@@ -99,12 +117,12 @@ export default function Quiz() {
 
       <Apparition key={index} style={{ gap: S.lg }}>
         <Card>
-          <Text style={s.enonce}>{q.enonce}</Text>
+          <Text style={s.enonce}>{q!.enonce}</Text>
         </Card>
 
         <View style={{ gap: S.sm + 2 }}>
-          {q.choix.map((c) => {
-            const estBonne = c === q.bonne;
+          {q!.choix.map((c) => {
+            const estBonne = c === q!.bonne;
             const estChoisie = c === choisie;
             const etat = !choisie ? 'neutre' : estBonne ? 'bonne' : estChoisie ? 'fausse' : 'attenuee';
             return (
@@ -135,8 +153,7 @@ export default function Quiz() {
 
         {choisie ? (
           <P muted>
-            {choisie === q.bonne ? 'Bonne réponse.' : `La bonne réponse : ${q.bonne}.`} Fiche :{' '}
-            {COCKTAIL_PAR_ID[q.cocktailId].nom}.
+            {choisie === q!.bonne ? 'Bonne réponse.' : `La bonne réponse : ${q!.bonne}`} À revoir : {q!.sujet}.
           </P>
         ) : null}
       </Apparition>

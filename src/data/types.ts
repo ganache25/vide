@@ -43,6 +43,8 @@ export type Fiche = {
   /** Cocktail du socle dont la fiche est une revisite. */
   baseId?: string;
   updatedAt?: number;
+  /** Teinte du cocktail, utilisée pour l'illustration du verre. */
+  couleur?: string;
 };
 
 export const LIB_METHODE: Record<Methode, string> = {
@@ -83,3 +85,5 @@ export const VERRES = [
   'Tiki',
   'Fantaisie',
 ];
+
+export const TEINTES_COCKTAIL = ['#C2302B', '#E0607E', '#F0803A', '#E2B85A', '#EDEBC4', '#A9C76B', '#B9B4DD', '#B8742C', '#3B2418', '#E8EEE6'];

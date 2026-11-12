@@ -3,11 +3,13 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
+import { Verre } from '../components/Illustrations';
 import { Bouton, Card, Champ, ChampNombre, Chips, P, Page, Recherche, Titre, st } from '../components/ui';
 import { COCKTAIL_PAR_ID } from '../data/cocktails';
 import { FAMILLES_PRODUITS, UNITES, type Produit } from '../data/produits';
 import {
   LIB_CATEGORIE,
+  TEINTES_COCKTAIL,
   VERRES,
   type Fiche,
   type Glace,
@@ -357,6 +359,19 @@ export default function Editeur() {
             { v: 'after', l: 'After dinner' },
           ]}
         />
+        <Titre droite={<Verre verre={fiche.verre} couleur={fiche.couleur} taille={34} />}>Teinte du cocktail</Titre>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: S.sm }}>
+          {TEINTES_COCKTAIL.map((t) => (
+            <Pressable
+              key={t}
+              onPress={() => maj({ couleur: t })}
+              accessibilityRole="button"
+              accessibilityLabel={`Teinte ${t}`}
+              accessibilityState={{ selected: fiche.couleur === t }}
+              style={[s.teinte, { backgroundColor: t }, fiche.couleur === t && s.teinteActive]}
+            />
+          ))}
+        </View>
         <Champ
           label="Garniture"
           value={fiche.garniture}
@@ -474,6 +489,8 @@ const s = StyleSheet.create({
   detailLabel: { color: C.muted, fontSize: 12 },
   petit: { paddingVertical: 5, fontSize: 14, width: 68, minWidth: 0, flexGrow: 0 },
   compteur: { color: C.muted, fontSize: 12 },
+  teinte: { width: 36, height: 36, borderRadius: 18, borderWidth: 1, borderColor: C.border },
+  teinteActive: { borderWidth: 3, borderColor: C.accent },
   lien: { color: C.accent, fontSize: 13, fontWeight: '600' },
   ratio: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: S.md },
   ratioLabel: { color: C.text, fontSize: 15, flex: 1 },

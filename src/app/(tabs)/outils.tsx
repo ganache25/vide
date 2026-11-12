@@ -15,9 +15,9 @@ export default function Outils() {
 
       <Hero
         surtitre="Révision"
-        titre="Testez-vous sur le socle"
-        texte="Dix questions tirées au hasard : méthodes, verres, dosages, garnitures.">
-        <Ligne icone="school" titre="Lancer le quiz" sousTitre="Environ deux minutes" onPress={() => router.push('/outils/quiz')} />
+        titre="Testez vos connaissances"
+        texte="Socle, produits, matériel, culture bar, lexique : choisissez le thème et le nombre de questions.">
+        <Ligne icone="school" titre="Lancer le quiz" sousTitre="Cinq thèmes, de 5 à 30 questions" onPress={() => router.push('/outils/quiz')} />
       </Hero>
 
       <Liste>

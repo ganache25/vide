@@ -6,7 +6,9 @@ import { LIB_CATEGORIE, LIB_GLACE, LIB_METHODE, LIB_TYPE, type Fiche, type Ingre
 import { allergenes } from '../lib/allergenes';
 import { calculer, categorieDe, euro, libelleQuantite, nombre } from '../lib/calc';
 import { C, F, R, S } from '../theme';
+import { Verre } from './Illustrations';
 import { Card, ChampNombre, Chip, P, Tag, Titre, type IconName } from './ui';
+import { Proportions } from './visuels';
 
 export const ICONE_METHODE: Record<Methode, IconName> = {
   shaker: 'flask',
@@ -49,13 +51,18 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
 
   return (
     <>
-      <View style={{ gap: S.sm }}>
-        <Text style={s.nom}>{fiche.nom}</Text>
-        {fiche.descripteurs ? <Text style={s.desc}>{fiche.descripteurs}</Text> : null}
-        <View style={s.tags}>
-          <Tag>{LIB_CATEGORIE[categorieDe(fiche)]}</Tag>
-          <Tag>{LIB_TYPE[fiche.type]}</Tag>
-          <Tag>{LIB_METHODE[fiche.methode]}</Tag>
+      <View style={s.entete}>
+        <View style={{ flex: 1, gap: S.sm }}>
+          <Text style={s.nom}>{fiche.nom}</Text>
+          {fiche.descripteurs ? <Text style={s.desc}>{fiche.descripteurs}</Text> : null}
+          <View style={s.tags}>
+            <Tag>{LIB_CATEGORIE[categorieDe(fiche)]}</Tag>
+            <Tag>{LIB_TYPE[fiche.type]}</Tag>
+            <Tag>{LIB_METHODE[fiche.methode]}</Tag>
+          </View>
+        </View>
+        <View style={s.verre}>
+          <Verre verre={fiche.verre} couleur={fiche.couleur} taille={84} anime />
         </View>
       </View>
 
@@ -84,6 +91,7 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
             </View>
           ))}
         </View>
+        <Proportions ingredients={fiche.ingredients} />
         <View style={s.batch}>
           <View style={s.batchTete}>
             <Ionicons name="layers-outline" size={18} color={C.accent} />
@@ -197,7 +205,9 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
 }
 
 const s = StyleSheet.create({
-  nom: { color: C.text, fontFamily: F.display, fontSize: 38, lineHeight: 44 },
+  entete: { flexDirection: 'row', alignItems: 'center', gap: S.md },
+  verre: { backgroundColor: C.card, borderRadius: R.lg, paddingVertical: S.sm, paddingHorizontal: S.xs, boxShadow: '0 8px 28px rgba(86, 18, 42, 0.07)' },
+  nom: { color: C.text, fontFamily: F.display, fontSize: 36, lineHeight: 42 },
   desc: { color: C.accent, fontSize: 17, fontStyle: 'italic' },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: S.sm, marginTop: S.xs },
   chiffres: {

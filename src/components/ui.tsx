@@ -327,6 +327,7 @@ export function Ligne({
   droite,
   icone,
   monogramme,
+  visuel,
   onPress,
   delai,
 }: {
@@ -335,13 +336,16 @@ export function Ligne({
   droite?: ReactNode;
   icone?: IconName;
   monogramme?: string;
+  /** Illustration à la place de l'icône. */
+  visuel?: ReactNode;
   onPress: () => void;
   delai?: number;
 }) {
   return (
     <Apparition delai={delai}>
       <Touche onPress={onPress} style={st.ligne}>
-        {icone || monogramme ? (
+        {visuel ? <View style={st.pastille}>{visuel}</View> : null}
+        {!visuel && (icone || monogramme) ? (
           <View style={st.pastille}>
             {icone ? (
               <Ionicons name={icone} size={20} color={C.accent} />

@@ -41,8 +41,7 @@ export default function TabsLayout() {
       }}>
       <Tabs.Screen name="index" options={{ title: 'Socle', tabBarIcon: icone('wine') }} />
       <Tabs.Screen name="fiches" options={{ title: 'Mes fiches', tabBarIcon: icone('document-text') }} />
-      <Tabs.Screen name="alcools" options={{ title: 'Alcools', tabBarIcon: icone('book') }} />
-      <Tabs.Screen name="guide" options={{ title: 'Guide', tabBarIcon: icone('school') }} />
+      <Tabs.Screen name="culture" options={{ title: 'Culture', tabBarIcon: icone('library') }} />
       <Tabs.Screen name="outils" options={{ title: 'Outils', tabBarIcon: icone('calculator') }} />
     </Tabs>
   );

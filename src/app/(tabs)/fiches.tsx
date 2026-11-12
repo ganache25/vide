@@ -1,7 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 
-import { ICONE_METHODE } from '../../components/FicheView';
+import { Verre } from '../../components/Illustrations';
 import { Bouton, Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Tag, Titre } from '../../components/ui';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
 import { LIB_METHODE } from '../../data/types';
@@ -48,7 +48,7 @@ export default function MesFiches() {
                 <Ligne
                   key={f.id}
                   delai={Math.min(k, 8) * 35}
-                  icone={ICONE_METHODE[f.methode]}
+                  visuel={<Verre verre={f.verre} couleur={f.couleur} taille={30} />}
                   titre={f.nom || 'Sans nom'}
                   sousTitre={`${base ? `Revisite · ${base.nom} · ` : ''}${LIB_METHODE[f.methode]} · ${euro(c.coutMatiere)} HT`}
                   droite={<Tag>{Math.round(c.tav)} %</Tag>}

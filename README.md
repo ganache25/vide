@@ -13,12 +13,16 @@ cocktails de référence et connaissance des alcools.
 - **Mes fiches** : création de fiches techniques, de zéro ou en « revisite » d'un cocktail du socle.
   Contenance, catégorie, TAV, grammes d'alcool pur, coût matière et prix de vente sont calculés en direct.
   Les fiches sont enregistrées sur l'appareil.
-- **Alcools** : histoire, élaboration, catégories et repères pour 19 familles (gin, vodka, whisky, rhum,
-  cachaça, tequila et mezcal, cognac, armagnac, calvados, pisco, eaux-de-vie de fruits, liqueurs, amers,
-  anisés, vermouth, vins mutés, effervescents, bière et cidre, saké), plus neuf articles de base.
-- **Guide** : bonnes pratiques, catégories, familles, méthodes, verrerie, calcul du TAV et lexique du socle.
-- **Outils** : quiz de révision du socle, mercuriale personnelle (vos prix d'achat), calculateur de coût
-  d'une dose et convertisseur de volumes.
+- **Culture** (onglet) :
+  - *Culture produits* : 22 fiches (spiritueux, liqueurs, vins, bières, saké, agrumes, sucres, café) avec
+    frise de dates, étapes d'élaboration, arômes, service, plus neuf articles et des schémas d'alambics.
+  - *Culture bar* : frise du cocktail, grandes époques, figures, bars mythiques, livres, brigade, service.
+  - *Matériel de bar* : 21 outils et 20 verres illustrés, usage et conseils.
+  - *Guide du socle* : bonnes pratiques, familles, méthodes, calcul du TAV, lexique.
+- **Outils** : quiz (socle, produits, matériel, culture bar, lexique ; 5 à 30 questions), mercuriale
+  personnelle, calculateur de coût d'une dose et convertisseur de volumes.
+- **Illustrations** : verres dessinés et remplis à la couleur du cocktail (animés), barre de proportions
+  des ingrédients, outils, bouteilles et schémas en SVG (`src/components/Illustrations.tsx`).
 
 Direction artistique : blancs chauds et bordeaux, titres en DM Serif Display, animations légères.
 

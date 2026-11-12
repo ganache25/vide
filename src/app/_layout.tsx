@@ -34,6 +34,10 @@ export default function RootLayout() {
         <Stack.Screen name="editeur" options={{ title: 'Fiche technique', animation: 'slide_from_bottom' }} />
         <Stack.Screen name="alcool/[id]" options={{ title: '' }} />
         <Stack.Screen name="article/[id]" options={{ title: '' }} />
+        <Stack.Screen name="produits" options={{ title: '' }} />
+        <Stack.Screen name="culture-bar" options={{ title: '' }} />
+        <Stack.Screen name="materiel" options={{ title: '' }} />
+        <Stack.Screen name="guide" options={{ title: '' }} />
         <Stack.Screen name="outils/quiz" options={{ title: 'Quiz du socle' }} />
         <Stack.Screen name="outils/calculs" options={{ title: 'Calculateurs' }} />
         <Stack.Screen name="outils/mercuriale" options={{ title: 'Ma mercuriale' }} />

@@ -2,12 +2,13 @@ import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 
-import { Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../../components/ui';
-import { ALCOOLS, ARTICLES, FAMILLES_ALCOOLS } from '../../data/alcools';
-import { normaliser } from '../../lib/texte';
-import { S } from '../../theme';
+import { Bouteille } from '../components/Illustrations';
+import { Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../components/ui';
+import { ALCOOLS, ARTICLES, FAMILLES_ALCOOLS } from '../data/alcools';
+import { normaliser } from '../lib/texte';
+import { S } from '../theme';
 
-export default function Alcools() {
+export default function CultureProduits() {
   const router = useRouter();
   const [q, setQ] = useState('');
   const n = normaliser(q);
@@ -29,8 +30,8 @@ export default function Alcools() {
   );
 
   return (
-    <Page onglet>
-      <GrandTitre sousTitre="Histoire, élaboration et repères pour chaque famille.">Connaître les alcools</GrandTitre>
+    <Page>
+      <GrandTitre sousTitre="Histoire, élaboration, arômes et repères pour chaque famille de produits.">Culture produits</GrandTitre>
       <Recherche valeur={q} onChange={setQ} placeholder="Gin, bourbon, VSOP, reposado…" />
 
       {articles.length ? (
@@ -61,7 +62,7 @@ export default function Alcools() {
               {items.map((a) => (
                 <Ligne
                   key={a.id}
-                  monogramme={a.nom[0]}
+                  visuel={<Bouteille couleur={a.couleur} taille={24} />}
                   titre={a.nom}
                   sousTitre={a.accroche}
                   onPress={() => router.push(`/alcool/${a.id}`)}
