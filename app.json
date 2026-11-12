@@ -28,6 +28,9 @@
       "expo-sharing"
     ],
     "scheme": "fichesbar",
-    "backgroundColor": "#13100E"
+    "backgroundColor": "#13100E",
+    "experiments": {
+      "baseUrl": "/vide"
+    }
   }
 }
