@@ -19,7 +19,13 @@ export type Alcool = {
   cocktails: string[];
 };
 
-export type Article = { id: string; titre: string; accroche: string; sections: Rubrique[] };
+export type Article = {
+  id: string;
+  titre: string;
+  accroche: string;
+  icone: 'time' | 'flame' | 'albums' | 'shield-checkmark' | 'snow' | 'leaf' | 'eye' | 'cash' | 'water';
+  sections: Rubrique[];
+};
 
 const EDV_GRAIN = 'Eaux-de-vie de grain';
 const EDV_CANNE = 'Eaux-de-vie de canne';
@@ -27,8 +33,9 @@ const EDV_AGAVE = 'Eaux-de-vie d’agave';
 const EDV_VIN = 'Eaux-de-vie de vin et de fruit';
 const LIQ = 'Liqueurs, amers et anisés';
 const VINS = 'Vins, vermouths et vins mutés';
+const FERM = 'Bières et boissons fermentées';
 
-export const FAMILLES_ALCOOLS = [EDV_GRAIN, EDV_CANNE, EDV_AGAVE, EDV_VIN, LIQ, VINS];
+export const FAMILLES_ALCOOLS = [EDV_GRAIN, EDV_CANNE, EDV_AGAVE, EDV_VIN, LIQ, VINS, FERM];
 
 export const ALCOOLS: Alcool[] = [
   {
@@ -595,6 +602,107 @@ export const ALCOOLS: Alcool[] = [
     ],
     cocktails: ['bellini', 'champagne-cocktail', 'french-75', 'spritz', 'pornstar-martini'],
   },
+  {
+    id: 'fruits-marcs',
+    nom: 'Eaux-de-vie de fruits, marcs et brandies',
+    famille: EDV_VIN,
+    accroche: 'Kirsch, poire, mirabelle, marc et grappa : le fruit à l’état pur.',
+    reperes: [
+      ['Matière première', 'Fruits fermentés ou macérés, marc de raisin, vin'],
+      ['TAV minimum', '37,5 % (eaux-de-vie de fruits, marc, grappa) · 36 % (brandy)'],
+      ['Vieillissement', 'Rare pour les eaux-de-vie blanches, obligatoire pour le brandy'],
+    ],
+    histoire: [
+      'En Alsace, en Lorraine, en Forêt-Noire et en Suisse, on distille depuis le XVIIe siècle les fruits des vergers : c’est une manière de conserver une récolte abondante. Le kirsch (de l’allemand « Kirsche », cerise) en est le plus ancien représentant.',
+      'Dans les régions viticoles, rien ne se perd : après le pressurage, on distille les peaux, pépins et rafles. C’est le marc en France (Bourgogne, Champagne, Alsace) et la grappa en Italie.',
+      'Le mot « brandy », lui, vient du néerlandais « brandewijn », le vin brûlé : il désigne aujourd’hui les eaux-de-vie de vin vieillies sous bois produites hors des appellations cognac et armagnac, en Espagne (brandy de Jerez), en Italie ou ailleurs.',
+    ],
+    elaboration: [
+      'Fruits à noyau et à pépins (cerise, prune, mirabelle, poire) : les fruits fermentent, puis le moût est distillé, souvent deux fois, en petit alambic.',
+      'Petits fruits pauvres en sucre (framboise, mûre, sorbier) : ils sont macérés dans un alcool neutre, puis l’ensemble est redistillé.',
+      'Les eaux-de-vie blanches reposent en bonbonnes de verre ou en cuves, sans contact avec le bois, pour préserver le fruit.',
+    ],
+    categories: [
+      { titre: 'Kirsch', texte: 'Eau-de-vie de cerises ; le kirsch de Fougerolles bénéficie d’une appellation.' },
+      { titre: 'Poire Williams, mirabelle, quetsche, framboise', texte: 'Les grands classiques de l’Est de la France et de l’Europe centrale. La mirabelle de Lorraine est une appellation.' },
+      { titre: 'Marc et grappa', texte: 'Eaux-de-vie de marc de raisin, blanches ou vieillies.' },
+      { titre: 'Brandy', texte: 'Eau-de-vie de vin vieillie en fût de chêne. Le brandy de Jerez est élevé en solera.' },
+      { titre: 'Fine', texte: 'Eau-de-vie de vin d’une région viticole française (fine de Bourgogne, fine Bordeaux).' },
+    ],
+    aSavoir: [
+      'Il faut plusieurs kilos de fruits pour un litre d’eau-de-vie : d’où le prix et l’intensité.',
+      'Au bar, elles se dosent à la bar spoon ou en petite quantité pour parfumer un cocktail sans le sucrer.',
+      'Ne pas confondre le kirsch (eau-de-vie, sec) et la liqueur de cerise ou le maraschino (sucrés).',
+    ],
+    cocktails: [],
+  },
+  {
+    id: 'biere-cidre',
+    nom: 'Bière et cidre',
+    famille: FERM,
+    accroche: 'Les boissons fermentées de céréales et de pommes.',
+    reperes: [
+      ['Bière', 'Eau, malt d’orge (ou autres céréales), houblon, levure'],
+      ['Cidre', 'Jus de pommes à cidre fermenté ; poiré pour la poire'],
+      ['TAV', 'Bière : 4 à 9 % le plus souvent · Cidre : 2 à 6 %'],
+    ],
+    histoire: [
+      'La bière est l’une des plus anciennes boissons de l’humanité : on la brasse en Mésopotamie et en Égypte plusieurs millénaires avant notre ère. Au Moyen Âge, les monastères européens en perfectionnent la fabrication et généralisent le houblon, qui la parfume et la conserve.',
+      'En 1516, le duché de Bavière promulgue le décret de pureté (Reinheitsgebot), qui limite les ingrédients à l’eau, l’orge et le houblon. En 1842, la ville de Plzeň, en Bohême, crée la première bière blonde dorée de fermentation basse : la pils, modèle de la majorité des bières vendues aujourd’hui.',
+      'Depuis les années 1980, le mouvement des brasseries artisanales, parti des États-Unis, remet à l’honneur les styles oubliés et les houblons aromatiques.',
+      'Le cidre est attesté en Normandie et en Bretagne depuis le Moyen Âge ; c’est lui que l’on distille pour obtenir le calvados.',
+    ],
+    elaboration: [
+      'Maltage de l’orge, concassage, puis brassage à l’eau chaude pour transformer l’amidon en sucres. Le moût est porté à ébullition avec le houblon, refroidi, puis ensemencé de levures.',
+      'Fermentation haute (levures actives vers 15 à 25 °C) : les ales, fruitées. Fermentation basse (vers 7 à 13 °C) : les lagers, nettes et désaltérantes. Fermentation spontanée : les lambics belges.',
+      'Cidre : les pommes sont broyées et pressées ; le jus fermente lentement. Selon le sucre restant, le cidre est doux, demi-sec ou brut.',
+    ],
+    categories: [
+      { titre: 'Lager et pils', texte: 'Fermentation basse : blondes légères et amères.' },
+      { titre: 'Ale, pale ale, IPA', texte: 'Fermentation haute ; l’IPA est fortement houblonnée.' },
+      { titre: 'Blanche', texte: 'Bière de blé, souvent épicée (coriandre, écorce d’orange).' },
+      { titre: 'Stout et porter', texte: 'Bières noires aux malts torréfiés.' },
+      { titre: 'Abbaye et trappiste', texte: 'Bières fortes de tradition monastique ; « trappiste » est une mention protégée.' },
+      { titre: 'Lambic et gueuze', texte: 'Bières acides de fermentation spontanée.' },
+    ],
+    aSavoir: [
+      'Une pression se tire dans un verre propre, rincé à l’eau froide, avec un col de mousse qui protège la bière de l’oxydation.',
+      'Les bières contiennent du gluten : à signaler dans les allergènes.',
+      'En cocktail, la bière et le cidre s’ajoutent en dernier, comme tout produit effervescent.',
+    ],
+    cocktails: [],
+  },
+  {
+    id: 'sake',
+    nom: 'Saké et shochu',
+    famille: FERM,
+    accroche: 'Le riz japonais, fermenté ou distillé.',
+    reperes: [
+      ['Saké', 'Boisson fermentée de riz, environ 15 %'],
+      ['Shochu', 'Eau-de-vie japonaise (orge, patate douce, riz), environ 25 %'],
+      ['Ingrédient clé', 'Le kōji, un champignon qui transforme l’amidon en sucre'],
+    ],
+    histoire: [
+      'Le saké accompagne l’histoire du Japon depuis plus de mille ans : d’abord boisson de cour et d’offrande aux divinités, brassé dans les temples, il devient au fil des siècles une production de maisons spécialisées, les kura.',
+      'Le shochu apparaît au XVIe siècle dans l’île de Kyushu, lorsque la distillation arrive au sud du Japon.',
+    ],
+    elaboration: [
+      'Le riz est poli pour retirer les couches extérieures du grain, puis lavé et cuit à la vapeur. Une partie est ensemencée de kōji.',
+      'Particularité du saké : la transformation de l’amidon en sucre et la fermentation du sucre en alcool se déroulent en même temps, dans la même cuve. On obtient ainsi une boisson fermentée naturellement forte, que l’on presse, filtre et pasteurise le plus souvent.',
+    ],
+    categories: [
+      { titre: 'Junmai', texte: 'Saké « pur riz », sans ajout d’alcool distillé.' },
+      { titre: 'Ginjō', texte: 'Riz poli jusqu’à en conserver 60 % au plus : plus fin et aromatique.' },
+      { titre: 'Daiginjō', texte: 'Riz poli jusqu’à en conserver 50 % au plus : le haut de gamme.' },
+      { titre: 'Nigori', texte: 'Saké trouble, grossièrement filtré.' },
+    ],
+    aSavoir: [
+      'Le saké n’est pas un alcool distillé : il se rapproche davantage du vin par son degré et de la bière par sa fabrication.',
+      'Les sakés délicats se servent frais ; une fois ouverte, la bouteille se garde au réfrigérateur.',
+      'Intéressant en cocktail à faible TAV, à la place d’un vermouth par exemple.',
+    ],
+    cocktails: [],
+  },
 ];
 
 export const ALCOOL_PAR_ID: Record<string, Alcool> = Object.fromEntries(ALCOOLS.map((a) => [a.id, a]));
@@ -602,6 +710,7 @@ export const ALCOOL_PAR_ID: Record<string, Alcool> = Object.fromEntries(ALCOOLS.
 export const ARTICLES: Article[] = [
   {
     id: 'histoire',
+    icone: 'time',
     titre: 'Petite histoire de l’alcool',
     accroche: 'De la fermentation préhistorique au cocktail moderne.',
     sections: [
@@ -634,6 +743,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: 'fabrication',
+    icone: 'flame',
     titre: 'Fermentation, distillation, vieillissement',
     accroche: 'Les trois gestes qui font un spiritueux.',
     sections: [
@@ -671,6 +781,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: 'classification',
+    icone: 'albums',
     titre: 'Classer les boissons du bar',
     accroche: 'Boissons fermentées, spiritueux, apéritifs : s’y retrouver.',
     sections: [
@@ -699,6 +810,7 @@ export const ARTICLES: Article[] = [
   },
   {
     id: 'responsable',
+    icone: 'shield-checkmark',
     titre: 'Service responsable et repères',
     accroche: 'Ce que tout professionnel doit avoir en tête derrière le bar.',
     sections: [
@@ -721,6 +833,169 @@ export const ARTICLES: Article[] = [
         titre: 'No low et mocktails',
         texte:
           'Le socle rappelle que tous les cocktails de référence peuvent être déclinés en mocktails avec les produits sans alcool du marché, et encourage les créations à faible TAV. Prévoir une vraie carte sans alcool fait partie du métier.',
+      },
+    ],
+  },
+  {
+    id: 'glace',
+    icone: 'snow',
+    titre: 'La glace et la dilution',
+    accroche: 'L’ingrédient invisible de tous les cocktails.',
+    sections: [
+      {
+        titre: 'Refroidir, c’est diluer',
+        texte:
+          'La glace refroidit le cocktail en fondant : température et dilution sont indissociables. Un cocktail frappé ou mélangé gagne ainsi une part d’eau non négligeable, qui adoucit l’alcool et ouvre les arômes. C’est pourquoi le socle parle d’apporter « la dilution nécessaire à l’homogénéisation ».',
+      },
+      {
+        titre: 'Une glace pleine, froide et sèche',
+        texte:
+          'Des glaçons pleins et bien froids, égouttés, fondent lentement et refroidissent vite. Une glace humide, creuse ou déjà fondante dilue trop tôt. D’où les gestes du socle : rafraîchir, puis égoutter le verre et la timbale avant de verser.',
+      },
+      {
+        titre: 'Glaçons, glace pilée, gros glaçon',
+        texte:
+          'La glace pilée offre une grande surface de contact : elle refroidit et dilue très vite, ce qui convient aux recettes puissantes ou sucrées (Julep, Bramble, Mai Tai, Swizzle). Un gros glaçon fond lentement : idéal pour un Old-Fashioned ou un Negroni que l’on déguste longtemps.',
+      },
+      {
+        titre: 'Shaker ou verre à mélange',
+        texte:
+          'Le shaker refroidit très vite, émulsionne et aère : 7 à 10 secondes suffisent selon le socle. Le verre à mélange refroidit plus doucement, sans troubler ni aérer : 15 à 20 secondes de cuillère pour les cocktails composés uniquement de produits alcooliques.',
+      },
+      {
+        titre: 'Et le TAV ?',
+        texte:
+          'Le calcul du socle, repris dans cette application, ne tient pas compte de l’eau de fonte : le cocktail servi est donc un peu moins fort que le TAV affiché.',
+      },
+    ],
+  },
+  {
+    id: 'softs',
+    icone: 'water',
+    titre: 'Sodas, tonics et eaux',
+    accroche: 'Les compléments qui allongent un long drink.',
+    sections: [
+      {
+        titre: 'Eau gazeuse',
+        texte:
+          'À la fin du XVIIIe siècle, on apprend à gazéifier l’eau artificiellement ; Johann Jacob Schweppe en fait une industrie à Genève en 1783. L’eau de Seltz, servie au siphon, est l’ancêtre du complément du Fizz et de l’Americano.',
+      },
+      {
+        titre: 'Tonic',
+        texte:
+          'La quinine, extraite de l’écorce de quinquina, protégeait du paludisme. Dans l’Inde britannique, on la prenait dans de l’eau sucrée et gazéifiée, bientôt mêlée de gin. Les premiers « Indian tonic water » du commerce apparaissent dans la seconde moitié du XIXe siècle.',
+      },
+      {
+        titre: 'Ginger beer et ginger ale',
+        texte:
+          'La ginger beer, née en Angleterre au XVIIIe siècle, était à l’origine fermentée : elle reste trouble, piquante et très marquée en gingembre (Moscow Mule, Dark and Stormy). Le ginger ale est un soda plus doux et plus sec, limpide (Horse’s Neck).',
+      },
+      {
+        titre: 'Bien les utiliser',
+        texte:
+          'Toujours stockés au frais et ouverts au dernier moment. On ne les passe jamais au shaker : on complète le verre, puis on mélange délicatement d’un seul geste de cuillère pour garder la bulle.',
+      },
+    ],
+  },
+  {
+    id: 'maison',
+    icone: 'leaf',
+    titre: 'Jus, sirops et préparations maison',
+    accroche: 'Les bases fraîches qui font la différence.',
+    sections: [
+      {
+        titre: 'Jus d’agrumes',
+        texte:
+          'Pressés le jour même et filtrés, conservés au frais dans des flacons datés. Un jus de citron ou de citron vert perd rapidement sa vivacité : on presse selon le service prévu.',
+      },
+      {
+        titre: 'Sirop de sucre',
+        texte:
+          'Pour le socle : un volume d’eau pour un volume de sucre semoule. Le sirop « riche » compte deux volumes de sucre pour un d’eau : plus sucrant et de meilleure conservation, il se dose donc plus court.',
+      },
+      {
+        titre: 'Sirops de miel, d’agave, de vanille',
+        texte:
+          'Le miel et le sirop d’agave, trop épais pour être dosés purs, se détendent avec un peu d’eau chaude. Les sirops aromatisés s’obtiennent par infusion (à chaud) ou macération (à froid) d’épices, d’herbes ou de fruits dans un sirop de sucre.',
+      },
+      {
+        titre: 'Oleo-saccharum, shrub, cordial',
+        texte:
+          'Oleo-saccharum : des zestes d’agrumes recouverts de sucre, qui en extrait les huiles essentielles ; la base historique des punchs. Shrub : un sirop de fruits au vinaigre. Cordial : un sirop de fruits acidulé, prêt à l’emploi.',
+      },
+      {
+        titre: 'Hygiène et traçabilité',
+        texte:
+          'Toute préparation maison est étiquetée (nom, date de fabrication), conservée au froid et renouvelée régulièrement. Les blancs d’œufs demandent une attention particulière : produits pasteurisés ou œufs extra-frais, et information du client. L’aquafaba est l’alternative végétale.',
+      },
+    ],
+  },
+  {
+    id: 'degustation',
+    icone: 'eye',
+    titre: 'Déguster et décrire',
+    accroche: 'Trouver les trois mots qui résument un cocktail.',
+    sections: [
+      {
+        titre: 'L’œil',
+        texte: 'Couleur, limpidité, texture : une mousse fine sur un Sour, un dégradé sur une Tequila Sunrise, la brillance d’un Martini.',
+      },
+      {
+        titre: 'Le nez',
+        texte:
+          'Avant de goûter : les zestes exprimés, les herbes fraîches et la garniture donnent le premier parfum. C’est pour cela que la garniture doit évoquer les ingrédients du cocktail.',
+      },
+      {
+        titre: 'La bouche',
+        texte:
+          'L’attaque (sucre, acidité), le milieu de bouche (puissance, texture) et la finale (amertume, longueur). On y retrouve l’équilibre des 3 S : sweet, sour, strong.',
+      },
+      {
+        titre: 'Les descripteurs du socle',
+        texte:
+          'Chaque fiche du socle résume le cocktail en trois adjectifs. Le vocabulaire utilisé : puissant, frais, acidulé, fruité, floral, vineux, sec, amer, épicé, boisé, tourbé, corsé, complexe, gourmand, rond, exotique, végétal, parfumé, savoureux, désaltérant.',
+      },
+      {
+        titre: 'En parler au client',
+        texte:
+          'Trois mots simples valent mieux qu’une liste d’ingrédients : ils disent à quoi s’attendre et aident à orienter le choix selon le moment (apéritif, digestif, tout moment).',
+      },
+    ],
+  },
+  {
+    id: 'couts',
+    icone: 'cash',
+    titre: 'Coûts, ratios et prix de vente',
+    accroche: 'Les calculs de base de la rentabilité d’une carte.',
+    sections: [
+      {
+        titre: 'Prix au cl',
+        texte:
+          'Prix d’achat HT de la bouteille ÷ contenance en cl. Une bouteille de 70 cl à 21 € revient à 0,30 € le cl, soit 1,20 € la mesure de 40 ml.',
+      },
+      {
+        titre: 'Coût matière',
+        texte:
+          'La somme du coût de chaque ingrédient. La mercuriale du socle ajoute 10 % du coût matière pour les éléments de décoration : c’est la règle appliquée dans vos fiches.',
+      },
+      {
+        titre: 'Ratio matière et coefficient',
+        texte:
+          'Ratio matière = coût matière ÷ prix de vente HT. Un ratio de 20 % correspond à un coefficient multiplicateur de 5 : le prix de vente HT vaut cinq fois le coût matière. Plus le ratio est bas, plus la marge est élevée.',
+      },
+      {
+        titre: 'Marge brute',
+        texte: 'Prix de vente HT − coût matière. C’est elle qui paie le personnel, le loyer, la glace, la casse et le reste.',
+      },
+      {
+        titre: 'TVA',
+        texte:
+          'En France, le prix affiché est TTC. Les boissons alcooliques sont soumises au taux de 20 %, les boissons sans alcool servies sur place au taux de 10 %. Vérifiez les taux en vigueur.',
+      },
+      {
+        titre: 'Pertes et offerts',
+        texte:
+          'Le ratio réel est toujours un peu au-dessus du ratio théorique : surdosage, casse, erreurs, dégustations et offerts. Le doseur et la fiche technique sont les premiers outils de maîtrise.',
       },
     ],
   },

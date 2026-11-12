@@ -20,9 +20,9 @@ export function ficheEnHtml(f: Fiche): string {
   @page { size: A4; margin: 16mm; }
   body { font-family: Helvetica, Arial, sans-serif; color: #1b1b1b; font-size: 12pt; line-height: 1.4; }
   h1 { font-size: 26pt; margin: 0; letter-spacing: 1px; text-transform: uppercase; }
-  .desc { color: #7a5a17; font-style: italic; margin: 2pt 0 12pt; }
-  h2 { font-size: 10pt; letter-spacing: 1.5px; text-transform: uppercase; color: #7a5a17;
-       border-bottom: 1px solid #d9c9a3; padding-bottom: 2pt; margin: 14pt 0 6pt; }
+  .desc { color: #7a1f3d; font-style: italic; margin: 2pt 0 12pt; }
+  h2 { font-size: 10pt; letter-spacing: 1.5px; text-transform: uppercase; color: #7a1f3d;
+       border-bottom: 1px solid #e6c9d1; padding-bottom: 2pt; margin: 14pt 0 6pt; }
   .grille { display: flex; gap: 18pt; }
   .grille > div { flex: 1; }
   table { border-collapse: collapse; width: 100%; }

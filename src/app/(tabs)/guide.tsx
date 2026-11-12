@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Card, Depliant, P, Page, Recherche, Rubriques, Tag, Titre } from '../../components/ui';
+import { Card, Depliant, GrandTitre, P, Page, Recherche, Rubriques, Tag, Titre } from '../../components/ui';
 import {
   BONNES_PRATIQUES,
   CATEGORIES,
@@ -46,22 +46,23 @@ export default function Guide() {
   }, [q]);
 
   return (
-    <Page>
-      <View style={{ gap: S.sm }}>
+    <Page onglet>
+      <GrandTitre sousTitre="L’essentiel du socle, toujours sous la main.">Guide du barman</GrandTitre>
+      <View style={{ gap: S.md }}>
         <Titre>Le socle en bref</Titre>
-        <Depliant titre="Guide des bonnes pratiques pour les créations">
+        <Depliant icone="sparkles" titre="Guide des bonnes pratiques pour les créations">
           <Rubriques items={BONNES_PRATIQUES.map((r, k) => ({ ...r, titre: `${k + 1}. ${r.titre}` }))} />
         </Depliant>
-        <Depliant titre="Catégories et types de cocktails">
+        <Depliant icone="pricetags" titre="Catégories et types de cocktails">
           <P muted>Catégorie = contenance</P>
           <Rubriques items={CATEGORIES} />
           <P muted>Type = temps (moment de consommation)</P>
           <Rubriques items={TYPES} />
         </Depliant>
-        <Depliant titre="Familles de cocktails">
+        <Depliant icone="git-branch" titre="Familles de cocktails">
           <Rubriques items={FAMILLES} />
         </Depliant>
-        <Depliant titre="Méthodes de réalisation">
+        <Depliant icone="list" titre="Méthodes de réalisation">
           {METHODES.map((m) => (
             <View key={m.titre} style={{ gap: S.sm }}>
               <Text style={s.sous}>{m.titre}</Text>
@@ -69,7 +70,7 @@ export default function Guide() {
             </View>
           ))}
         </Depliant>
-        <Depliant titre="Verrerie et matériel">
+        <Depliant icone="wine" titre="Verrerie et matériel">
           <Text style={s.sous}>Verrerie : les incontournables</Text>
           <Etiquettes items={VERRERIE.incontournables} />
           <Text style={s.sous}>Verrerie : les complémentaires</Text>
@@ -77,7 +78,7 @@ export default function Guide() {
           <Text style={s.sous}>Matériel du barman</Text>
           <Etiquettes items={MATERIEL} />
         </Depliant>
-        <Depliant titre="Calculer le TAV d’un cocktail">
+        <Depliant icone="calculator" titre="Calculer le TAV d’un cocktail">
           <P>
             On multiplie le volume de chaque ingrédient par son TAV, on additionne, puis on divise par la
             contenance du cocktail.
@@ -94,7 +95,7 @@ export default function Guide() {
         </Depliant>
       </View>
 
-      <View style={{ gap: S.sm }}>
+      <View style={{ gap: S.md }}>
         <Titre>Lexique professionnel</Titre>
         <Recherche valeur={q} onChange={setQ} placeholder="Dry shake, float, muter…" />
         <Card>
@@ -121,6 +122,6 @@ const s = StyleSheet.create({
   txt: { color: C.text, fontSize: 15, lineHeight: 22, flex: 1 },
   sous: { color: C.accent, fontSize: 15, fontWeight: '700', marginTop: S.xs },
   terme: { color: C.accent, fontSize: 15, fontWeight: '700' },
-  calcul: { backgroundColor: C.bg, borderRadius: 10, padding: S.md, gap: 4 },
+  calcul: { backgroundColor: C.cardAlt, borderRadius: 16, padding: S.md + 2, gap: 5 },
   mono: { color: C.text, fontSize: 14, fontVariant: ['tabular-nums'] },
 });

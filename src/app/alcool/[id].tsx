@@ -1,7 +1,7 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { Card, Chip, P, Page, Rubriques, Titre } from '../../components/ui';
+import { Card, Chip, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
 import { ALCOOL_PAR_ID } from '../../data/alcools';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
 import { C, S } from '../../theme';
@@ -23,10 +23,10 @@ export default function FicheAlcool() {
 
   return (
     <Page>
-      <Stack.Screen options={{ title: a.nom }} />
-      <View style={{ gap: S.sm }}>
-        <Text style={s.nom}>{a.nom}</Text>
-        <Text style={s.accroche}>{a.accroche}</Text>
+      <Stack.Screen options={{ title: '' }} />
+      <View style={{ gap: S.md, alignItems: 'flex-start' }}>
+        <Tag>{a.famille}</Tag>
+        <GrandTitre sousTitre={a.accroche}>{a.nom}</GrandTitre>
       </View>
 
       <Card>
@@ -85,8 +85,6 @@ export default function FicheAlcool() {
 }
 
 const s = StyleSheet.create({
-  nom: { color: C.text, fontSize: 30, fontWeight: '800' },
-  accroche: { color: C.accent, fontSize: 16, fontStyle: 'italic', lineHeight: 22 },
   label: { color: C.muted, fontSize: 12 },
   valeur: { color: C.text, fontSize: 15, lineHeight: 21 },
   puce: { color: C.text, fontSize: 15, lineHeight: 22, flex: 1 },

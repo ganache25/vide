@@ -1,15 +1,18 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { FicheView } from '../../components/FicheView';
 import { Bouton, Card, P, Page } from '../../components/ui';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
 import { exporterFiche } from '../../lib/pdf';
-import { S } from '../../theme';
+import { basculerFavori, useFavoris } from '../../lib/store';
+import { C, S } from '../../theme';
 
 export default function CocktailSocle() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
+  const favoris = useFavoris();
   const fiche = COCKTAIL_PAR_ID[id];
 
   if (!fiche) {
@@ -21,6 +24,8 @@ export default function CocktailSocle() {
       </Page>
     );
   }
+
+  const favori = favoris.includes(fiche.id);
 
   return (
     <Page
@@ -35,7 +40,21 @@ export default function CocktailSocle() {
           <Bouton label="PDF" icone="share-outline" variante="contour" onPress={() => void exporterFiche(fiche)} />
         </View>
       }>
-      <Stack.Screen options={{ title: fiche.nom }} />
+      <Stack.Screen
+        options={{
+          title: '',
+          headerRight: () => (
+            <Pressable
+              onPress={() => void basculerFavori(fiche.id)}
+              hitSlop={12}
+              accessibilityRole="button"
+              accessibilityLabel={favori ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+              style={{ paddingHorizontal: S.md }}>
+              <Ionicons name={favori ? 'heart' : 'heart-outline'} size={26} color={C.accent} />
+            </Pressable>
+          ),
+        }}
+      />
       <FicheView fiche={fiche} />
     </Page>
   );

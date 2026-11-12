@@ -13,6 +13,8 @@ export type Ingredient = {
   tav: number;
   /** Prix HT par unité (€ par ml pour les liquides). */
   prix: number;
+  /** Identifiant du produit du catalogue dont l'ingrédient est issu. */
+  pid?: string;
 };
 
 export type Variante = { nom: string; texte: string };

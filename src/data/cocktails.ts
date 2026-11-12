@@ -9,7 +9,7 @@ import type { Categorie, Fiche, Glace, Ingredient, Methode, TypeCocktail, Varian
 const p = (id: string, qte: number | null, nom?: string): Ingredient => {
   const prod = PRODUIT_PAR_ID[id];
   if (!prod) throw new Error(`Produit inconnu : ${id}`);
-  return { nom: nom ?? prod.nom, qte, unite: prod.unite, tav: prod.tav, prix: prod.prix };
+  return { nom: nom ?? prod.nom, qte, unite: prod.unite, tav: prod.tav, prix: prod.prix, pid: id };
 };
 const x = (nom: string, qte: number | null, unite: Unite): Ingredient => ({ nom, qte, unite, tav: 0, prix: 0 });
 

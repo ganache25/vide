@@ -2,7 +2,7 @@ import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 
-import { Card, Ligne, P, Page, Recherche, Titre } from '../../components/ui';
+import { Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../../components/ui';
 import { ALCOOLS, ARTICLES, FAMILLES_ALCOOLS } from '../../data/alcools';
 import { normaliser } from '../../lib/texte';
 import { S } from '../../theme';
@@ -29,17 +29,25 @@ export default function Alcools() {
   );
 
   return (
-    <Page>
+    <Page onglet>
+      <GrandTitre sousTitre="Histoire, élaboration et repères pour chaque famille.">Connaître les alcools</GrandTitre>
       <Recherche valeur={q} onChange={setQ} placeholder="Gin, bourbon, VSOP, reposado…" />
 
       {articles.length ? (
-        <View style={{ gap: S.sm }}>
+        <View style={{ gap: S.md }}>
           <Titre>Les bases</Titre>
-          <Card style={{ padding: 0, gap: 0, overflow: 'hidden' }}>
-            {articles.map((a) => (
-              <Ligne key={a.id} titre={a.titre} sousTitre={a.accroche} onPress={() => router.push(`/article/${a.id}`)} />
+          <Liste>
+            {articles.map((a, k) => (
+              <Ligne
+                key={a.id}
+                delai={Math.min(k, 8) * 35}
+                icone={a.icone}
+                titre={a.titre}
+                sousTitre={a.accroche}
+                onPress={() => router.push(`/article/${a.id}`)}
+              />
             ))}
-          </Card>
+          </Liste>
         </View>
       ) : null}
 
@@ -47,20 +55,26 @@ export default function Alcools() {
         const items = alcools.filter((a) => a.famille === fam);
         if (!items.length) return null;
         return (
-          <View key={fam} style={{ gap: S.sm }}>
+          <View key={fam} style={{ gap: S.md }}>
             <Titre>{fam}</Titre>
-            <Card style={{ padding: 0, gap: 0, overflow: 'hidden' }}>
+            <Liste>
               {items.map((a) => (
-                <Ligne key={a.id} titre={a.nom} sousTitre={a.accroche} onPress={() => router.push(`/alcool/${a.id}`)} />
+                <Ligne
+                  key={a.id}
+                  monogramme={a.nom[0]}
+                  titre={a.nom}
+                  sousTitre={a.accroche}
+                  onPress={() => router.push(`/alcool/${a.id}`)}
+                />
               ))}
-            </Card>
+            </Liste>
           </View>
         );
       })}
 
       {!alcools.length && !articles.length ? (
         <Card>
-          <P muted>Aucun résultat pour cette recherche.</P>
+          <P>Aucun résultat pour cette recherche.</P>
         </Card>
       ) : null}
     </Page>

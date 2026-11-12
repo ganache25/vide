@@ -1,54 +1,132 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSyncExternalStore } from 'react';
 
-import type { Fiche } from '../data/types';
+import { PRODUITS, PRODUIT_PAR_ID, type Produit } from '../data/produits';
+import type { Fiche, Ingredient } from '../data/types';
 
-const CLE = 'fiches.v1';
+/** Petit magasin persistant : une valeur JSON par clé, relue au démarrage. */
+function creerMagasin<T>(cle: string, initial: T, valide: (v: unknown) => boolean) {
+  let valeur = initial;
+  let charge = false;
+  const abonnes = new Set<() => void>();
+  const notifier = () => abonnes.forEach((f) => f());
+  const sAbonner = (f: () => void) => {
+    abonnes.add(f);
+    return () => abonnes.delete(f);
+  };
 
-let fiches: Fiche[] = [];
-let charge = false;
-const abonnes = new Set<() => void>();
+  void (async () => {
+    try {
+      const brut = await AsyncStorage.getItem(cle);
+      const lu = brut ? JSON.parse(brut) : null;
+      if (lu != null && valide(lu)) valeur = lu as T;
+    } catch {
+      // Stockage illisible : on garde la valeur initiale plutôt que de bloquer l'application.
+    }
+    charge = true;
+    notifier();
+  })();
 
-const notifier = () => abonnes.forEach((f) => f());
-
-async function charger() {
-  try {
-    const brut = await AsyncStorage.getItem(CLE);
-    const lu = brut ? JSON.parse(brut) : [];
-    if (Array.isArray(lu)) fiches = lu;
-  } catch {
-    // Stockage illisible : on repart d'une liste vide plutôt que de bloquer l'application.
-  }
-  charge = true;
-  notifier();
+  return {
+    lire: () => valeur,
+    async ecrire(suivant: T) {
+      valeur = suivant;
+      notifier();
+      await AsyncStorage.setItem(cle, JSON.stringify(suivant));
+    },
+    use(): { valeur: T; charge: boolean } {
+      const v = useSyncExternalStore(sAbonner, () => valeur, () => valeur);
+      const c = useSyncExternalStore(sAbonner, () => charge, () => charge);
+      return { valeur: v, charge: c };
+    },
+  };
 }
-void charger();
 
-async function ecrire(suivant: Fiche[]) {
-  fiches = suivant;
-  notifier();
-  await AsyncStorage.setItem(CLE, JSON.stringify(suivant));
-}
+// ───────────── Fiches personnelles ─────────────
+
+const magasinFiches = creerMagasin<Fiche[]>('fiches.v1', [], Array.isArray);
 
 export function enregistrerFiche(f: Fiche) {
+  const fiches = magasinFiches.lire();
   const maj = { ...f, updatedAt: Date.now() };
   const existe = fiches.some((x) => x.id === f.id);
-  return ecrire(existe ? fiches.map((x) => (x.id === f.id ? maj : x)) : [maj, ...fiches]);
+  return magasinFiches.ecrire(existe ? fiches.map((x) => (x.id === f.id ? maj : x)) : [maj, ...fiches]);
 }
 
-export function supprimerFiche(id: string) {
-  return ecrire(fiches.filter((x) => x.id !== id));
-}
+export const supprimerFiche = (id: string) => magasinFiches.ecrire(magasinFiches.lire().filter((x) => x.id !== id));
 
 export const nouvelId = () => `f${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 
-const sAbonner = (f: () => void) => {
-  abonnes.add(f);
-  return () => abonnes.delete(f);
+export function useFiches(): { fiches: Fiche[]; charge: boolean } {
+  const { valeur, charge } = magasinFiches.use();
+  return { fiches: valeur, charge };
+}
+
+// ───────────── Favoris du socle ─────────────
+
+const magasinFavoris = creerMagasin<string[]>('favoris.v1', [], Array.isArray);
+
+export const useFavoris = () => magasinFavoris.use().valeur;
+
+export function basculerFavori(id: string) {
+  const f = magasinFavoris.lire();
+  return magasinFavoris.ecrire(f.includes(id) ? f.filter((x) => x !== id) : [...f, id]);
+}
+
+// ───────────── Mercuriale personnelle ─────────────
+
+export type Mercuriale = {
+  /** Prix et TAV saisis par l'utilisateur pour les produits du catalogue. */
+  surcharges: Record<string, { prix?: number; tav?: number }>;
+  /** Produits ajoutés par l'utilisateur. */
+  perso: Produit[];
 };
 
-export function useFiches(): { fiches: Fiche[]; charge: boolean } {
-  const liste = useSyncExternalStore(sAbonner, () => fiches, () => fiches);
-  const pret = useSyncExternalStore(sAbonner, () => charge, () => charge);
-  return { fiches: liste, charge: pret };
+const magasinMercuriale = creerMagasin<Mercuriale>(
+  'mercuriale.v1',
+  { surcharges: {}, perso: [] },
+  (v) => typeof v === 'object' && v !== null && 'surcharges' in v && 'perso' in v,
+);
+
+const fusionner = (m: Mercuriale): Produit[] => [
+  ...PRODUITS.map((p) => ({ ...p, ...m.surcharges[p.id] })),
+  ...m.perso,
+];
+
+export function useMercuriale(): { mercuriale: Mercuriale; catalogue: Produit[]; charge: boolean } {
+  const { valeur, charge } = magasinMercuriale.use();
+  return { mercuriale: valeur, catalogue: fusionner(valeur), charge };
+}
+
+export function surchargerProduit(id: string, patch: { prix?: number; tav?: number } | null) {
+  const m = magasinMercuriale.lire();
+  const surcharges = { ...m.surcharges };
+  if (patch === null) delete surcharges[id];
+  else surcharges[id] = { ...surcharges[id], ...patch };
+  return magasinMercuriale.ecrire({ ...m, surcharges });
+}
+
+export function ajouterProduit(p: Produit) {
+  const m = magasinMercuriale.lire();
+  return magasinMercuriale.ecrire({ ...m, perso: [...m.perso, p] });
+}
+
+export function majProduitPerso(id: string, patch: Partial<Produit>) {
+  const m = magasinMercuriale.lire();
+  return magasinMercuriale.ecrire({ ...m, perso: m.perso.map((p) => (p.id === id ? { ...p, ...patch } : p)) });
+}
+
+export function supprimerProduit(id: string) {
+  const m = magasinMercuriale.lire();
+  return magasinMercuriale.ecrire({ ...m, perso: m.perso.filter((p) => p.id !== id) });
+}
+
+/** Applique les prix et TAV de la mercuriale personnelle aux ingrédients issus du catalogue. */
+export function appliquerMercuriale(ingredients: Ingredient[]): Ingredient[] {
+  const { surcharges } = magasinMercuriale.lire();
+  return ingredients.map((i) => {
+    const s = i.pid ? surcharges[i.pid] : undefined;
+    if (!s || !i.pid || !PRODUIT_PAR_ID[i.pid]) return { ...i };
+    return { ...i, prix: s.prix ?? i.prix, tav: s.tav ?? i.tav };
+  });
 }

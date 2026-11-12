@@ -41,7 +41,7 @@ export default function MaFiche() {
           <Bouton label="PDF" icone="share-outline" variante="contour" onPress={() => void exporterFiche(fiche)} />
         </View>
       }>
-      <Stack.Screen options={{ title: fiche.nom || 'Ma fiche' }} />
+      <Stack.Screen options={{ title: '' }} />
       {base ? <P muted>Revisite du cocktail de référence {base.nom}.</P> : null}
       <FicheView fiche={fiche} />
       <View style={{ flexDirection: 'row', gap: S.sm }}>

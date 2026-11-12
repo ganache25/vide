@@ -5,7 +5,7 @@ import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 
 
 import { Bouton, Card, Champ, ChampNombre, Chips, P, Page, Recherche, Titre, st } from '../components/ui';
 import { COCKTAIL_PAR_ID } from '../data/cocktails';
-import { FAMILLES_PRODUITS, PRODUITS, UNITES, type Produit } from '../data/produits';
+import { FAMILLES_PRODUITS, UNITES, type Produit } from '../data/produits';
 import {
   LIB_CATEGORIE,
   VERRES,
@@ -16,9 +16,9 @@ import {
   type TypeCocktail,
 } from '../data/types';
 import { calculer, euro, nombre, techniqueType } from '../lib/calc';
-import { enregistrerFiche, nouvelId, useFiches } from '../lib/store';
+import { appliquerMercuriale, enregistrerFiche, nouvelId, useFiches, useMercuriale } from '../lib/store';
 import { normaliser } from '../lib/texte';
-import { C, S } from '../theme';
+import { C, F, S } from '../theme';
 
 const vierge = (): Fiche => ({
   id: nouvelId(),
@@ -142,9 +142,10 @@ function Selecteur({
 }) {
   const [q, setQ] = useState('');
   const n = normaliser(q);
-  const resultats = useMemo(() => PRODUITS.filter((p) => !n || normaliser(p.nom).includes(n)), [n]);
+  const { catalogue } = useMercuriale();
+  const resultats = useMemo(() => catalogue.filter((p) => !n || normaliser(p.nom).includes(n)), [catalogue, n]);
   const choisir = (p: Produit) => {
-    onPick({ nom: p.nom, qte: p.dose, unite: p.unite, tav: p.tav, prix: p.prix });
+    onPick({ nom: p.nom, qte: p.dose, unite: p.unite, tav: p.tav, prix: p.prix, pid: p.id });
     setQ('');
   };
   return (
@@ -170,7 +171,7 @@ function Selecteur({
                 }}
               />
             ) : null}
-            {FAMILLES_PRODUITS.map((fam) => {
+            {[...FAMILLES_PRODUITS, ...new Set(resultats.map((p) => p.famille).filter((f) => !FAMILLES_PRODUITS.includes(f)))].map((fam) => {
               const items = resultats.filter((p) => p.famille === fam);
               if (!items.length) return null;
               return (
@@ -200,7 +201,9 @@ function Selecteur({
 export default function Editeur() {
   const { id, base, copie } = useLocalSearchParams<{ id?: string; base?: string; copie?: string }>();
   const router = useRouter();
-  const { fiches, charge } = useFiches();
+  const { fiches, charge: fichesChargees } = useFiches();
+  const { charge: mercurialeChargee } = useMercuriale();
+  const charge = fichesChargees && mercurialeChargee;
 
   const [fiche, setFiche] = useState<Fiche | null>(null);
   // Tant que la technique n'a pas été retouchée à la main, elle suit méthode, verre, glace et garniture.
@@ -222,7 +225,8 @@ export default function Editeur() {
       setFiche(copier(aCopier, `${aCopier.nom} (copie)`, aCopier.baseId));
       setTechAuto(false);
     } else if (socle) {
-      setFiche(copier(socle, `${socle.nom} revisité`, socle.id));
+      // Une revisite reprend la recette du socle avec les prix de la mercuriale personnelle.
+      setFiche({ ...copier(socle, `${socle.nom} revisité`, socle.id), ingredients: appliquerMercuriale(socle.ingredients) });
       setTechAuto(false);
     } else {
       setFiche(vierge());
@@ -439,7 +443,7 @@ function Resume({ label, valeur }: { label: string; valeur: string }) {
 }
 
 const s = StyleSheet.create({
-  ing: { backgroundColor: C.cardAlt, borderRadius: 12, padding: S.md, gap: S.sm },
+  ing: { backgroundColor: C.cardAlt, borderRadius: 18, padding: S.md + 2, gap: S.sm },
   ingTete: { flexDirection: 'row', alignItems: 'center', gap: S.sm },
   ingNom: { flex: 1, color: C.text, fontSize: 16, fontWeight: '600', paddingVertical: 4 },
   ingCorps: { flexDirection: 'row', alignItems: 'center', gap: S.sm },
@@ -459,7 +463,7 @@ const s = StyleSheet.create({
     gap: 4,
     paddingHorizontal: 12,
     height: 40,
-    borderRadius: 10,
+    borderRadius: 20,
     borderWidth: 1,
     borderColor: C.border,
     backgroundColor: C.card,
@@ -474,20 +478,20 @@ const s = StyleSheet.create({
   ratio: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: S.md },
   ratioLabel: { color: C.text, fontSize: 15, flex: 1 },
   resume: { flexDirection: 'row' },
-  resumeValeur: { color: C.text, fontSize: 16, fontWeight: '700', fontVariant: ['tabular-nums'] },
+  resumeValeur: { color: C.accent, fontSize: 17, fontWeight: '800', fontVariant: ['tabular-nums'] },
   resumeLabel: { color: C.muted, fontSize: 11 },
   erreur: { color: C.danger, fontSize: 14, textAlign: 'center' },
-  modalFond: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'flex-end', alignItems: 'center' },
+  modalFond: { flex: 1, backgroundColor: 'rgba(38, 22, 27, 0.45)', justifyContent: 'flex-end', alignItems: 'center' },
   modal: {
     width: '100%',
     maxWidth: 720,
     maxHeight: '88%',
     backgroundColor: C.card,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     padding: S.lg,
     gap: S.md,
   },
   modalTete: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  modalTitre: { color: C.text, fontSize: 18, fontWeight: '700' },
+  modalTitre: { color: C.text, fontFamily: F.display, fontSize: 24 },
 });
