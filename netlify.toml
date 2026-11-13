@@ -1,9 +1,0 @@
-# Hébergement du site vitrine (dossier site/) : site statique, aucune étape de build.
-[build]
-  publish = "site"
-  command = ""
-
-[[headers]]
-  for = "/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"

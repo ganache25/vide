@@ -67,5 +67,8 @@ L'abus d'alcool est dangereux pour la santé, à consommer avec modération.
 Le dossier `site/` contient le site de présentation de l'application (statique, sans build : `index.html`,
 `styles.css`, `script.js`, captures d'écran dans `site/img`). Pour le voir : ouvrir `site/index.html`.
 
+Le workflow `.github/workflows/pages.yml` publie le site à la racine de GitHub Pages et la version web de
+l'application dans le sous-dossier `/app`.
+
 Pour activer les boutons de téléchargement à la sortie, renseigner les liens des stores dans `STORE_LINKS`,
 en haut de `site/script.js`.

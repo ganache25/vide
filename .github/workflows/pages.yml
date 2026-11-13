@@ -1,8 +1,8 @@
-name: Publier la version web
+name: Publier le site vitrine et la version web
 
 on:
   push:
-    branches: [main, claude/react-native-expo-install-dhuueh]
+    branches: [main, claude/determined-ramanujan-dacozx]
   workflow_dispatch:
 
 permissions:
@@ -22,10 +22,14 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx expo export --platform web
+      # La version web de l'application est servie dans le sous-dossier /app.
+      - run: npx expo export --platform web --output-dir dist/app
       - name: Préparer le site
         run: |
-          cp dist/index.html dist/404.html
+          # Le site vitrine (site/) occupe la racine.
+          cp -r site/. dist/
+          # Liens profonds de l'application (/app/cocktail/…) : GitHub Pages renvoie 404.html.
+          cp dist/app/index.html dist/404.html
           touch dist/.nojekyll
       - name: Pousser sur la branche gh-pages
         run: |

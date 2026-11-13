@@ -31,7 +31,7 @@
     "scheme": "fichesbar",
     "backgroundColor": "#FBF8F6",
     "experiments": {
-      "baseUrl": "/vide"
+      "baseUrl": "/vide/app"
     }
   }
 }
