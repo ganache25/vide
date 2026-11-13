@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 
 import { LIB_CATEGORIE, LIB_GLACE, LIB_METHODE, LIB_TYPE, type Fiche } from '../data/types';
 import { calculer, categorieDe, euro, libelleQuantite, nombre } from './calc';
+import { photoDe } from './photos';
 
 const e = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -30,8 +31,10 @@ export function ficheEnHtml(f: Fiche): string {
   td.q { width: 80pt; font-weight: bold; white-space: nowrap; }
   .meta td:first-child { color: #666; width: 80pt; }
   ol { margin: 0; padding-left: 16pt; } li { margin-bottom: 2pt; }
+  .photo { float: right; width: 150pt; height: 150pt; object-fit: cover; border-radius: 12pt; margin: 0 0 8pt 12pt; }
   .pied { margin-top: 18pt; font-size: 8pt; color: #888; }
 </style></head><body>
+${photoDe(f.id) ? `<img class="photo" src="${photoDe(f.id)}" alt="">` : ''}
 <h1>${e(f.nom)}</h1>
 <div class="desc">${e(f.descripteurs)}</div>
 ${bloc('Historique', f.historique ? `<p>${e(f.historique)}</p>` : '')}
@@ -66,8 +69,43 @@ ${bloc('Notes', f.notes ? `<p>${e(f.notes).replace(/\n/g, '<br>')}</p>` : '')}
 </body></html>`;
 }
 
-export async function exporterFiche(f: Fiche) {
-  const html = ficheEnHtml(f);
+export const exporterFiche = (f: Fiche) => exporterHtml(ficheEnHtml(f), f.nom);
+
+/** Carte du bar : toutes les fiches personnelles avec leur prix conseillé, arrondi aux 50 centimes. */
+export function carteEnHtml(fiches: Fiche[], titre: string): string {
+  const lignes = fiches
+    .map((f) => {
+      const c = calculer(f.ingredients, f.ratio);
+      const prix = Math.ceil(c.prixTTC * 2) / 2;
+      const compo = f.ingredients
+        .filter((i) => i.unite === 'ml')
+        .map((i) => i.nom.toLowerCase())
+        .join(', ');
+      return `<div class="ligne"><div><div class="nom">${e(f.nom)}</div><div class="compo">${e(compo)}</div>${
+        f.descripteurs ? `<div class="desc">${e(f.descripteurs)}</div>` : ''
+      }</div><div class="prix">${euro(prix)}</div></div>`;
+    })
+    .join('');
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${e(titre)}</title>
+<style>
+  @page { size: A4; margin: 22mm; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: #26161b; }
+  h1 { text-align: center; font-size: 30pt; font-weight: normal; letter-spacing: 3px; color: #7a1f3d; margin: 0 0 4pt; }
+  .filet { width: 60pt; height: 1.5pt; background: #c2a06a; margin: 8pt auto 26pt; }
+  .ligne { display: flex; justify-content: space-between; gap: 18pt; padding: 11pt 0; border-bottom: 0.5pt solid #e6c9d1; page-break-inside: avoid; }
+  .nom { font-size: 15pt; letter-spacing: 0.5px; }
+  .compo { font-family: Helvetica, Arial, sans-serif; font-size: 9.5pt; color: #6b585d; margin-top: 3pt; }
+  .desc { font-style: italic; font-size: 10pt; color: #7a1f3d; margin-top: 2pt; }
+  .prix { font-size: 14pt; white-space: nowrap; color: #7a1f3d; }
+  .pied { margin-top: 22pt; font-family: Helvetica, Arial, sans-serif; font-size: 8pt; color: #888; text-align: center; }
+</style></head><body>
+<h1>${e(titre)}</h1><div class="filet"></div>
+${lignes}
+<div class="pied">Prix nets TTC, service compris. L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</div>
+</body></html>`;
+}
+
+async function exporterHtml(html: string, titre: string) {
   if (Platform.OS === 'web') {
     const w = window.open('', '_blank');
     if (!w) return;
@@ -79,8 +117,10 @@ export async function exporterFiche(f: Fiche) {
   }
   const { uri } = await Print.printToFileAsync({ html });
   if (await Sharing.isAvailableAsync()) {
-    await Sharing.shareAsync(uri, { mimeType: 'application/pdf', dialogTitle: f.nom, UTI: 'com.adobe.pdf' });
+    await Sharing.shareAsync(uri, { mimeType: 'application/pdf', dialogTitle: titre, UTI: 'com.adobe.pdf' });
   } else {
     await Print.printAsync({ uri });
   }
 }
+
+export const exporterCarte = (fiches: Fiche[], titre = 'La carte') => exporterHtml(carteEnHtml(fiches, titre), titre);

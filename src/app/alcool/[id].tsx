@@ -1,12 +1,13 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { Bulles, Degrade } from '../../components/fx';
 import { Bouteille } from '../../components/Illustrations';
 import { Flux, Frise } from '../../components/visuels';
 import { Card, Chip, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
 import { ALCOOL_PAR_ID } from '../../data/alcools';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
-import { C, S } from '../../theme';
+import { C, DEGRADE_SCENE, S } from '../../theme';
 
 export default function FicheAlcool() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -25,13 +26,18 @@ export default function FicheAlcool() {
 
   return (
     <Page>
-      <Stack.Screen options={{ title: '' }} />
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: S.md }}>
-        <View style={{ flex: 1, gap: S.md, alignItems: 'flex-start' }}>
-          <Tag>{a.famille}</Tag>
-          <GrandTitre sousTitre={a.accroche}>{a.nom}</GrandTitre>
+      <Stack.Screen options={{ title: '', headerTransparent: true, headerStyle: { backgroundColor: 'transparent' }, headerTintColor: '#FFFFFF' }} />
+      <View style={s.scene}>
+        <Degrade couleurs={DEGRADE_SCENE} style={StyleSheet.absoluteFill} />
+        <Bulles nombre={7} />
+        <View style={s.halo} />
+        <View>
+          <Bouteille couleur={a.couleur} taille={96} />
         </View>
-        <Bouteille couleur={a.couleur} taille={58} />
+      </View>
+      <View style={{ gap: S.md, alignItems: 'flex-start' }}>
+        <Tag>{a.famille}</Tag>
+        <GrandTitre sousTitre={a.accroche}>{a.nom}</GrandTitre>
       </View>
 
       {a.aromes?.length ? (
@@ -116,6 +122,18 @@ export default function FicheAlcool() {
 }
 
 const s = StyleSheet.create({
+  scene: {
+    height: 290,
+    marginHorizontal: -(S.lg + 2),
+    marginTop: -(S.lg + 2),
+    paddingTop: 40,
+    borderBottomLeftRadius: 36,
+    borderBottomRightRadius: 36,
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  halo: { position: 'absolute', width: 230, height: 230, borderRadius: 115, backgroundColor: '#FFFFFF', opacity: 0.07, top: 46 },
   label: { color: C.muted, fontSize: 12 },
   valeur: { color: C.text, fontSize: 15, lineHeight: 21 },
   puce: { color: C.text, fontSize: 15, lineHeight: 22, flex: 1 },

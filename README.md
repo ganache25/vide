@@ -21,8 +21,12 @@ cocktails de référence et connaissance des alcools.
   - *Guide du socle* : bonnes pratiques, familles, méthodes, calcul du TAV, lexique.
 - **Outils** : quiz (socle, produits, matériel, culture bar, lexique ; 5 à 30 questions), mercuriale
   personnelle, calculateur de coût d'une dose et convertisseur de volumes.
-- **Illustrations** : verres dessinés et remplis à la couleur du cocktail (animés), barre de proportions
-  des ingrédients, outils, bouteilles et schémas en SVG (`src/components/Illustrations.tsx`).
+- **Effets visuels** : écran d'ouverture animé, grande scène d'en-tête sur chaque fiche (verre qui se
+  remplit, vague, bulles, garniture, parallaxe), tutoriel animé de chaque méthode, schémas d'alambics
+  animés, dégradés, barre d'onglets en verre dépoli, compteurs animés, retour haptique.
+- **Photos** : l'utilisateur peut attacher sa propre photo à chaque fiche (réduite et enregistrée sur
+  l'appareil, reprise dans le PDF). L'application n'embarque ni photo ni vidéo.
+- **Carte** : export PDF de la carte du bar à partir des fiches personnelles.
 
 Direction artistique : blancs chauds et bordeaux, titres en DM Serif Display, animations légères.
 

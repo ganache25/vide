@@ -3,9 +3,10 @@ import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 
+import { Anneau, Bulles, Confettis, Degrade } from '../../components/fx';
 import { Apparition, Bouton, Card, Chips, Hero, Ligne, Liste, P, Page, Tag, Titre, Touche } from '../../components/ui';
 import { THEMES, genererQuiz, type Question, type Theme } from '../../lib/quiz';
-import { C, R, S } from '../../theme';
+import { C, DEGRADE_SCENE, F, R, S } from '../../theme';
 
 export default function Quiz() {
   const router = useRouter();
@@ -60,17 +61,24 @@ export default function Quiz() {
     const aRevoir = [...new Map(ratees.map((x) => [x.sujet, x])).values()];
     return (
       <Page>
-        <Hero
-          surtitre="Résultat"
-          titre={`${score} / ${total}`}
-          texte={
-            score === total
+        <View style={s.resultat}>
+          <Degrade couleurs={DEGRADE_SCENE} style={StyleSheet.absoluteFill} />
+          <Bulles nombre={8} />
+          {score >= total * 0.7 ? <Confettis /> : null}
+          <Anneau fraction={score / total}>
+            <Text style={s.score}>
+              {score}
+              <Text style={s.scoreSur}> / {total}</Text>
+            </Text>
+          </Anneau>
+          <Text style={s.verdict}>
+            {score === total
               ? 'Sans faute : bravo.'
               : score >= total * 0.7
                 ? 'Solide. Encore quelques points à revoir.'
-                : 'Ça se travaille : reprenez les points ci-dessous.'
-          }
-        />
+                : 'Ça se travaille : reprenez les points ci-dessous.'}
+          </Text>
+        </View>
         {aRevoir.length ? (
           <>
             <Titre>À revoir</Titre>
@@ -162,6 +170,10 @@ export default function Quiz() {
 }
 
 const s = StyleSheet.create({
+  resultat: { borderRadius: R.lg + 6, overflow: 'hidden', alignItems: 'center', paddingVertical: S.xl + 6, paddingHorizontal: S.lg, gap: S.md },
+  score: { color: '#FFFFFF', fontFamily: F.display, fontSize: 40 },
+  scoreSur: { color: '#F3D5DD', fontSize: 18 },
+  verdict: { color: '#F6E3E8', fontSize: 15, textAlign: 'center' },
   compteur: { color: C.muted, fontSize: 13, fontWeight: '600' },
   barre: { height: 8, borderRadius: 4, backgroundColor: C.accentDark, overflow: 'hidden' },
   barrePleine: { height: 8, borderRadius: 4, backgroundColor: C.accent },

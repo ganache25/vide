@@ -1,18 +1,20 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { Pressable, View } from 'react-native';
+import { useRef } from 'react';
+import { Animated, Pressable, View } from 'react-native';
 
 import { FicheView } from '../../components/FicheView';
 import { Bouton, Card, P, Page } from '../../components/ui';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
 import { exporterFiche } from '../../lib/pdf';
 import { basculerFavori, useFavoris } from '../../lib/store';
-import { C, S } from '../../theme';
+import { S } from '../../theme';
 
 export default function CocktailSocle() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const favoris = useFavoris();
+  const scrollY = useRef(new Animated.Value(0)).current;
   const fiche = COCKTAIL_PAR_ID[id];
 
   if (!fiche) {
@@ -29,6 +31,7 @@ export default function CocktailSocle() {
 
   return (
     <Page
+      scrollY={scrollY}
       footer={
         <View style={{ flexDirection: 'row', gap: S.sm }}>
           <Bouton
@@ -43,6 +46,9 @@ export default function CocktailSocle() {
       <Stack.Screen
         options={{
           title: '',
+          headerTransparent: true,
+          headerStyle: { backgroundColor: 'transparent' },
+          headerTintColor: '#FFFFFF',
           headerRight: () => (
             <Pressable
               onPress={() => void basculerFavori(fiche.id)}
@@ -50,12 +56,12 @@ export default function CocktailSocle() {
               accessibilityRole="button"
               accessibilityLabel={favori ? 'Retirer des favoris' : 'Ajouter aux favoris'}
               style={{ paddingHorizontal: S.md }}>
-              <Ionicons name={favori ? 'heart' : 'heart-outline'} size={26} color={C.accent} />
+              <Ionicons name={favori ? 'heart' : 'heart-outline'} size={26} color="#FFFFFF" />
             </Pressable>
           ),
         }}
       />
-      <FicheView fiche={fiche} />
+      <FicheView fiche={fiche} scrollY={scrollY} />
     </Page>
   );
 }

@@ -17,7 +17,13 @@ export const C = {
   green: '#2E7D5B',
   greenSoft: '#E6F3EC',
   dangerSoft: '#FBE9E7',
+  /** Touche de champagne, réservée aux détails précieux. */
+  or: '#C2A06A',
 };
+
+/** Dégradés bordeaux : du plus lumineux au plus profond. */
+export const DEGRADE = ['#9A2B50', '#7A1F3D', '#4E0F25'] as const;
+export const DEGRADE_SCENE = ['#8B2648', '#5A1430', '#2E0915'] as const;
 
 export const S = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 };
 

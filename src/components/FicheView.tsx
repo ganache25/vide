@@ -1,11 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { LIB_CATEGORIE, LIB_GLACE, LIB_METHODE, LIB_TYPE, type Fiche, type Ingredient, type Methode } from '../data/types';
 import { allergenes } from '../lib/allergenes';
 import { calculer, categorieDe, euro, libelleQuantite, nombre } from '../lib/calc';
-import { C, F, R, S } from '../theme';
+import { choisirPhoto, supprimerPhoto, usePhoto } from '../lib/photos';
+import { C, DEGRADE_SCENE, F, R, S } from '../theme';
+import { Bulles, Compteur, Degrade } from './fx';
+import { MethodeAnimee } from './MethodeAnimee';
 import { Verre } from './Illustrations';
 import { Card, ChampNombre, Chip, P, Tag, Titre, type IconName } from './ui';
 import { Proportions } from './visuels';
@@ -25,15 +29,6 @@ function Meta({ label, valeur }: { label: string; valeur: string }) {
   );
 }
 
-function Chiffre({ valeur, label }: { valeur: string; label: string }) {
-  return (
-    <View style={s.chiffre}>
-      <Text style={s.chiffreValeur}>{valeur}</Text>
-      <Text style={s.chiffreLabel}>{label}</Text>
-    </View>
-  );
-}
-
 /** Quantité multipliée pour une préparation en nombre : passe en litres au-delà de 1 000 ml. */
 function quantiteBatch(i: Ingredient, n: number): string {
   if (i.qte == null) return '';
@@ -42,7 +37,72 @@ function quantiteBatch(i: Ingredient, n: number): string {
   return libelleQuantite({ ...i, qte: Math.round(total * 10) / 10 });
 }
 
-export function FicheView({ fiche }: { fiche: Fiche }) {
+const PETILLANT = /champagne|prosecco|effervescent|gazeuse|ginger|soda|tonic|bière|cidre/i;
+
+/** Grande scène d'en-tête : la photo de l'utilisateur, ou le verre dessiné qui se remplit. */
+function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
+  const insets = useSafeAreaInsets();
+  const photo = usePhoto(fiche.id);
+  const [erreur, setErreur] = useState('');
+  const y = scrollY ?? new Animated.Value(0);
+  const petillant = fiche.ingredients.some((i) => PETILLANT.test(i.nom));
+  return (
+    <View style={[s.scene, { paddingTop: insets.top + 46 }]}>
+      <Degrade couleurs={DEGRADE_SCENE} style={StyleSheet.absoluteFill} />
+      {photo ? (
+        <Animated.View
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              transform: [
+                { translateY: y.interpolate({ inputRange: [-200, 0, 300], outputRange: [-40, 0, 90], extrapolate: 'clamp' }) },
+                { scale: y.interpolate({ inputRange: [-200, 0], outputRange: [1.35, 1.05], extrapolateRight: 'clamp' }) },
+              ],
+            },
+          ]}>
+          <Image source={{ uri: photo }} style={StyleSheet.absoluteFill} resizeMode="cover" accessibilityLabel={`Photo du cocktail ${fiche.nom}`} />
+        </Animated.View>
+      ) : (
+        <>
+          <Bulles nombre={7} />
+          <View style={s.halo} />
+          <Animated.View
+            style={{
+              opacity: y.interpolate({ inputRange: [0, 240], outputRange: [1, 0.2], extrapolate: 'clamp' }),
+              transform: [
+                { translateY: y.interpolate({ inputRange: [-200, 0, 300], outputRange: [-30, 0, 70], extrapolate: 'clamp' }) },
+                { scale: y.interpolate({ inputRange: [-200, 0], outputRange: [1.3, 1], extrapolateRight: 'clamp' }) },
+              ],
+            }}>
+            <Verre verre={fiche.verre} couleur={fiche.couleur} taille={170} anime riche bulles={petillant} garniture={fiche.garniture} trait="#F8E9ED" />
+          </Animated.View>
+        </>
+      )}
+      <View style={s.sceneActions}>
+        {photo ? (
+          <Pressable
+            onPress={() => void supprimerPhoto(fiche.id)}
+            accessibilityRole="button"
+            accessibilityLabel="Retirer la photo"
+            style={s.sceneBouton}>
+            <Ionicons name="trash-outline" size={17} color="#FFFFFF" />
+          </Pressable>
+        ) : null}
+        <Pressable
+          onPress={async () => setErreur((await choisirPhoto(fiche.id)) ?? '')}
+          accessibilityRole="button"
+          accessibilityLabel={photo ? 'Changer la photo' : 'Ajouter une photo'}
+          style={s.sceneBouton}>
+          <Ionicons name="camera-outline" size={18} color="#FFFFFF" />
+          <Text style={s.sceneBoutonTxt}>{photo ? 'Changer' : 'Ma photo'}</Text>
+        </Pressable>
+      </View>
+      {erreur ? <Text style={s.sceneErreur}>{erreur}</Text> : null}
+    </View>
+  );
+}
+
+export function FicheView({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
   const [verres, setVerres] = useState(1);
   const c = calculer(fiche.ingredients, fiche.ratio);
   const tav = fiche.tavOfficiel ?? Math.round(c.tav);
@@ -51,27 +111,34 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
 
   return (
     <>
-      <View style={s.entete}>
-        <View style={{ flex: 1, gap: S.sm }}>
-          <Text style={s.nom}>{fiche.nom}</Text>
-          {fiche.descripteurs ? <Text style={s.desc}>{fiche.descripteurs}</Text> : null}
-          <View style={s.tags}>
-            <Tag>{LIB_CATEGORIE[categorieDe(fiche)]}</Tag>
-            <Tag>{LIB_TYPE[fiche.type]}</Tag>
-            <Tag>{LIB_METHODE[fiche.methode]}</Tag>
-          </View>
-        </View>
-        <View style={s.verre}>
-          <Verre verre={fiche.verre} couleur={fiche.couleur} taille={84} anime />
+      <Scene fiche={fiche} scrollY={scrollY} />
+
+      <View style={{ gap: S.sm }}>
+        <Text style={s.nom}>{fiche.nom}</Text>
+        {fiche.descripteurs ? <Text style={s.desc}>{fiche.descripteurs}</Text> : null}
+        <View style={s.tags}>
+          <Tag>{LIB_CATEGORIE[categorieDe(fiche)]}</Tag>
+          <Tag>{LIB_TYPE[fiche.type]}</Tag>
+          <Tag>{LIB_METHODE[fiche.methode]}</Tag>
         </View>
       </View>
 
       <View style={s.chiffres}>
-        <Chiffre valeur={`${tav} %`} label="TAV" />
+        <Degrade style={StyleSheet.absoluteFill} />
+        <View style={s.chiffre}>
+          <Compteur valeur={tav} suffixe=" %" style={s.chiffreValeur} />
+          <Text style={s.chiffreLabel}>TAV</Text>
+        </View>
         <View style={s.sep} />
-        <Chiffre valeur={`${nombre(c.volume)} ml`} label="Contenance" />
+        <View style={s.chiffre}>
+          <Compteur valeur={c.volume} suffixe=" ml" style={s.chiffreValeur} />
+          <Text style={s.chiffreLabel}>Contenance</Text>
+        </View>
         <View style={s.sep} />
-        <Chiffre valeur={euro(c.coutMatiere)} label="Coût HT" />
+        <View style={s.chiffre}>
+          <Compteur valeur={c.coutMatiere} decimales={2} suffixe=" €" style={s.chiffreValeur} />
+          <Text style={s.chiffreLabel}>Coût HT</Text>
+        </View>
       </View>
 
       {fiche.historique ? (
@@ -130,6 +197,7 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
 
       <Card>
         <Titre>Technique</Titre>
+        <MethodeAnimee fiche={fiche} />
         <View style={{ gap: S.md }}>
           {fiche.technique.map((t, k) => (
             <View key={k} style={s.etape}>
@@ -205,9 +273,32 @@ export function FicheView({ fiche }: { fiche: Fiche }) {
 }
 
 const s = StyleSheet.create({
-  entete: { flexDirection: 'row', alignItems: 'center', gap: S.md },
-  verre: { backgroundColor: C.card, borderRadius: R.lg, paddingVertical: S.sm, paddingHorizontal: S.xs, boxShadow: '0 8px 28px rgba(86, 18, 42, 0.07)' },
-  nom: { color: C.text, fontFamily: F.display, fontSize: 36, lineHeight: 42 },
+  scene: {
+    height: 330,
+    marginHorizontal: -(S.lg + 2),
+    marginTop: -(S.lg + 2),
+    borderBottomLeftRadius: 36,
+    borderBottomRightRadius: 36,
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  halo: { position: 'absolute', width: 260, height: 260, borderRadius: 130, backgroundColor: '#FFFFFF', opacity: 0.07 },
+  sceneActions: { position: 'absolute', right: S.lg, bottom: S.lg, flexDirection: 'row', gap: S.sm },
+  sceneBouton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(0,0,0,0.32)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.28)',
+  },
+  sceneBoutonTxt: { color: '#FFFFFF', fontSize: 13, fontWeight: '600' },
+  sceneErreur: { position: 'absolute', left: S.lg, right: S.lg, top: 100, color: '#FFFFFF', backgroundColor: 'rgba(0,0,0,0.5)', padding: S.sm, borderRadius: 10, fontSize: 13, textAlign: 'center' },
+  nom: { color: C.text, fontFamily: F.display, fontSize: 40, lineHeight: 46 },
   desc: { color: C.accent, fontSize: 17, fontStyle: 'italic' },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: S.sm, marginTop: S.xs },
   chiffres: {
@@ -216,6 +307,7 @@ const s = StyleSheet.create({
     backgroundColor: C.accent,
     borderRadius: R.lg,
     paddingVertical: S.lg,
+    overflow: 'hidden',
     boxShadow: '0 12px 28px rgba(122, 31, 61, 0.26)',
   },
   chiffre: { flex: 1, alignItems: 'center', gap: 2 },

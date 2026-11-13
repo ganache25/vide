@@ -3,6 +3,7 @@ import { DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { View } from 'react-native';
 
+import { Intro } from '../components/Intro';
 import { C, F } from '../theme';
 
 const theme = {
@@ -42,6 +43,7 @@ export default function RootLayout() {
         <Stack.Screen name="outils/calculs" options={{ title: 'Calculateurs' }} />
         <Stack.Screen name="outils/mercuriale" options={{ title: 'Ma mercuriale' }} />
       </Stack>
+      <Intro />
     </ThemeProvider>
   );
 }

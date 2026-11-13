@@ -21,6 +21,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { C, F, HAUTEUR_ONGLETS, OMBRE, R, S } from '../theme';
+import { Bulles, Degrade, Reflet, vibrer } from './fx';
 
 export type IconName = keyof typeof Ionicons.glyphMap;
 
@@ -82,7 +83,14 @@ export function Touche({
     Animated.spring(echelle, { toValue, useNativeDriver: NATIF, speed: 40, bounciness: 6 }).start();
   return (
     <Pressable
-      onPress={onPress}
+      onPress={
+        onPress
+          ? () => {
+              vibrer();
+              onPress();
+            }
+          : undefined
+      }
       onPressIn={() => vers(0.96)}
       onPressOut={() => vers(1)}
       hitSlop={hitSlop}
@@ -98,16 +106,25 @@ export function Page({
   children,
   footer,
   onglet,
+  scrollY,
 }: {
   children: ReactNode;
   footer?: ReactNode;
+  /** Reçoit la position de défilement, pour les effets de parallaxe. */
+  scrollY?: Animated.Value;
   /** Écran d'onglet : réserve la place de la barre d'onglets flottante. */
   onglet?: boolean;
 }) {
   const insets = useSafeAreaInsets();
   return (
     <View style={st.page}>
-      <ScrollView
+      <Animated.ScrollView
+        scrollEventThrottle={16}
+        onScroll={
+          scrollY
+            ? Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], { useNativeDriver: NATIF })
+            : undefined
+        }
         contentContainerStyle={[
           st.pageContent,
           onglet && { paddingTop: insets.top + S.xl, paddingBottom: insets.bottom + HAUTEUR_ONGLETS + S.xl },
@@ -115,7 +132,7 @@ export function Page({
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}>
         <Apparition style={st.colonne}>{children}</Apparition>
-      </ScrollView>
+      </Animated.ScrollView>
       {footer ? (
         <View style={[st.footer, { paddingBottom: S.md + insets.bottom }]}>
           <View style={st.colonne}>{footer}</View>
@@ -231,6 +248,7 @@ export function Bouton({
           plein ? st.boutonPlein : st.boutonContour,
           variante === 'danger' && { backgroundColor: C.dangerSoft },
         ]}>
+        {plein ? <Degrade style={[StyleSheet.absoluteFill, { borderRadius: R.pill }]} /> : null}
         {icone ? <Ionicons name={icone} size={18} color={couleur} /> : null}
         <Text style={[st.boutonTxt, { color: couleur }]}>{label}</Text>
       </Touche>
@@ -445,8 +463,11 @@ export function Hero({
 }) {
   return (
     <View style={st.hero}>
+      <Degrade style={StyleSheet.absoluteFill} />
       <View style={[st.bulle, { width: 220, height: 220, top: -90, right: -60 }]} />
       <View style={[st.bulle, { width: 140, height: 140, bottom: -70, right: 70, opacity: 0.07 }]} />
+      <Bulles />
+      <Reflet />
       {surtitre ? <Text style={st.heroSur}>{surtitre}</Text> : null}
       <Text style={st.heroTitre}>{titre}</Text>
       {texte ? <Text style={st.heroTexte}>{texte}</Text> : null}
@@ -573,7 +594,7 @@ export const st = StyleSheet.create({
     boxShadow: '0 14px 34px rgba(122, 31, 61, 0.30)',
   },
   bulle: { position: 'absolute', borderRadius: 999, backgroundColor: '#FFFFFF', opacity: 0.09 },
-  heroSur: { color: '#F3D5DD', fontSize: 12, fontWeight: '700', letterSpacing: 1.6, textTransform: 'uppercase' },
+  heroSur: { color: '#E9CFA0', fontSize: 12, fontWeight: '700', letterSpacing: 1.6, textTransform: 'uppercase' },
   heroTitre: { color: '#FFFFFF', fontFamily: F.display, fontSize: 32, lineHeight: 38 },
   heroTexte: { color: '#F6E3E8', fontSize: 15, lineHeight: 22 },
 });
