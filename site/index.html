@@ -4,38 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Knowtail — Tout le savoir du bar, dans votre poche</title>
-  <meta name="description" content="Knowtail, l'application des professionnels du bar : tous les cocktails classiques, vos propres fiches techniques et des quiz pour cultiver votre savoir. Bientôt sur iOS et Android.">
-  <meta name="theme-color" content="#6b1426">
+  <meta name="description" content="Knowtail, l'application des professionnels du bar : les 36 cocktails de référence, vos fiches techniques chiffrées en direct, la culture bar et des quiz. Bientôt sur iOS et Android.">
+  <meta name="theme-color" content="#7a1f3d">
   <meta property="og:title" content="Knowtail — Tout le savoir du bar, dans votre poche">
-  <meta property="og:description" content="Cocktails classiques, fiches techniques personnalisées et quiz : l'application des professionnels du bar.">
+  <meta property="og:description" content="36 cocktails de référence, fiches techniques chiffrées en direct, culture bar et quiz : l'application des professionnels du bar.">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Pictogrammes réutilisés -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="g-coupe" viewBox="0 0 48 48">
-    <path class="liq" d="M11 13h26c-1 7-6 11-13 11s-12-4-13-11z"/>
-    <path class="ln" d="M8 8h32c0 10-6 16-16 16S8 18 8 8zM24 24v14M15 40h18"/>
-  </symbol>
-  <symbol id="g-rocks" viewBox="0 0 48 48">
-    <path class="liq" d="M12.5 20h23l-1.6 19H14.1z"/>
-    <path class="ln" d="M11 9h26l-2.6 30.5H13.6zM19 24h8v8h-8z"/>
-  </symbol>
-  <symbol id="g-highball" viewBox="0 0 48 48">
-    <path class="liq" d="M15.8 16h16.4l-1.4 25H17.2z"/>
-    <path class="ln" d="M15 6h18l-2 35.5H17zM27 6l6-4"/>
-  </symbol>
-  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.500 3H20v15H6.500A2.500 2.500 0 0 0 4 20.500zM4 20.500A2.500 2.500 0 0 0 6.500 23H20M8 8h8M8 12h5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.500A2.500 2.500 0 0 1 6.500 3H20v15H6.500A2.500 2.500 0 0 0 4 20.500zM4 20.500A2.500 2.500 0 0 0 6.500 23H20M8 8h8M8 12h5"/></symbol>
   <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-5L16.500 3.500a2.100 2.100 0 0 1 3 3L8 18zM14 6l3 3M12 21h8"/></symbol>
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.900 5.600L19.500 10.500l-5.600 1.900L12 18l-1.900-5.600L4.500 10.500l5.600-1.900zM19 16l.800 2.200L22 19l-2.200.800L19 22l-.800-2.200L16 19l2.200-.800z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8zM7.500 8.500h.010"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 7h6M9 12h.010M12 12h.010M15 12h.010M9 16h.010M12 16h.010M15 16h.010"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 8h14l-4-4M20 16H6l4 4"/></symbol>
+  <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h4"/></symbol>
+  <symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 12.500l9 5 9-5M3 17l9 5 9-5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2zM12 10v5M12 18h.010"/></symbol>
   <symbol id="logo-mark" viewBox="0 0 32 32">
     <path class="liq" d="M8.500 9.500h15c-.800 4.300-3.600 6.500-7.500 6.500s-6.700-2.200-7.500-6.500z"/>
     <path class="ln" d="M6 5h20c0 7-4 11-10 11S6 12 6 5zM16 16v9M10.500 27h11"/>
@@ -48,10 +41,10 @@
     <span>Knowtail</span>
   </a>
   <nav class="nav-links" aria-label="Navigation principale">
-    <a href="#classiques">Classiques</a>
+    <a href="#socle">Le socle</a>
     <a href="#fiches">Fiches techniques</a>
-    <a href="#quiz">Culture &amp; quiz</a>
-    <a href="#appareils">Appareils</a>
+    <a href="#culture">Culture &amp; quiz</a>
+    <a href="#outils">Outils</a>
   </nav>
   <a href="#telecharger" class="btn btn-primary btn-sm">Télécharger</a>
 </header>
@@ -69,45 +62,27 @@
       <div class="hero-copy">
         <p class="eyebrow load" style="--d:0">L'application des professionnels du bar</p>
         <h1 class="load" style="--d:1">Tout le savoir du bar, <em>dans votre poche.</em></h1>
-        <p class="lead load" style="--d:2">Les cocktails classiques à portée de main, vos propres fiches techniques, et des quiz pour faire grandir votre culture bar — service après service.</p>
+        <p class="lead load" style="--d:2">Les 36 cocktails de référence, vos fiches techniques chiffrées en direct, et toute la culture bar à réviser en quiz — service après service.</p>
         <div class="hero-cta load" style="--d:3">
           <a href="#telecharger" class="btn btn-primary">
             <svg class="ic"><use href="#i-down"/></svg>Télécharger l'application
           </a>
-          <a href="#classiques" class="btn btn-ghost">Découvrir</a>
+          <a href="#socle" class="btn btn-ghost">Découvrir</a>
         </div>
         <p class="hero-note load" style="--d:4">Bientôt disponible sur iOS et Android · Téléphones et tablettes</p>
       </div>
 
       <div class="hero-visual load" style="--d:2" id="tilt">
-        <div class="phone" id="phone">
-          <div class="phone-screen">
-            <div class="ps-top"><span>Classiques</span><span class="ps-dot"></span></div>
-            <div class="ps-hero">
-              <svg class="glass glass-xl" style="--liq:#e0603f"><use href="#g-rocks"/></svg>
-            </div>
-            <div class="ps-body">
-              <p class="ps-kicker">Italie · 1919</p>
-              <h3>Negroni</h3>
-              <div class="ps-tags"><span>Au verre</span><span>Old fashioned</span><span>Amer</span></div>
-              <ul class="ps-list">
-                <li><span>Gin</span><b>3 cl</b></li>
-                <li><span>Bitter Campari</span><b>3 cl</b></li>
-                <li><span>Vermouth rouge</span><b>3 cl</b></li>
-              </ul>
-              <div class="ps-garnish">Garniture · demi-tranche d'orange</div>
-            </div>
-            <div class="ps-tabbar"><i class="on"></i><i></i><i></i><i></i></div>
-          </div>
+        <div class="phone tilt" id="phone">
+          <img src="img/negroni.webp" width="780" height="1688" alt="Fiche du Negroni dans Knowtail : TAV 26 %, contenance 90 ml, coût 1,72 € HT">
         </div>
-
         <div class="chip chip-a">
-          <span class="chip-ic"><svg class="ic"><use href="#i-check"/></svg></span>
-          <div><b>Fiche enregistrée</b><small>Création maison</small></div>
+          <span class="chip-ic"><svg class="ic"><use href="#i-calc"/></svg></span>
+          <div><b>TAV et coût calculés</b><small>en direct, à chaque dosage</small></div>
         </div>
         <div class="chip chip-b">
           <span class="chip-ic gold"><svg class="ic"><use href="#i-spark"/></svg></span>
-          <div><b>Quiz du jour</b><small>Histoire des classiques</small></div>
+          <div><b>Quiz du socle</b><small>de 5 à 30 questions</small></div>
         </div>
       </div>
     </div>
@@ -115,129 +90,152 @@
 
   <!-- BANDEAU -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Negroni</span><i>✦</i><span>Daiquiri</span><i>✦</i><span>Old Fashioned</span><i>✦</i><span>Margarita</span><i>✦</i><span>Manhattan</span><i>✦</i><span>Mojito</span><i>✦</i><span>Whiskey Sour</span><i>✦</i><span>Dry Martini</span><i>✦</i><span>Sazerac</span><i>✦</i><span>Mai Tai</span><i>✦</i><span>Sidecar</span><i>✦</i><span>Boulevardier</span><i>✦</i>
-      <span>Negroni</span><i>✦</i><span>Daiquiri</span><i>✦</i><span>Old Fashioned</span><i>✦</i><span>Margarita</span><i>✦</i><span>Manhattan</span><i>✦</i><span>Mojito</span><i>✦</i><span>Whiskey Sour</span><i>✦</i><span>Dry Martini</span><i>✦</i><span>Sazerac</span><i>✦</i><span>Mai Tai</span><i>✦</i><span>Sidecar</span><i>✦</i><span>Boulevardier</span><i>✦</i>
-    </div>
+    <div class="marquee-track" id="marquee"></div>
   </div>
 
-  <!-- TROIS PILIERS -->
+  <!-- CHIFFRES -->
+  <section class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat reveal" style="--d:0"><b data-count="36">36</b><span>cocktails de référence</span></div>
+      <div class="stat reveal" style="--d:1"><b data-count="22">22</b><span>fiches de culture produits</span></div>
+      <div class="stat reveal" style="--d:2"><b data-count="41">41</b><span>outils et verres illustrés</span></div>
+      <div class="stat reveal" style="--d:3"><b data-count="5">5</b><span>thèmes de quiz</span></div>
+    </div>
+  </section>
+
+  <!-- PILIERS -->
   <section class="section pillars">
     <div class="wrap">
       <p class="eyebrow reveal">Une application, trois réflexes</p>
       <h2 class="reveal">Consulter. Créer. Se cultiver.</h2>
       <div class="pillar-grid">
-        <a href="#classiques" class="pillar reveal" style="--d:0">
+        <a href="#socle" class="pillar reveal" style="--d:0">
           <span class="pillar-ic"><svg class="ic"><use href="#i-book"/></svg></span>
-          <h3>Les classiques</h3>
-          <p>Tous les cocktails classiques répertoriés, avec leurs dosages, leur verre et leur méthode.</p>
-          <span class="pillar-link">Voir un exemple →</span>
+          <h3>Le socle</h3>
+          <p>Les 36 cocktails du Socle des cocktails de référence : recette en ml, historique, technique, variantes.</p>
+          <span class="pillar-link">Voir une fiche →</span>
         </a>
         <a href="#fiches" class="pillar reveal" style="--d:1">
           <span class="pillar-ic"><svg class="ic"><use href="#i-pen"/></svg></span>
           <h3>Vos fiches techniques</h3>
-          <p>Créez et conservez les fiches de vos propres recettes, au même niveau d'exigence que les classiques.</p>
-          <span class="pillar-link">Voir un exemple →</span>
+          <p>Créez vos fiches de zéro ou en revisite d'un classique. TAV, coût matière et prix de vente se calculent tout seuls.</p>
+          <span class="pillar-link">Voir l'éditeur →</span>
         </a>
-        <a href="#quiz" class="pillar reveal" style="--d:2">
+        <a href="#culture" class="pillar reveal" style="--d:2">
           <span class="pillar-ic"><svg class="ic"><use href="#i-spark"/></svg></span>
           <h3>Culture &amp; quiz</h3>
-          <p>Explorez tout l'univers du bar et testez vos connaissances avec des quiz.</p>
+          <p>Produits, histoire du bar, matériel, lexique : tout l'univers du métier, puis des quiz pour l'ancrer.</p>
           <span class="pillar-link">Essayer un quiz →</span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CLASSIQUES -->
-  <section class="section feature" id="classiques">
+  <!-- SOCLE -->
+  <section class="section feature" id="socle">
     <div class="wrap feature-grid">
       <div class="feature-copy">
-        <p class="eyebrow reveal">01 — Les classiques</p>
-        <h2 class="reveal">La référence, sans chercher.</h2>
-        <p class="reveal">Un doute sur un dosage en plein service ? Knowtail répertorie tous les cocktails classiques. Chaque recette va à l'essentiel : ingrédients, quantités, verre, méthode, garniture.</p>
+        <p class="eyebrow reveal">01 — Le socle</p>
+        <h2 class="reveal">36 classiques, <em>une seule référence.</em></h2>
+        <p class="reveal">Un doute sur un dosage en plein service ? Chaque cocktail du référentiel officiel a sa fiche complète, dessinée avec son verre et sa garniture exacte.</p>
         <ul class="ticks reveal">
-          <li><svg class="ic"><use href="#i-check"/></svg>Tous les classiques réunis au même endroit</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>Des fiches claires, lisibles d'un coup d'œil</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>Une base solide pour former une équipe</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Recette en ml, historique, verre, glace, garniture et variantes</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Technique pas à pas, avec un tutoriel animé de la méthode</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Quantités recalculées pour 4, 10 ou 20 verres</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Recherche, filtres par base et par méthode, favoris</li>
         </ul>
       </div>
 
-      <div class="explorer reveal" aria-label="Aperçu interactif d'une fiche cocktail">
-        <div class="explorer-tabs" role="tablist" id="ctabs"></div>
-        <div class="explorer-card" id="ccard" role="tabpanel">
-          <div class="ec-glass"><svg class="glass" id="cglass"><use href="#g-rocks"/></svg></div>
-          <div class="ec-body">
-            <p class="ps-kicker" id="corigin"></p>
-            <h3 id="cname"></h3>
-            <div class="ps-tags" id="ctags"></div>
-            <ul class="ps-list" id="clist"></ul>
-            <div class="ps-garnish" id="cgarnish"></div>
+      <div class="viewer reveal" id="viewer">
+        <div class="phone">
+          <div class="screens">
+            <img class="on" src="img/socle.webp" width="780" height="1688" loading="lazy" alt="Liste des 36 cocktails du socle avec recherche et filtres">
+            <img src="img/negroni2.webp" width="780" height="1688" loading="lazy" alt="Ingrédients du Negroni en ml et nombre de verres à préparer">
+            <img src="img/negroni3.webp" width="780" height="1688" loading="lazy" alt="Technique du Negroni pas à pas avec tutoriel animé">
           </div>
         </div>
-        <p class="explorer-hint">Essayez : touchez un cocktail</p>
+        <div class="viewer-tabs" role="tablist">
+          <button type="button" role="tab" aria-selected="true">Le catalogue</button>
+          <button type="button" role="tab" aria-selected="false">Les dosages</button>
+          <button type="button" role="tab" aria-selected="false">La technique</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FICHES TECHNIQUES -->
+  <!-- FICHES -->
   <section class="section feature alt" id="fiches">
     <div class="wrap feature-grid flip">
       <div class="feature-copy">
         <p class="eyebrow reveal">02 — Vos fiches techniques</p>
-        <h2 class="reveal">Vos créations méritent leur fiche.</h2>
-        <p class="reveal">Une signature qui change à chaque saison, une recette transmise à l'oral, une carte à tenir à jour… Créez vos propres fiches techniques et gardez-les avec vous, à côté des classiques.</p>
+        <h2 class="reveal">Vos créations, <em>chiffrées en direct.</em></h2>
+        <p class="reveal">Partez de zéro ou touchez « Créer une revisite » sur un classique : la recette, la technique et les coûts sont repris, il ne reste qu'à adapter. Pendant que vous saisissez, Knowtail fait les comptes.</p>
+        <div class="live reveal">
+          <div><b>90 ml</b><span>Contenance</span></div>
+          <div><b>25,8 %</b><span>TAV</span></div>
+          <div><b>1,72 €</b><span>Coût HT</span></div>
+          <div><b>10,30 €</b><span>Prix TTC</span></div>
+        </div>
         <ul class="ticks reveal">
-          <li><svg class="ic"><use href="#i-check"/></svg>Vos recettes, formalisées une fois pour toutes</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>La même recette, quel que soit qui est derrière le bar</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>Votre carte, toujours dans la poche</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>TAV, grammes d'alcool pur, coût matière et prix de vente calculés</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Allergènes repérés d'après les ingrédients</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Votre propre photo sur chaque fiche</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Export PDF de la fiche et de la carte du bar</li>
         </ul>
       </div>
-
-      <div class="sheet reveal" id="sheet" aria-label="Exemple de fiche technique">
-        <div class="sheet-head">
-          <span class="sheet-badge">Nouvelle fiche</span>
-          <span class="sheet-save"><svg class="ic"><use href="#i-check"/></svg>Enregistrée</span>
-        </div>
-        <label>Nom</label>
-        <div class="field big"><span class="type" data-text="Rouge Velours"></span></div>
-        <label>Ingrédients</label>
-        <div class="rows">
-          <div class="row" style="--i:0"><span>Cognac</span><b>4 cl</b></div>
-          <div class="row" style="--i:1"><span>Liqueur de cassis</span><b>1,5 cl</b></div>
-          <div class="row" style="--i:2"><span>Jus de citron</span><b>2 cl</b></div>
-          <div class="row" style="--i:3"><span>Sirop de sucre</span><b>1 cl</b></div>
-        </div>
-        <div class="sheet-two">
-          <div><label>Verre</label><div class="field sm">Coupe</div></div>
-          <div><label>Méthode</label><div class="field sm">Shaker</div></div>
-        </div>
-        <label>Notes</label>
-        <div class="field note">Double filtration. Zeste de citron exprimé.</div>
+      <div class="duo reveal">
+        <div class="phone back"><img src="img/fiches.webp" width="780" height="1688" loading="lazy" alt="Écran Mes fiches"></div>
+        <div class="phone front"><img src="img/editeur.webp" width="780" height="1688" loading="lazy" alt="Éditeur de fiche technique : Negroni revisité avec contenance, TAV, coût et prix calculés"></div>
       </div>
     </div>
   </section>
 
-  <!-- QUIZ -->
-  <section class="section feature" id="quiz">
-    <div class="wrap feature-grid">
-      <div class="feature-copy">
-        <p class="eyebrow reveal">03 — Culture &amp; quiz</p>
-        <h2 class="reveal">Le savoir fait le barman.</h2>
-        <p class="reveal">Histoire des classiques, spiritueux, techniques, vocabulaire : Knowtail vous fait explorer tout l'univers du bar, puis vous met à l'épreuve avec des quiz. Quelques minutes suffisent pour progresser.</p>
-        <ul class="ticks reveal">
-          <li><svg class="ic"><use href="#i-check"/></svg>Tout l'univers du bar à explorer</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>Des quiz pour ancrer ce que vous apprenez</li>
-          <li><svg class="ic"><use href="#i-check"/></svg>De quoi mieux raconter chaque verre au client</li>
-        </ul>
+  <!-- CULTURE & QUIZ -->
+  <section class="section feature" id="culture">
+    <div class="wrap">
+      <div class="feature-grid">
+        <div class="feature-copy">
+          <p class="eyebrow reveal">03 — Culture &amp; quiz</p>
+          <h2 class="reveal">Le savoir <em>fait le barman.</em></h2>
+          <p class="reveal">Spiritueux, liqueurs, vins, saké, agrumes ; deux siècles d'histoire du cocktail ; chaque outil et chaque verre. Knowtail vous fait explorer le métier, puis vous met à l'épreuve : choisissez le thème et le nombre de questions.</p>
+          <ul class="ticks reveal">
+            <li><svg class="ic"><use href="#i-check"/></svg>22 fiches produits : frise de dates, élaboration, arômes, service</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Culture bar : grandes époques, figures, bars mythiques, livres</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>21 outils et 20 verres illustrés, avec usage et conseils</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Quiz tirés au hasard : aucune série ne se ressemble</li>
+          </ul>
+        </div>
+
+        <div class="quiz reveal" id="quizbox" aria-live="polite">
+          <div class="quiz-top">
+            <span class="quiz-count" id="qcount"></span>
+            <div class="quiz-bar"><i id="qbar"></i></div>
+          </div>
+          <div id="qstage"></div>
+        </div>
       </div>
 
-      <div class="quiz reveal" id="quizbox" aria-live="polite">
-        <div class="quiz-top">
-          <span class="quiz-count" id="qcount"></span>
-          <div class="quiz-bar"><i id="qbar"></i></div>
-        </div>
-        <div id="qstage"></div>
+      <div class="gallery">
+        <figure class="reveal" style="--d:0"><div class="phone"><img src="img/culture.webp" width="780" height="1688" loading="lazy" alt="Onglet Culture"></div><figcaption>Quatre univers à explorer</figcaption></figure>
+        <figure class="reveal" style="--d:1"><div class="phone"><img src="img/produits.webp" width="780" height="1688" loading="lazy" alt="Culture produits"></div><figcaption>Culture produits</figcaption></figure>
+        <figure class="reveal" style="--d:2"><div class="phone"><img src="img/culturebar.webp" width="780" height="1688" loading="lazy" alt="Culture bar : deux siècles de cocktail"></div><figcaption>Deux siècles de cocktail</figcaption></figure>
+        <figure class="reveal" style="--d:3"><div class="phone"><img src="img/materiel.webp" width="780" height="1688" loading="lazy" alt="Matériel de bar"></div><figcaption>Matériel de bar</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTILS -->
+  <section class="section tools alt" id="outils">
+    <div class="wrap">
+      <p class="eyebrow reveal">04 — Outils</p>
+      <h2 class="reveal">Réviser, chiffrer, convertir.</h2>
+      <div class="tool-grid">
+        <div class="tool reveal" style="--d:0"><span class="pillar-ic"><svg class="ic"><use href="#i-tag"/></svg></span><h3>Ma mercuriale</h3><p>Saisissez vos prix d'achat une fois : ils alimentent toutes vos fiches.</p></div>
+        <div class="tool reveal" style="--d:1"><span class="pillar-ic"><svg class="ic"><use href="#i-calc"/></svg></span><h3>Calculateurs</h3><p>Coût d'une dose et prix de vente, selon le ratio matière que vous visez.</p></div>
+        <div class="tool reveal" style="--d:2"><span class="pillar-ic"><svg class="ic"><use href="#i-swap"/></svg></span><h3>Convertisseur</h3><p>ml, cl, oz : passez d'une unité à l'autre sans calcul de tête.</p></div>
+        <div class="tool reveal" style="--d:0"><span class="pillar-ic"><svg class="ic"><use href="#i-stack"/></svg></span><h3>Batch</h3><p>Les quantités d'une recette pour le nombre de verres à préparer.</p></div>
+        <div class="tool reveal" style="--d:1"><span class="pillar-ic"><svg class="ic"><use href="#i-alert"/></svg></span><h3>Allergènes</h3><p>Repérés automatiquement à partir des ingrédients de la fiche.</p></div>
+        <div class="tool reveal" style="--d:2"><span class="pillar-ic"><svg class="ic"><use href="#i-pdf"/></svg></span><h3>Export PDF</h3><p>Vos fiches et la carte de votre bar, prêtes à imprimer ou à partager.</p></div>
       </div>
     </div>
   </section>
@@ -247,52 +245,24 @@
     <div class="wrap">
       <p class="eyebrow reveal center">Téléphone &amp; tablette</p>
       <h2 class="reveal center">Dans la poche du tablier.<br>Ou posée derrière le bar.</h2>
-      <p class="reveal center sub">Knowtail est conçue pour les téléphones comme pour les tablettes, sur iOS et Android.</p>
+      <p class="reveal center sub">Knowtail est conçue pour les téléphones comme pour les tablettes, sur iOS et Android. Vos fiches restent enregistrées sur l'appareil.</p>
 
       <div class="device-stage reveal" id="devices">
-        <div class="tablet">
-          <div class="tablet-screen">
-            <div class="ts-side">
-              <div class="brand mini"><svg class="brand-mark"><use href="#logo-mark"/></svg><span>Knowtail</span></div>
-              <i class="on">Classiques</i><i>Mes fiches</i><i>Culture</i><i>Quiz</i>
-            </div>
-            <div class="ts-main">
-              <div class="ts-search">Rechercher un cocktail…</div>
-              <div class="ts-grid">
-                <div class="tc"><svg class="glass" style="--liq:#b3261e"><use href="#g-rocks"/></svg><b>Negroni</b><small>Au verre</small></div>
-                <div class="tc"><svg class="glass" style="--liq:#e8dfa6"><use href="#g-coupe"/></svg><b>Daiquiri</b><small>Shaker</small></div>
-                <div class="tc"><svg class="glass" style="--liq:#c9892f"><use href="#g-rocks"/></svg><b>Old Fashioned</b><small>Au verre</small></div>
-                <div class="tc"><svg class="glass" style="--liq:#dfe3a0"><use href="#g-coupe"/></svg><b>Margarita</b><small>Shaker</small></div>
-                <div class="tc"><svg class="glass" style="--liq:#8e2a1c"><use href="#g-coupe"/></svg><b>Manhattan</b><small>Verre à mélange</small></div>
-                <div class="tc"><svg class="glass" style="--liq:#bfe0a8"><use href="#g-highball"/></svg><b>Mojito</b><small>Au verre</small></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="phone small">
-          <div class="phone-screen">
-            <div class="ps-top"><span>Quiz</span><span class="ps-dot"></span></div>
-            <div class="mini-quiz">
-              <p class="ps-kicker">Question 2 / 5</p>
-              <h4>Le Daiquiri est né…</h4>
-              <span>au Mexique</span><span class="ok">à Cuba</span><span>au Brésil</span><span>à Porto Rico</span>
-            </div>
-            <div class="ps-tabbar"><i></i><i></i><i></i><i class="on"></i></div>
-          </div>
-        </div>
+        <div class="tablet"><img src="img/tablet2.webp" width="1230" height="1770" loading="lazy" alt="Fiche du Negroni sur tablette"></div>
+        <div class="phone small"><img src="img/quiz2.webp" width="780" height="1688" loading="lazy" alt="Question de quiz sur téléphone"></div>
       </div>
     </div>
   </section>
 
   <!-- POUR QUI -->
-  <section class="section who">
+  <section class="section who alt">
     <div class="wrap">
       <p class="eyebrow reveal">Pour les pros, par passion du métier</p>
       <h2 class="reveal">Derrière chaque bar, un usage.</h2>
       <div class="who-grid">
         <div class="who-card reveal" style="--d:0"><span>01</span><h3>Barmans &amp; barmaids</h3><p>Le bon dosage au bon moment, et une culture qui s'enrichit entre deux services.</p></div>
-        <div class="who-card reveal" style="--d:1"><span>02</span><h3>Chefs de bar</h3><p>Les fiches de la carte formalisées, pour une exécution identique d'un verre à l'autre.</p></div>
-        <div class="who-card reveal" style="--d:2"><span>03</span><h3>En formation</h3><p>Les classiques à réviser et des quiz pour vérifier que tout est acquis.</p></div>
+        <div class="who-card reveal" style="--d:1"><span>02</span><h3>Chefs de bar</h3><p>Une carte formalisée et chiffrée : coût matière, prix de vente, même exécution d'un verre à l'autre.</p></div>
+        <div class="who-card reveal" style="--d:2"><span>03</span><h3>En formation</h3><p>Le référentiel officiel à réviser, et des quiz pour vérifier que tout est acquis.</p></div>
       </div>
     </div>
   </section>

@@ -61,3 +61,11 @@ npm run typecheck
 - `src/components/` : composants d'interface
 
 L'abus d'alcool est dangereux pour la santé, à consommer avec modération.
+
+## Site vitrine
+
+Le dossier `site/` contient le site de présentation de l'application (statique, sans build : `index.html`,
+`styles.css`, `script.js`, captures d'écran dans `site/img`). Pour le voir : ouvrir `site/index.html`.
+
+Pour activer les boutons de téléchargement à la sortie, renseigner les liens des stores dans `STORE_LINKS`,
+en haut de `site/script.js`.
