@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowtail — Tout le savoir du bar, dans votre poche</title>
+  <meta name="description" content="Knowtail, l'application des professionnels du bar : tous les cocktails classiques, vos propres fiches techniques et des quiz pour cultiver votre savoir. Bientôt sur iOS et Android.">
+  <meta name="theme-color" content="#6b1426">
+  <meta property="og:title" content="Knowtail — Tout le savoir du bar, dans votre poche">
+  <meta property="og:description" content="Cocktails classiques, fiches techniques personnalisées et quiz : l'application des professionnels du bar.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Pictogrammes réutilisés -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="g-coupe" viewBox="0 0 48 48">
+    <path class="liq" d="M11 13h26c-1 7-6 11-13 11s-12-4-13-11z"/>
+    <path class="ln" d="M8 8h32c0 10-6 16-16 16S8 18 8 8zM24 24v14M15 40h18"/>
+  </symbol>
+  <symbol id="g-rocks" viewBox="0 0 48 48">
+    <path class="liq" d="M12.5 20h23l-1.6 19H14.1z"/>
+    <path class="ln" d="M11 9h26l-2.6 30.5H13.6zM19 24h8v8h-8z"/>
+  </symbol>
+  <symbol id="g-highball" viewBox="0 0 48 48">
+    <path class="liq" d="M15.8 16h16.4l-1.4 25H17.2z"/>
+    <path class="ln" d="M15 6h18l-2 35.5H17zM27 6l6-4"/>
+  </symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.500 3H20v15H6.500A2.500 2.500 0 0 0 4 20.500zM4 20.500A2.500 2.500 0 0 0 6.500 23H20M8 8h8M8 12h5"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-5L16.500 3.500a2.100 2.100 0 0 1 3 3L8 18zM14 6l3 3M12 21h8"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.900 5.600L19.500 10.500l-5.600 1.900L12 18l-1.900-5.600L4.500 10.500l5.600-1.900zM19 16l.800 2.200L22 19l-2.200.800L19 22l-.800-2.200L16 19l2.200-.800z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="logo-mark" viewBox="0 0 32 32">
+    <path class="liq" d="M8.500 9.500h15c-.800 4.300-3.600 6.500-7.500 6.500s-6.700-2.200-7.500-6.500z"/>
+    <path class="ln" d="M6 5h20c0 7-4 11-10 11S6 12 6 5zM16 16v9M10.500 27h11"/>
+  </symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Knowtail — accueil">
+    <svg class="brand-mark"><use href="#logo-mark"/></svg>
+    <span>Knowtail</span>
+  </a>
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a href="#classiques">Classiques</a>
+    <a href="#fiches">Fiches techniques</a>
+    <a href="#quiz">Culture &amp; quiz</a>
+    <a href="#appareils">Appareils</a>
+  </nav>
+  <a href="#telecharger" class="btn btn-primary btn-sm">Télécharger</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+      <span class="grain"></span>
+    </div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow load" style="--d:0">L'application des professionnels du bar</p>
+        <h1 class="load" style="--d:1">Tout le savoir du bar, <em>dans votre poche.</em></h1>
+        <p class="lead load" style="--d:2">Les cocktails classiques à portée de main, vos propres fiches techniques, et des quiz pour faire grandir votre culture bar — service après service.</p>
+        <div class="hero-cta load" style="--d:3">
+          <a href="#telecharger" class="btn btn-primary">
+            <svg class="ic"><use href="#i-down"/></svg>Télécharger l'application
+          </a>
+          <a href="#classiques" class="btn btn-ghost">Découvrir</a>
+        </div>
+        <p class="hero-note load" style="--d:4">Bientôt disponible sur iOS et Android · Téléphones et tablettes</p>
+      </div>
+
+      <div class="hero-visual load" style="--d:2" id="tilt">
+        <div class="phone" id="phone">
+          <div class="phone-screen">
+            <div class="ps-top"><span>Classiques</span><span class="ps-dot"></span></div>
+            <div class="ps-hero">
+              <svg class="glass glass-xl" style="--liq:#e0603f"><use href="#g-rocks"/></svg>
+            </div>
+            <div class="ps-body">
+              <p class="ps-kicker">Italie · 1919</p>
+              <h3>Negroni</h3>
+              <div class="ps-tags"><span>Au verre</span><span>Old fashioned</span><span>Amer</span></div>
+              <ul class="ps-list">
+                <li><span>Gin</span><b>3 cl</b></li>
+                <li><span>Bitter Campari</span><b>3 cl</b></li>
+                <li><span>Vermouth rouge</span><b>3 cl</b></li>
+              </ul>
+              <div class="ps-garnish">Garniture · demi-tranche d'orange</div>
+            </div>
+            <div class="ps-tabbar"><i class="on"></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+
+        <div class="chip chip-a">
+          <span class="chip-ic"><svg class="ic"><use href="#i-check"/></svg></span>
+          <div><b>Fiche enregistrée</b><small>Création maison</small></div>
+        </div>
+        <div class="chip chip-b">
+          <span class="chip-ic gold"><svg class="ic"><use href="#i-spark"/></svg></span>
+          <div><b>Quiz du jour</b><small>Histoire des classiques</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANDEAU -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Negroni</span><i>✦</i><span>Daiquiri</span><i>✦</i><span>Old Fashioned</span><i>✦</i><span>Margarita</span><i>✦</i><span>Manhattan</span><i>✦</i><span>Mojito</span><i>✦</i><span>Whiskey Sour</span><i>✦</i><span>Dry Martini</span><i>✦</i><span>Sazerac</span><i>✦</i><span>Mai Tai</span><i>✦</i><span>Sidecar</span><i>✦</i><span>Boulevardier</span><i>✦</i>
+      <span>Negroni</span><i>✦</i><span>Daiquiri</span><i>✦</i><span>Old Fashioned</span><i>✦</i><span>Margarita</span><i>✦</i><span>Manhattan</span><i>✦</i><span>Mojito</span><i>✦</i><span>Whiskey Sour</span><i>✦</i><span>Dry Martini</span><i>✦</i><span>Sazerac</span><i>✦</i><span>Mai Tai</span><i>✦</i><span>Sidecar</span><i>✦</i><span>Boulevardier</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- TROIS PILIERS -->
+  <section class="section pillars">
+    <div class="wrap">
+      <p class="eyebrow reveal">Une application, trois réflexes</p>
+      <h2 class="reveal">Consulter. Créer. Se cultiver.</h2>
+      <div class="pillar-grid">
+        <a href="#classiques" class="pillar reveal" style="--d:0">
+          <span class="pillar-ic"><svg class="ic"><use href="#i-book"/></svg></span>
+          <h3>Les classiques</h3>
+          <p>Tous les cocktails classiques répertoriés, avec leurs dosages, leur verre et leur méthode.</p>
+          <span class="pillar-link">Voir un exemple →</span>
+        </a>
+        <a href="#fiches" class="pillar reveal" style="--d:1">
+          <span class="pillar-ic"><svg class="ic"><use href="#i-pen"/></svg></span>
+          <h3>Vos fiches techniques</h3>
+          <p>Créez et conservez les fiches de vos propres recettes, au même niveau d'exigence que les classiques.</p>
+          <span class="pillar-link">Voir un exemple →</span>
+        </a>
+        <a href="#quiz" class="pillar reveal" style="--d:2">
+          <span class="pillar-ic"><svg class="ic"><use href="#i-spark"/></svg></span>
+          <h3>Culture &amp; quiz</h3>
+          <p>Explorez tout l'univers du bar et testez vos connaissances avec des quiz.</p>
+          <span class="pillar-link">Essayer un quiz →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSIQUES -->
+  <section class="section feature" id="classiques">
+    <div class="wrap feature-grid">
+      <div class="feature-copy">
+        <p class="eyebrow reveal">01 — Les classiques</p>
+        <h2 class="reveal">La référence, sans chercher.</h2>
+        <p class="reveal">Un doute sur un dosage en plein service ? Knowtail répertorie tous les cocktails classiques. Chaque recette va à l'essentiel : ingrédients, quantités, verre, méthode, garniture.</p>
+        <ul class="ticks reveal">
+          <li><svg class="ic"><use href="#i-check"/></svg>Tous les classiques réunis au même endroit</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Des fiches claires, lisibles d'un coup d'œil</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Une base solide pour former une équipe</li>
+        </ul>
+      </div>
+
+      <div class="explorer reveal" aria-label="Aperçu interactif d'une fiche cocktail">
+        <div class="explorer-tabs" role="tablist" id="ctabs"></div>
+        <div class="explorer-card" id="ccard" role="tabpanel">
+          <div class="ec-glass"><svg class="glass" id="cglass"><use href="#g-rocks"/></svg></div>
+          <div class="ec-body">
+            <p class="ps-kicker" id="corigin"></p>
+            <h3 id="cname"></h3>
+            <div class="ps-tags" id="ctags"></div>
+            <ul class="ps-list" id="clist"></ul>
+            <div class="ps-garnish" id="cgarnish"></div>
+          </div>
+        </div>
+        <p class="explorer-hint">Essayez : touchez un cocktail</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHES TECHNIQUES -->
+  <section class="section feature alt" id="fiches">
+    <div class="wrap feature-grid flip">
+      <div class="feature-copy">
+        <p class="eyebrow reveal">02 — Vos fiches techniques</p>
+        <h2 class="reveal">Vos créations méritent leur fiche.</h2>
+        <p class="reveal">Une signature qui change à chaque saison, une recette transmise à l'oral, une carte à tenir à jour… Créez vos propres fiches techniques et gardez-les avec vous, à côté des classiques.</p>
+        <ul class="ticks reveal">
+          <li><svg class="ic"><use href="#i-check"/></svg>Vos recettes, formalisées une fois pour toutes</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>La même recette, quel que soit qui est derrière le bar</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Votre carte, toujours dans la poche</li>
+        </ul>
+      </div>
+
+      <div class="sheet reveal" id="sheet" aria-label="Exemple de fiche technique">
+        <div class="sheet-head">
+          <span class="sheet-badge">Nouvelle fiche</span>
+          <span class="sheet-save"><svg class="ic"><use href="#i-check"/></svg>Enregistrée</span>
+        </div>
+        <label>Nom</label>
+        <div class="field big"><span class="type" data-text="Rouge Velours"></span></div>
+        <label>Ingrédients</label>
+        <div class="rows">
+          <div class="row" style="--i:0"><span>Cognac</span><b>4 cl</b></div>
+          <div class="row" style="--i:1"><span>Liqueur de cassis</span><b>1,5 cl</b></div>
+          <div class="row" style="--i:2"><span>Jus de citron</span><b>2 cl</b></div>
+          <div class="row" style="--i:3"><span>Sirop de sucre</span><b>1 cl</b></div>
+        </div>
+        <div class="sheet-two">
+          <div><label>Verre</label><div class="field sm">Coupe</div></div>
+          <div><label>Méthode</label><div class="field sm">Shaker</div></div>
+        </div>
+        <label>Notes</label>
+        <div class="field note">Double filtration. Zeste de citron exprimé.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="section feature" id="quiz">
+    <div class="wrap feature-grid">
+      <div class="feature-copy">
+        <p class="eyebrow reveal">03 — Culture &amp; quiz</p>
+        <h2 class="reveal">Le savoir fait le barman.</h2>
+        <p class="reveal">Histoire des classiques, spiritueux, techniques, vocabulaire : Knowtail vous fait explorer tout l'univers du bar, puis vous met à l'épreuve avec des quiz. Quelques minutes suffisent pour progresser.</p>
+        <ul class="ticks reveal">
+          <li><svg class="ic"><use href="#i-check"/></svg>Tout l'univers du bar à explorer</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Des quiz pour ancrer ce que vous apprenez</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>De quoi mieux raconter chaque verre au client</li>
+        </ul>
+      </div>
+
+      <div class="quiz reveal" id="quizbox" aria-live="polite">
+        <div class="quiz-top">
+          <span class="quiz-count" id="qcount"></span>
+          <div class="quiz-bar"><i id="qbar"></i></div>
+        </div>
+        <div id="qstage"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPAREILS -->
+  <section class="section devices" id="appareils">
+    <div class="wrap">
+      <p class="eyebrow reveal center">Téléphone &amp; tablette</p>
+      <h2 class="reveal center">Dans la poche du tablier.<br>Ou posée derrière le bar.</h2>
+      <p class="reveal center sub">Knowtail est conçue pour les téléphones comme pour les tablettes, sur iOS et Android.</p>
+
+      <div class="device-stage reveal" id="devices">
+        <div class="tablet">
+          <div class="tablet-screen">
+            <div class="ts-side">
+              <div class="brand mini"><svg class="brand-mark"><use href="#logo-mark"/></svg><span>Knowtail</span></div>
+              <i class="on">Classiques</i><i>Mes fiches</i><i>Culture</i><i>Quiz</i>
+            </div>
+            <div class="ts-main">
+              <div class="ts-search">Rechercher un cocktail…</div>
+              <div class="ts-grid">
+                <div class="tc"><svg class="glass" style="--liq:#b3261e"><use href="#g-rocks"/></svg><b>Negroni</b><small>Au verre</small></div>
+                <div class="tc"><svg class="glass" style="--liq:#e8dfa6"><use href="#g-coupe"/></svg><b>Daiquiri</b><small>Shaker</small></div>
+                <div class="tc"><svg class="glass" style="--liq:#c9892f"><use href="#g-rocks"/></svg><b>Old Fashioned</b><small>Au verre</small></div>
+                <div class="tc"><svg class="glass" style="--liq:#dfe3a0"><use href="#g-coupe"/></svg><b>Margarita</b><small>Shaker</small></div>
+                <div class="tc"><svg class="glass" style="--liq:#8e2a1c"><use href="#g-coupe"/></svg><b>Manhattan</b><small>Verre à mélange</small></div>
+                <div class="tc"><svg class="glass" style="--liq:#bfe0a8"><use href="#g-highball"/></svg><b>Mojito</b><small>Au verre</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone small">
+          <div class="phone-screen">
+            <div class="ps-top"><span>Quiz</span><span class="ps-dot"></span></div>
+            <div class="mini-quiz">
+              <p class="ps-kicker">Question 2 / 5</p>
+              <h4>Le Daiquiri est né…</h4>
+              <span>au Mexique</span><span class="ok">à Cuba</span><span>au Brésil</span><span>à Porto Rico</span>
+            </div>
+            <div class="ps-tabbar"><i></i><i></i><i></i><i class="on"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POUR QUI -->
+  <section class="section who">
+    <div class="wrap">
+      <p class="eyebrow reveal">Pour les pros, par passion du métier</p>
+      <h2 class="reveal">Derrière chaque bar, un usage.</h2>
+      <div class="who-grid">
+        <div class="who-card reveal" style="--d:0"><span>01</span><h3>Barmans &amp; barmaids</h3><p>Le bon dosage au bon moment, et une culture qui s'enrichit entre deux services.</p></div>
+        <div class="who-card reveal" style="--d:1"><span>02</span><h3>Chefs de bar</h3><p>Les fiches de la carte formalisées, pour une exécution identique d'un verre à l'autre.</p></div>
+        <div class="who-card reveal" style="--d:2"><span>03</span><h3>En formation</h3><p>Les classiques à réviser et des quiz pour vérifier que tout est acquis.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉLÉCHARGER -->
+  <section class="download" id="telecharger">
+    <div class="download-bg" aria-hidden="true"><span class="blob d1"></span><span class="blob d2"></span></div>
+    <div class="wrap download-inner">
+      <svg class="download-mark reveal"><use href="#logo-mark"/></svg>
+      <h2 class="reveal">Prêt à passer derrière le bar&nbsp;?</h2>
+      <p class="reveal">Knowtail arrive sur iOS et Android, pour téléphones et tablettes.</p>
+      <div class="stores reveal">
+        <a class="store" data-store="ios" href="#telecharger" aria-disabled="true">
+          <svg class="ic"><use href="#i-down"/></svg>
+          <span><small>Bientôt sur</small><b>l'App Store</b></span>
+        </a>
+        <a class="store" data-store="android" href="#telecharger" aria-disabled="true">
+          <svg class="ic"><use href="#i-down"/></svg>
+          <span><small>Bientôt sur</small><b>Google Play</b></span>
+        </a>
+      </div>
+      <p class="download-note reveal" id="dlnote">Les liens de téléchargement seront activés ici dès la sortie.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a href="#top" class="brand"><svg class="brand-mark"><use href="#logo-mark"/></svg><span>Knowtail</span></a>
+    <p>L'application des professionnels du bar.</p>
+    <p class="legal">© <span id="year"></span> Knowtail · L'abus d'alcool est dangereux pour la santé, à consommer avec modération.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
