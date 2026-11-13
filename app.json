@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Fiches Bar",
+    "slug": "fiches-bar",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#7A1F3D",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sharing",
+      "expo-font"
+    ],
+    "scheme": "fichesbar",
+    "backgroundColor": "#FBF8F6",
+    "experiments": {
+      "baseUrl": "/vide"
+    }
+  }
+}
