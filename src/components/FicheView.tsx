@@ -55,7 +55,7 @@ const PETILLANT = /champagne|prosecco|effervescent|gazeuse|ginger|soda|tonic|bi�
 function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
   const insets = useSafeAreaInsets();
   const perso = usePhoto(fiche.id);
-  const libre = PHOTOS[fiche.id];
+  const libre = undefined as { image: number } | undefined;
   // Par défaut on montre la photo ; un bouton permet de revenir au verre dessiné du socle.
   const [dessin, setDessin] = useState(false);
   const photo = dessin ? null : (perso ?? null);
@@ -91,7 +91,7 @@ function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
                 { scale: y.interpolate({ inputRange: [-200, 0], outputRange: [1.3, 1], extrapolateRight: 'clamp' }) },
               ],
             }}>
-            <Verre verre={fiche.verre} couleur={fiche.couleur} taille={170} anime riche bulles={petillant} garniture={fiche.garniture} trait="#F8E9ED" />
+            <Verre verre={fiche.verre} couleur={fiche.couleur} taille={170} anime riche bulles={petillant} garniture={fiche.garniture} decor={fiche.decor} trait="#F8E9ED" />
           </Animated.View>
         </>
       )}
@@ -139,7 +139,6 @@ export function FicheView({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated
   return (
     <>
       <Scene fiche={fiche} scrollY={scrollY} />
-      {PHOTOS[fiche.id] ? <CreditPhoto cle={fiche.id} mention="Le dressage peut différer de la fiche du socle." /> : null}
 
       <View style={{ gap: S.sm }}>
         <Text style={s.nom}>{fiche.nom}</Text>

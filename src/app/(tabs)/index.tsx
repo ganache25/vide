@@ -1,12 +1,11 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { ICONE_METHODE } from '../../components/FicheView';
 import { Verre } from '../../components/Illustrations';
 import { Card, Chips, Hero, Ligne, Liste, P, Page, Recherche, Tag } from '../../components/ui';
 import { COCKTAILS } from '../../data/cocktails';
-import { PHOTOS } from '../../data/photos';
 import { LIB_METHODE, type Methode } from '../../data/types';
 import { BASES, basesDe, type Base } from '../../lib/bases';
 import { useFavoris } from '../../lib/store';
@@ -95,13 +94,7 @@ export default function Socle() {
             <Ligne
               key={c.id}
               delai={Math.min(k, 8) * 35}
-              visuel={
-                PHOTOS[c.id] ? (
-                  <Image source={PHOTOS[c.id].image} style={s.vignette} resizeMode="cover" />
-                ) : (
-                  <Verre verre={c.verre} couleur={c.couleur} taille={30} />
-                )
-              }
+              visuel={<Verre verre={c.verre} couleur={c.couleur} decor={c.decor} taille={34} />}
               titre={c.nom}
               sousTitre={`${c.descripteurs} · ${LIB_METHODE[c.methode]} · ${c.verre}`}
               droite={<Tag>{c.tavOfficiel} %</Tag>}
@@ -141,6 +134,5 @@ const s = StyleSheet.create({
   stat: { flex: 1, backgroundColor: 'rgba(255,255,255,0.13)', borderRadius: 16, paddingVertical: 10, alignItems: 'center' },
   statN: { color: '#FFFFFF', fontSize: 20, fontWeight: '800' },
   statL: { color: '#F3D5DD', fontSize: 12 },
-  vignette: { width: 46, height: 46, borderRadius: 23 },
   compte: { color: C.muted, fontSize: 13, fontWeight: '500' },
 });

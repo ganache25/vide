@@ -161,90 +161,333 @@ const PAR_VERRE: Record<string, keyof typeof FORMES> = {
 
 let compteur = 0;
 
-const FRUITS: [RegExp, string][] = [
-  [/citron vert/, '#8DB33A'],
-  [/pamplemousse/, '#F28C7C'],
-  [/orange/, '#F09A2A'],
-  [/ananas/, '#F2C230'],
-  [/citron/, '#F1D43B'],
-];
+// ───────────── Garnitures ─────────────
+// Chaque garniture est un jeton (« demiTranche:orange », « cerise », « menthe »…). Les cocktails du
+// socle ont leur liste exacte (data/cocktails) ; pour une fiche personnelle, elle est déduite du texte.
 
-/** Garniture dessinée sur le bord du verre, déduite du texte de la fiche. */
-function Garniture({ texte, x, y, surface }: { texte: string; x: number; y: number; surface: number }) {
+const AGRUMES: Record<string, [string, string]> = {
+  citron: ['#E9C91F', '#FBEF9E'],
+  'citron-vert': ['#6E9E26', '#D3E89E'],
+  orange: ['#E87F12', '#FCC873'],
+  pamplemousse: ['#EFAE4A', '#F6A093'],
+};
+
+/** Déduit les garnitures à dessiner d'un texte libre (fiches personnelles). */
+export function decorDepuisTexte(texte: string): string[] {
   const t = texte.toLowerCase();
-  const fruit = FRUITS.find(([re]) => re.test(t))?.[1];
-  const elements: React.ReactNode[] = [];
-  if (/tranche|quartier|demi-fruit/.test(t) && (fruit || /passion/.test(t))) {
-    const c = fruit ?? '#7A3A6A';
-    elements.push(
-      <G key="tranche" transform={`rotate(-24 ${x} ${y})`}>
-        <Path d={`M${x - 11} ${y} A11 11 0 0 1 ${x + 11} ${y} Z`} fill={c} stroke={C.accentDeep} strokeWidth={1.4} />
-        <Path d={`M${x - 7} ${y} A7 7 0 0 1 ${x + 7} ${y} Z`} fill="#FFFFFF" opacity={0.45} />
-        <Line x1={x} y1={y} x2={x} y2={y - 10} stroke={C.accentDeep} strokeWidth={0.8} opacity={0.5} />
-      </G>,
+  const fruit = /citron vert/.test(t) ? 'citron-vert' : /pamplemousse/.test(t) ? 'pamplemousse' : /orange/.test(t) ? 'orange' : 'citron';
+  const d: string[] = [];
+  if (/sel|rim|givr/.test(t)) d.push('sel');
+  if (/mousse|blanc d/.test(t)) d.push('mousse');
+  if (/grains? de café/.test(t)) d.push('mousse', 'cafe');
+  if (/céleri/.test(t)) d.push('celeri');
+  if (/menthe/.test(t)) d.push('menthe');
+  if (/basilic/.test(t)) d.push('basilic');
+  if (/ananas/.test(t)) d.push('ananas');
+  if (/demi-tranche/.test(t)) d.push(`demiTranche:${fruit}`);
+  else if (/tranche|rondelle/.test(t)) d.push(`tranche:${fruit}`);
+  else if (/quartier/.test(t) && !/ananas/.test(t)) d.push(`quartier:${fruit}`);
+  if (/long zeste/.test(t)) d.push('longZeste');
+  else if (/zeste/.test(t)) d.push(`zeste:${fruit}`);
+  if (/cerise/.test(t)) d.push('cerise');
+  if (/olive/.test(t)) d.push('olive');
+  if (/gingembre/.test(t)) d.push('gingembre');
+  if (/passion/.test(t)) d.push('passion');
+  if (/mûre/.test(t)) d.push('mures');
+  if (/paille/.test(t)) d.push('paille');
+  return d;
+}
+
+const CONTOUR = { stroke: '#4A1020', strokeWidth: 1.1, strokeLinejoin: 'round', strokeLinecap: 'round' } as const;
+
+function Feuille({ x, y, r, grand }: { x: number; y: number; r: number; grand?: boolean }) {
+  const h = grand ? 15 : 13;
+  const l = grand ? 5.4 : 3.8;
+  return (
+    <G transform={`rotate(${r} ${x} ${y})`}>
+      <Path d={`M${x} ${y} C${x - l} ${y - h * 0.35} ${x - l} ${y - h * 0.8} ${x} ${y - h} C${x + l} ${y - h * 0.8} ${x + l} ${y - h * 0.35} ${x} ${y} Z`} fill={grand ? '#5FB04F' : '#4FA35A'} stroke="#2B6B37" strokeWidth={1} strokeLinejoin="round" />
+      <Line x1={x} y1={y - 1} x2={x} y2={y - h + 2} stroke="#2B6B37" strokeWidth={0.7} />
+    </G>
+  );
+}
+
+function Agrume({ type, forme, x, y, rot }: { type: string; forme: 'demi' | 'ronde' | 'quartier'; x: number; y: number; rot: number }) {
+  const [ecorce, pulpe] = AGRUMES[type] ?? AGRUMES.citron;
+  if (forme === 'quartier') {
+    return (
+      <G transform={`rotate(${rot} ${x} ${y})`}>
+        <Path d={`M${x - 11} ${y - 3} Q${x} ${y + 15} ${x + 11} ${y - 3} Q${x} ${y + 2} ${x - 11} ${y - 3} Z`} fill={pulpe} {...CONTOUR} />
+        <Path d={`M${x - 11} ${y - 3} Q${x} ${y + 15} ${x + 11} ${y - 3}`} fill="none" stroke={ecorce} strokeWidth={3} strokeLinecap="round" />
+      </G>
     );
   }
-  if (/zeste/.test(t)) {
-    elements.push(
-      <Path
-        key="zeste"
-        d={`M${x - 2} ${y - 2} q8 -10 2 -16 q-8 -4 -6 6 q3 8 12 2`}
-        fill="none"
-        stroke={fruit ?? '#F1D43B'}
-        strokeWidth={3.4}
-        strokeLinecap="round"
-      />,
-    );
-  }
-  if (/cerise/.test(t)) {
-    elements.push(
-      <G key="cerise">
-        <Path d={`M${x - 16} ${y + 4} q2 -14 10 -18`} fill="none" stroke="#5B3A1E" strokeWidth={1.4} strokeLinecap="round" />
-        <Circle cx={x - 16} cy={y + 6} r={5.5} fill="#A3122B" stroke={C.accentDeep} strokeWidth={1.2} />
-        <Circle cx={x - 18} cy={y + 4} r={1.4} fill="#FFFFFF" opacity={0.7} />
-      </G>,
-    );
-  }
-  if (/olive/.test(t)) {
-    elements.push(
-      <G key="olive">
-        <Line x1={x + 4} y1={y - 12} x2={x - 26} y2={y + 18} stroke="#8A6A3A" strokeWidth={1.6} strokeLinecap="round" />
-        <Ellipse cx={x - 16} cy={y + 8} rx={6} ry={4.6} fill="#7E9A3C" stroke={C.accentDeep} strokeWidth={1.1} transform={`rotate(-45 ${x - 16} ${y + 8})`} />
-      </G>,
-    );
-  }
-  if (/menthe|basilic|céleri/.test(t)) {
-    elements.push(
-      <G key="feuilles">
-        {[-28, 0, 26].map((r) => (
-          <Ellipse
-            key={r}
-            cx={x - 14}
-            cy={y - 12}
-            rx={4.4}
-            ry={9}
-            fill="#4E9A57"
-            stroke="#2F6B3A"
-            strokeWidth={1}
-            transform={`rotate(${r} ${x - 14} ${y - 2})`}
-          />
-        ))}
-      </G>,
-    );
-  }
-  if (/café/.test(t)) {
-    elements.push(
-      <G key="cafe">
-        {[42, 50, 58].map((cx, k) => (
-          <Ellipse key={cx} cx={cx} cy={surface + 3 + (k % 2)} rx={3} ry={2} fill="#3B2418" transform={`rotate(${k * 30 - 30} ${cx} ${surface + 3})`} />
-        ))}
-      </G>,
-    );
-  }
-  if (/gingembre/.test(t)) {
-    elements.push(<Ellipse key="gingembre" cx={x - 4} cy={y - 2} rx={7} ry={3} fill="#E8CF8E" stroke={C.accentDeep} strokeWidth={1} transform={`rotate(-30 ${x - 4} ${y - 2})`} />);
-  }
-  return <>{elements}</>;
+  const rayons = forme === 'ronde' ? [0, 45, 90, 135, 180, 225, 270, 315] : [200, 235, 270, 305, 340];
+  return (
+    <G transform={`rotate(${rot} ${x} ${y})`}>
+      {forme === 'ronde' ? (
+        <>
+          <Circle cx={x} cy={y} r={11.5} fill={ecorce} {...CONTOUR} />
+          <Circle cx={x} cy={y} r={9} fill={pulpe} />
+        </>
+      ) : (
+        <>
+          <Path d={`M${x - 12.5} ${y} A12.5 12.5 0 0 1 ${x + 12.5} ${y} Z`} fill={ecorce} {...CONTOUR} />
+          <Path d={`M${x - 9.8} ${y} A9.8 9.8 0 0 1 ${x + 9.8} ${y} Z`} fill={pulpe} />
+        </>
+      )}
+      {rayons.map((a) => (
+        <Line key={a} x1={x} y1={y} x2={x + 8.6 * Math.cos((a * Math.PI) / 180)} y2={y + 8.6 * Math.sin((a * Math.PI) / 180)} stroke={ecorce} strokeWidth={0.9} opacity={0.75} />
+      ))}
+      <Circle cx={x} cy={y} r={1.3} fill={ecorce} />
+    </G>
+  );
+}
+
+function Cerise({ x, y }: { x: number; y: number }) {
+  return (
+    <G>
+      <Path d={`M${x} ${y - 5} q3 -9 9 -12`} fill="none" stroke="#5B3A1E" strokeWidth={1.3} strokeLinecap="round" />
+      <Circle cx={x} cy={y} r={5.6} fill="#9E1030" {...CONTOUR} />
+      <Circle cx={x - 2} cy={y - 2} r={1.5} fill="#FFFFFF" opacity={0.75} />
+    </G>
+  );
+}
+
+/** Éléments dessinés à l'intérieur du verre (découpés par sa forme). */
+function DecorDedans({ decor, f }: { decor: string[]; f: Forme }) {
+  const h = f.bas - f.haut;
+  return (
+    <>
+      {decor.map((jeton, k) => {
+        switch (jeton) {
+          case 'mousse':
+            return <Rect key={k} x={0} y={f.haut - 3} width={100} height={8.5} fill="#FFF4DF" />;
+          case 'float':
+            return <Rect key={k} x={0} y={f.haut - 3} width={100} height={h * 0.24} fill="#3A1D0E" opacity={0.82} />;
+          case 'sunrise':
+            return (
+              <G key={k}>
+                <Rect x={0} y={f.bas - h * 0.42} width={100} height={h * 0.2} fill="#E0303A" opacity={0.35} />
+                <Rect x={0} y={f.bas - h * 0.26} width={100} height={h * 0.3} fill="#C8102E" opacity={0.85} />
+              </G>
+            );
+          case 'limeDedans':
+            return (
+              <G key={k}>
+                {[
+                  [40, f.bas - 12, 20],
+                  [58, f.bas - 20, -35],
+                  [47, f.bas - 30, 70],
+                ].map(([x, y, r]) => (
+                  <Path key={`${x}`} d={`M${x - 7} ${y} Q${x} ${y + 9} ${x + 7} ${y} Z`} fill="#A9CF5E" stroke="#5E8A22" strokeWidth={1.4} strokeLinejoin="round" transform={`rotate(${r} ${x} ${y})`} />
+                ))}
+              </G>
+            );
+          case 'feuillesDedans':
+            return (
+              <G key={k} opacity={0.9}>
+                {[
+                  [40, f.bas - 14, -30],
+                  [58, f.bas - 26, 40],
+                  [46, f.bas - 44, 15],
+                  [60, f.bas - 58, -50],
+                ].map(([x, y, r]) => (
+                  <Feuille key={`${y}`} x={x} y={y} r={r} />
+                ))}
+              </G>
+            );
+          case 'longZeste':
+            return (
+              <Path
+                key={k}
+                d={`M${f.bord[0] - 4} ${f.haut + 2} ${Array.from({ length: Math.floor((h - 14) / 14) }, (_, i) => `q${i % 2 ? 20 : -20} 7 0 14`).join(' ')}`}
+                fill="none"
+                stroke="#E9C91F"
+                strokeWidth={5}
+                strokeLinecap="round"
+              />
+            );
+          case 'cerise:fond':
+            return <Cerise key={k} x={50} y={f.bas - 9} />;
+          default:
+            return null;
+        }
+      })}
+    </>
+  );
+}
+
+/** Éléments posés sur le bord ou dépassant du verre. */
+function DecorDessus({ decor, f }: { decor: string[]; f: Forme }) {
+  const [rx, ry] = f.bord;
+  const lx = 100 - rx;
+  const h = f.bas - f.haut;
+  let cran = 0; // garnitures déjà posées sur le bord droit : les suivantes se décalent
+  const bordDroit = () => rx - 1 - 13 * cran++;
+  return (
+    <>
+      {decor.map((jeton, k) => {
+        const [nom, arg] = jeton.split(':');
+        switch (nom) {
+          case 'sel':
+            return (
+              <G key={k}>
+                <Line x1={lx - 1} y1={ry + 0.5} x2={rx + 1} y2={ry + 0.5} stroke="#CFC6C2" strokeWidth={5.4} strokeLinecap="round" />
+                <Line x1={lx - 1} y1={ry + 0.5} x2={rx + 1} y2={ry + 0.5} stroke="#FFFFFF" strokeWidth={4} strokeLinecap="round" strokeDasharray="1.2 2.6" />
+              </G>
+            );
+          case 'paille': {
+            const haut = arg === 'courte' ? ry - 12 : ry - 22;
+            return (
+              <G key={k}>
+                <Line x1={54} y1={f.bas - h * 0.25} x2={63} y2={haut} stroke="#4A1020" strokeWidth={5.2} strokeLinecap="round" />
+                <Line x1={54} y1={f.bas - h * 0.25} x2={63} y2={haut} stroke="#FFFFFF" strokeWidth={3.2} strokeLinecap="round" />
+                <Line x1={56.5} y1={(f.bas + haut) / 2} x2={63} y2={haut} stroke="#C2A06A" strokeWidth={3.2} strokeDasharray="3 4" />
+              </G>
+            );
+          }
+          case 'agitateur':
+            return (
+              <G key={k}>
+                <Line x1={45} y1={f.bas - h * 0.2} x2={39} y2={ry - 14} stroke="#C2A06A" strokeWidth={2.4} strokeLinecap="round" />
+                <Circle cx={39} cy={ry - 16} r={3.4} fill="#C2A06A" stroke="#7A5E2E" strokeWidth={1} />
+              </G>
+            );
+          case 'celeri':
+            return (
+              <G key={k}>
+                <Path d={`M41 ${f.bas - h * 0.2} L37 ${ry - 10}`} stroke="#3F7A33" strokeWidth={6.6} strokeLinecap="round" />
+                <Path d={`M41 ${f.bas - h * 0.2} L37 ${ry - 10}`} stroke="#8CC463" strokeWidth={4.6} strokeLinecap="round" />
+                <Feuille x={37} y={ry - 9} r={-28} />
+                <Feuille x={37} y={ry - 9} r={0} />
+                <Feuille x={37} y={ry - 9} r={28} />
+              </G>
+            );
+          case 'menthe':
+          case 'basilic': {
+            const x = 42;
+            const y = Math.min(ry + 6, f.haut + 4);
+            const grand = nom === 'basilic';
+            return (
+              <G key={k}>
+                <Line x1={x} y1={y + 10} x2={x} y2={y - 4} stroke="#2B6B37" strokeWidth={1.6} strokeLinecap="round" />
+                {(grand ? [-62, -22, 22, 62] : [-78, -40, 0, 40, 78]).map((r) => (
+                  <Feuille key={r} x={x} y={y} r={r} grand={grand} />
+                ))}
+              </G>
+            );
+          }
+          case 'demiTranche':
+            return arg && jeton.endsWith(':g') ? (
+              <Agrume key={k} type={arg} forme="demi" x={lx + 1} y={ry + 2} rot={24} />
+            ) : (
+              <Agrume key={k} type={arg ?? 'citron'} forme="demi" x={bordDroit()} y={ry + 2} rot={-24} />
+            );
+          case 'tranche':
+            return <Agrume key={k} type={arg ?? 'citron'} forme="ronde" x={bordDroit() + 1} y={ry - 2} rot={0} />;
+          case 'quartier':
+            return <Agrume key={k} type={arg ?? 'citron-vert'} forme="quartier" x={bordDroit()} y={ry - 2} rot={-35} />;
+          case 'zeste': {
+            const x = bordDroit();
+            const c = (AGRUMES[arg ?? 'citron'] ?? AGRUMES.citron)[0];
+            const d = `M${x - 5} ${ry + 7} C${x + 5} ${ry - 1} ${x + 11} ${ry - 9} ${x + 3} ${ry - 15} C${x - 4} ${ry - 20} ${x - 9} ${ry - 12} ${x - 2} ${ry - 8} C${x + 3} ${ry - 5} ${x + 8} ${ry - 10} ${x + 6} ${ry - 13}`;
+            return (
+              <G key={k}>
+                <Path d={d} fill="none" stroke="#4A1020" strokeWidth={5.4} strokeLinecap="round" />
+                <Path d={d} fill="none" stroke={c} strokeWidth={3.6} strokeLinecap="round" />
+              </G>
+            );
+          }
+          case 'longZeste': {
+            const d = `M${rx - 4} ${f.haut + 2} C${rx + 2} ${ry - 8} ${rx + 12} ${ry - 6} ${rx + 10} ${ry + 6} C${rx + 9} ${ry + 14} ${rx + 4} ${ry + 16} ${rx + 6} ${ry + 22}`;
+            return (
+              <G key={k}>
+                <Path d={d} fill="none" stroke="#4A1020" strokeWidth={6.6} strokeLinecap="round" />
+                <Path d={d} fill="none" stroke="#E9C91F" strokeWidth={4.8} strokeLinecap="round" />
+              </G>
+            );
+          }
+          case 'ananas': {
+            const x = bordDroit();
+            return (
+              <G key={k} transform={`rotate(-14 ${x} ${ry})`}>
+                <Path d={`M${x - 3} ${ry + 8} L${x + 3} ${ry - 16} L${x + 15} ${ry - 4} Z`} fill="#F5C93A" {...CONTOUR} />
+                <Path d={`M${x + 3} ${ry - 16} L${x + 15} ${ry - 4}`} stroke="#A9741C" strokeWidth={3} strokeLinecap="round" />
+                <Path d={`M${x + 2} ${ry - 4} l5 -3 M${x + 3} ${ry + 1} l6 -4`} stroke="#D9A21E" strokeWidth={0.9} />
+                <Feuille x={x + 11} y={ry - 11} r={30} />
+                <Feuille x={x + 11} y={ry - 11} r={62} />
+              </G>
+            );
+          }
+          case 'cerise':
+            if (arg === 'fond') return null;
+            return <Cerise key={k} x={bordDroit() - 2} y={ry - 5} />;
+          case 'olive': {
+            const oy = f.haut + h * 0.42;
+            return (
+              <G key={k}>
+                <Line x1={rx + 5} y1={ry - 10} x2={40} y2={f.haut + h * 0.62} stroke="#8A6A3A" strokeWidth={1.7} strokeLinecap="round" />
+                <Ellipse cx={51} cy={oy} rx={6.6} ry={5} fill="#7E9A3C" {...CONTOUR} transform={`rotate(-38 51 ${oy})`} />
+                <Circle cx={54.5} cy={oy - 2.6} r={1.7} fill="#C8102E" />
+              </G>
+            );
+          }
+          case 'gingembre': {
+            const x = bordDroit();
+            return (
+              <G key={k}>
+                <Line x1={x + 8} y1={ry - 12} x2={x - 14} y2={ry + 10} stroke="#8A6A3A" strokeWidth={1.6} strokeLinecap="round" />
+                <Ellipse cx={x - 2} cy={ry - 2} rx={9} ry={5} fill="#EBD59C" stroke="#A9884A" strokeWidth={1.2} transform={`rotate(-38 ${x - 2} ${ry - 2})`} />
+                <Path d={`M${x - 6} ${ry + 1} l8 -6 M${x - 3} ${ry + 2} l6 -5`} stroke="#C9AE6C" strokeWidth={0.8} />
+              </G>
+            );
+          }
+          case 'passion':
+            return (
+              <G key={k}>
+                <Ellipse cx={50} cy={f.haut + 1} rx={12.5} ry={6.6} fill="#55275A" {...CONTOUR} />
+                <Ellipse cx={50} cy={f.haut + 0.4} rx={10} ry={4.6} fill="#F4B932" />
+                {[44, 48, 52, 56, 50].map((x, i) => (
+                  <Circle key={i} cx={x} cy={f.haut + (i === 4 ? 2.6 : i % 2 ? -0.6 : 1)} r={1} fill="#2A1320" />
+                ))}
+              </G>
+            );
+          case 'mures':
+            return (
+              <G key={k}>
+                {[40, 51].map((x) => (
+                  <G key={x}>
+                    {[
+                      [0, 0],
+                      [3.4, -1],
+                      [1.6, -3.6],
+                      [-1.8, -3],
+                      [5, -4],
+                      [1.8, 2.6],
+                    ].map(([dx, dy], i) => (
+                      <Circle key={i} cx={x + dx} cy={f.haut - 2 + dy} r={2.3} fill="#3A1B45" stroke="#1E0C26" strokeWidth={0.6} />
+                    ))}
+                  </G>
+                ))}
+              </G>
+            );
+          case 'cafe':
+            return (
+              <G key={k}>
+                {[43, 50, 57].map((x, i) => (
+                  <G key={x} transform={`rotate(${i * 28 - 28} ${x} ${f.haut + 1})`}>
+                    <Ellipse cx={x} cy={f.haut + 1} rx={3.2} ry={2.1} fill="#3B2418" />
+                    <Line x1={x - 2.4} y1={f.haut + 1} x2={x + 2.4} y2={f.haut + 1} stroke="#8A6142" strokeWidth={0.6} />
+                  </G>
+                ))}
+              </G>
+            );
+          default:
+            return null;
+        }
+      })}
+    </>
+  );
 }
 
 const VAGUE = `M-100 0 ${Array.from({ length: 12 }, (_, k) => `q12.5 ${k % 2 ? 4.4 : -4.4} 25 0`).join(' ')} L200 14 L-100 14 Z`;
@@ -262,6 +505,7 @@ export function Verre({
   riche,
   bulles,
   garniture,
+  decor,
   trait = C.accentDeep,
   niveau,
 }: {
@@ -272,7 +516,10 @@ export function Verre({
   vide?: boolean;
   riche?: boolean;
   bulles?: boolean;
+  /** Texte de garniture (fiche personnelle) : les éléments à dessiner en sont déduits. */
   garniture?: string;
+  /** Garnitures exactes à dessiner (cocktails du socle). */
+  decor?: string[];
   /** Couleur du contour (clair sur fond sombre). */
   trait?: string;
   /** Niveau de remplissage piloté de l'extérieur, de 0 à 1. */
@@ -295,10 +542,11 @@ export function Verre({
       useNativeDriver: false,
     }).start();
   }, [anime, niveau, interne, verre, couleur]);
+  const elements = decor ?? (garniture ? decorDepuisTexte(garniture) : []);
   const hauteur = f.bas - f.haut;
   const surface = niv.interpolate({ inputRange: [0, 1], outputRange: [f.bas, f.haut] });
   return (
-    <Svg width={taille} height={taille * 1.2} viewBox="0 0 100 120">
+    <Svg width={taille} height={taille * 1.2} viewBox="-6 -14 112 134">
       <Defs>
         <ClipPath id={id}>
           <Path d={f.coupe} />
@@ -348,11 +596,12 @@ export function Verre({
                 );
               })
             : null}
+          {!vide && !niveau ? <DecorDedans decor={elements} f={f} /> : null}
           {riche ? <Rect x={34} y={0} width={5} height={120} fill="#FFFFFF" opacity={0.16} /> : null}
         </G>
       ) : null}
       <Path d={f.contour} {...TRAIT} stroke={trait} />
-      {riche && garniture ? <Garniture texte={garniture} x={f.bord[0]} y={f.bord[1]} surface={f.haut} /> : null}
+      {!vide && !niveau ? <DecorDessus decor={elements} f={f} /> : null}
     </Svg>
   );
 }

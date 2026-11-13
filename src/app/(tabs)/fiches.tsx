@@ -76,7 +76,7 @@ export default function MesFiches() {
                 <Ligne
                   key={f.id}
                   delai={Math.min(k, 8) * 35}
-                  visuel={<Verre verre={f.verre} couleur={f.couleur} taille={30} />}
+                  visuel={<Verre verre={f.verre} couleur={f.couleur} garniture={f.garniture} taille={34} />}
                   titre={f.nom || 'Sans nom'}
                   sousTitre={`${base ? `Revisite · ${base.nom} · ` : ''}${LIB_METHODE[f.methode]} · ${euro(c.coutMatiere)} HT`}
                   droite={<Tag>{Math.round(c.tav)} %</Tag>}

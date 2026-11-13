@@ -80,7 +80,7 @@ export default function Materiel() {
                     <Card key={v.nom}>
                       <View style={s.tete}>
                         <View style={s.visuel}>
-                          <Verre verre={v.nom} couleur={cocktails[0]?.couleur ?? C.accent} taille={56} />
+                          <Verre verre={v.nom} couleur={cocktails[0]?.couleur ?? C.accent} decor={cocktails[0]?.decor} taille={56} />
                         </View>
                         <View style={{ flex: 1, gap: 4, alignItems: 'flex-start' }}>
                           <Text style={s.nom}>{v.nom}</Text>

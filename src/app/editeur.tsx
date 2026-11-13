@@ -52,6 +52,8 @@ const copier = (f: Fiche, nom: string, baseId?: string): Fiche => ({
   variantes: [],
   nb: [],
   categorieOfficielle: undefined,
+  // La garniture dessinée suit désormais le texte saisi, et non plus la fiche du socle.
+  decor: undefined,
   tavOfficiel: undefined,
   baseId,
   updatedAt: undefined,
@@ -359,7 +361,7 @@ export default function Editeur() {
             { v: 'after', l: 'After dinner' },
           ]}
         />
-        <Titre droite={<Verre verre={fiche.verre} couleur={fiche.couleur} taille={34} />}>Teinte du cocktail</Titre>
+        <Titre droite={<Verre verre={fiche.verre} couleur={fiche.couleur} garniture={fiche.garniture} taille={40} />}>Teinte du cocktail</Titre>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: S.sm }}>
           {TEINTES_COCKTAIL.map((t) => (
             <Pressable

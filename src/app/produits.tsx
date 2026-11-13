@@ -3,15 +3,17 @@ import { useMemo, useState } from 'react';
 import { Image, View } from 'react-native';
 
 import { Bouteille } from '../components/Illustrations';
-import { Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../components/ui';
+import { Card, Chips, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../components/ui';
 import { ALCOOLS, ARTICLES, FAMILLES_ALCOOLS } from '../data/alcools';
 import { PHOTOS } from '../data/photos';
+import { NIVEAUX, choisirNiveauDetail, useNiveauDetail, type NiveauDetail } from '../lib/store';
 import { normaliser } from '../lib/texte';
 import { S } from '../theme';
 
 export default function CultureProduits() {
   const router = useRouter();
   const [q, setQ] = useState('');
+  const niveau = useNiveauDetail();
   const n = normaliser(q);
 
   const alcools = useMemo(
@@ -33,6 +35,14 @@ export default function CultureProduits() {
   return (
     <Page>
       <GrandTitre sousTitre="Histoire, élaboration, arômes et repères pour chaque famille de produits.">Culture produits</GrandTitre>
+      <Card>
+        <Titre>Niveau de détail des fiches</Titre>
+        <Chips<NiveauDetail> valeur={niveau} onChange={(n) => void choisirNiveauDetail(n)} options={NIVEAUX} />
+        <P muted>
+          Essentiel : repères, arômes et conseils de service. Standard : ajoute la frise, l’élaboration et les
+          catégories. Complet : ajoute l’histoire détaillée. Le choix est mémorisé.
+        </P>
+      </Card>
       <Recherche valeur={q} onChange={setQ} placeholder="Gin, bourbon, VSOP, reposado…" />
 
       {articles.length ? (

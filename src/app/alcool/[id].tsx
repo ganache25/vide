@@ -5,16 +5,20 @@ import { CreditPhoto } from '../../components/FicheView';
 import { Bulles, Degrade } from '../../components/fx';
 import { Bouteille } from '../../components/Illustrations';
 import { Flux, Frise } from '../../components/visuels';
-import { Card, Chip, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
+import { Card, Chip, Chips, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
 import { ALCOOL_PAR_ID } from '../../data/alcools';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
 import { PHOTOS } from '../../data/photos';
+import { NIVEAUX, choisirNiveauDetail, useNiveauDetail, type NiveauDetail } from '../../lib/store';
 import { C, DEGRADE_SCENE, S } from '../../theme';
 
 export default function FicheAlcool() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
   const a = ALCOOL_PAR_ID[id];
+  const niveau = useNiveauDetail();
+  const standard = niveau !== 'essentiel';
+  const complet = niveau === 'complet';
 
   if (!a) {
     return (
@@ -54,6 +58,17 @@ export default function FicheAlcool() {
         <GrandTitre sousTitre={a.accroche}>{a.nom}</GrandTitre>
       </View>
 
+      <View style={{ gap: S.sm }}>
+        <Chips<NiveauDetail> valeur={niveau} onChange={(n) => void choisirNiveauDetail(n)} options={NIVEAUX} />
+        <Text style={s.label}>
+          {niveau === 'essentiel'
+            ? 'L’essentiel pour le service : repères, arômes, à savoir.'
+            : niveau === 'standard'
+              ? 'Avec la frise, les étapes d’élaboration et les catégories.'
+              : 'Tout le contenu, histoire détaillée comprise.'}
+        </Text>
+      </View>
+
       {a.aromes?.length ? (
         <Card>
           <Titre>Arômes typiques</Titre>
@@ -75,32 +90,38 @@ export default function FicheAlcool() {
         ))}
       </Card>
 
-      {a.dates?.length ? (
+      {standard && a.dates?.length ? (
         <Card>
           <Titre>Frise</Titre>
           <Frise dates={a.dates} />
         </Card>
       ) : null}
 
-      <Card>
-        <Titre>Histoire</Titre>
-        {a.histoire.map((p) => (
-          <P key={p}>{p}</P>
-        ))}
-      </Card>
+      {complet ? (
+        <Card>
+          <Titre>Histoire</Titre>
+          {a.histoire.map((p) => (
+            <P key={p}>{p}</P>
+          ))}
+        </Card>
+      ) : null}
 
-      <Card>
-        <Titre>Élaboration</Titre>
-        {a.etapes?.length ? <Flux etapes={a.etapes} /> : null}
-        {a.elaboration.map((p) => (
-          <P key={p}>{p}</P>
-        ))}
-      </Card>
+      {standard ? (
+        <Card>
+          <Titre>Élaboration</Titre>
+          {a.etapes?.length ? <Flux etapes={a.etapes} /> : null}
+          {(complet ? a.elaboration : a.elaboration.slice(0, 1)).map((p) => (
+            <P key={p}>{p}</P>
+          ))}
+        </Card>
+      ) : null}
 
-      <Card>
-        <Titre>Catégories et mentions</Titre>
-        <Rubriques items={a.categories} />
-      </Card>
+      {standard ? (
+        <Card>
+          <Titre>Catégories et mentions</Titre>
+          <Rubriques items={a.categories} />
+        </Card>
+      ) : null}
 
       <Card>
         <Titre>À savoir</Titre>

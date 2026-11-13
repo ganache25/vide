@@ -130,3 +130,20 @@ export function appliquerMercuriale(ingredients: Ingredient[]): Ingredient[] {
     return { ...i, prix: s.prix ?? i.prix, tav: s.tav ?? i.tav };
   });
 }
+
+// ───────────── Niveau de détail de la culture produits ─────────────
+
+export type NiveauDetail = 'essentiel' | 'standard' | 'complet';
+
+export const NIVEAUX: { v: NiveauDetail; l: string }[] = [
+  { v: 'essentiel', l: 'Essentiel' },
+  { v: 'standard', l: 'Standard' },
+  { v: 'complet', l: 'Complet' },
+];
+
+const magasinNiveau = creerMagasin<NiveauDetail>('niveauDetail.v1', 'standard', (v) =>
+  ['essentiel', 'standard', 'complet'].includes(v as string),
+);
+
+export const useNiveauDetail = () => magasinNiveau.use().valeur;
+export const choisirNiveauDetail = (n: NiveauDetail) => magasinNiveau.ecrire(n);

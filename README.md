@@ -25,9 +25,12 @@ cocktails de référence et connaissance des alcools.
   remplit, vague, bulles, garniture, parallaxe), tutoriel animé de chaque méthode, schémas d'alambics
   animés, dégradés, barre d'onglets en verre dépoli, compteurs animés, retour haptique.
 - **Photos** : l'utilisateur peut attacher sa propre photo à chaque fiche (réduite et enregistrée sur
-  l'appareil, reprise dans le PDF). S'y ajoutent 49 photos d'illustration
-  de Wikimedia Commons sous licences libres (`assets/photos`, crédits dans `src/data/photos.ts` et sur
+  l'appareil, reprise dans le PDF). S'y ajoutent 16 photos d'illustration
+  des produits, de Wikimedia Commons sous licences libres (`assets/photos`, crédits dans `src/data/photos.ts` et sur
   l'écran « Crédits photo »).
+- **Garnitures** : chaque cocktail du socle est dessiné avec sa garniture exacte (liste dans
+  `src/data/cocktails.ts`, dessins dans `src/components/Illustrations.tsx`).
+- **Niveau de détail** : les fiches produits s'affichent en Essentiel, Standard ou Complet (choix mémorisé).
 - **Carte** : export PDF de la carte du bar à partir des fiches personnelles.
 
 Direction artistique : blancs chauds et bordeaux, titres en DM Serif Display, animations légères.

@@ -45,6 +45,8 @@ export type Fiche = {
   updatedAt?: number;
   /** Teinte du cocktail, utilisée pour l'illustration du verre. */
   couleur?: string;
+  /** Garnitures à dessiner sur le verre (cocktails du socle). */
+  decor?: string[];
 };
 
 export const LIB_METHODE: Record<Methode, string> = {
