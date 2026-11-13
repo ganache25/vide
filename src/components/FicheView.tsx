@@ -6,6 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LIB_CATEGORIE, LIB_GLACE, LIB_METHODE, LIB_TYPE, type Fiche, type Ingredient, type Methode } from '../data/types';
 import { allergenes } from '../lib/allergenes';
 import { calculer, categorieDe, euro, libelleQuantite, nombre } from '../lib/calc';
+import { PHOTOS } from '../data/photos';
 import { choisirPhoto, supprimerPhoto, usePhoto } from '../lib/photos';
 import { C, DEGRADE_SCENE, F, R, S } from '../theme';
 import { Bulles, Compteur, Degrade } from './fx';
@@ -37,19 +38,35 @@ function quantiteBatch(i: Ingredient, n: number): string {
   return libelleQuantite({ ...i, qte: Math.round(total * 10) / 10 });
 }
 
+/** Crédit obligatoire d'une photo sous licence libre. */
+export function CreditPhoto({ cle, mention }: { cle: string; mention?: string }) {
+  const ph = PHOTOS[cle];
+  if (!ph) return null;
+  return (
+    <Text style={s.credit}>
+      Photo d’illustration : {ph.auteur}, {ph.licence}, via Wikimedia Commons.{mention ? ` ${mention}` : ''}
+    </Text>
+  );
+}
+
 const PETILLANT = /champagne|prosecco|effervescent|gazeuse|ginger|soda|tonic|bière|cidre/i;
 
 /** Grande scène d'en-tête : la photo de l'utilisateur, ou le verre dessiné qui se remplit. */
 function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
   const insets = useSafeAreaInsets();
-  const photo = usePhoto(fiche.id);
+  const perso = usePhoto(fiche.id);
+  const libre = PHOTOS[fiche.id];
+  // Par défaut on montre la photo ; un bouton permet de revenir au verre dessiné du socle.
+  const [dessin, setDessin] = useState(false);
+  const photo = dessin ? null : (perso ?? null);
+  const image = photo ? { uri: photo } : !dessin && libre ? libre.image : null;
   const [erreur, setErreur] = useState('');
   const y = scrollY ?? new Animated.Value(0);
   const petillant = fiche.ingredients.some((i) => PETILLANT.test(i.nom));
   return (
     <View style={[s.scene, { paddingTop: insets.top + 46 }]}>
       <Degrade couleurs={DEGRADE_SCENE} style={StyleSheet.absoluteFill} />
-      {photo ? (
+      {image ? (
         <Animated.View
           style={[
             StyleSheet.absoluteFill,
@@ -60,7 +77,7 @@ function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
               ],
             },
           ]}>
-          <Image source={{ uri: photo }} style={StyleSheet.absoluteFill} resizeMode="cover" accessibilityLabel={`Photo du cocktail ${fiche.nom}`} />
+          <Image source={image} style={[StyleSheet.absoluteFill, { width: '100%', height: '100%' }]} resizeMode="cover" accessibilityLabel={`Photo du cocktail ${fiche.nom}`} />
         </Animated.View>
       ) : (
         <>
@@ -78,7 +95,17 @@ function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
           </Animated.View>
         </>
       )}
+      {image ? <Degrade couleurs={['rgba(0,0,0,0.38)', 'rgba(0,0,0,0)', 'rgba(0,0,0,0.30)']} style={StyleSheet.absoluteFill} /> : null}
       <View style={s.sceneActions}>
+        {perso || libre ? (
+          <Pressable
+            onPress={() => setDessin((d) => !d)}
+            accessibilityRole="button"
+            accessibilityLabel={dessin ? 'Afficher la photo' : 'Afficher le verre dessiné'}
+            style={s.sceneBouton}>
+            <Ionicons name={dessin ? 'image-outline' : 'wine-outline'} size={17} color="#FFFFFF" />
+          </Pressable>
+        ) : null}
         {photo ? (
           <Pressable
             onPress={() => void supprimerPhoto(fiche.id)}
@@ -91,10 +118,10 @@ function Scene({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated.Value }) {
         <Pressable
           onPress={async () => setErreur((await choisirPhoto(fiche.id)) ?? '')}
           accessibilityRole="button"
-          accessibilityLabel={photo ? 'Changer la photo' : 'Ajouter une photo'}
+          accessibilityLabel={perso ? 'Changer la photo' : 'Ajouter une photo'}
           style={s.sceneBouton}>
           <Ionicons name="camera-outline" size={18} color="#FFFFFF" />
-          <Text style={s.sceneBoutonTxt}>{photo ? 'Changer' : 'Ma photo'}</Text>
+          <Text style={s.sceneBoutonTxt}>{perso ? 'Changer' : 'Ma photo'}</Text>
         </Pressable>
       </View>
       {erreur ? <Text style={s.sceneErreur}>{erreur}</Text> : null}
@@ -112,6 +139,7 @@ export function FicheView({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated
   return (
     <>
       <Scene fiche={fiche} scrollY={scrollY} />
+      {PHOTOS[fiche.id] ? <CreditPhoto cle={fiche.id} mention="Le dressage peut différer de la fiche du socle." /> : null}
 
       <View style={{ gap: S.sm }}>
         <Text style={s.nom}>{fiche.nom}</Text>
@@ -296,6 +324,7 @@ const s = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.28)',
   },
+  credit: { color: C.muted, fontSize: 11, lineHeight: 15, marginTop: -S.sm },
   sceneBoutonTxt: { color: '#FFFFFF', fontSize: 13, fontWeight: '600' },
   sceneErreur: { position: 'absolute', left: S.lg, right: S.lg, top: 100, color: '#FFFFFF', backgroundColor: 'rgba(0,0,0,0.5)', padding: S.sm, borderRadius: 10, fontSize: 13, textAlign: 'center' },
   nom: { color: C.text, fontFamily: F.display, fontSize: 40, lineHeight: 46 },

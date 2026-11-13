@@ -43,6 +43,12 @@ export default function Outils() {
           sousTitre={fiches.length ? `${fiches.length} fiche${fiches.length > 1 ? 's' : ''} enregistrée${fiches.length > 1 ? 's' : ''}` : 'TAV, coût et prix calculés en direct'}
           onPress={() => router.push('/editeur')}
         />
+        <Ligne
+          icone="images"
+          titre="Crédits photo"
+          sousTitre="Auteurs et licences des photos d’illustration"
+          onPress={() => router.push('/credits')}
+        />
       </Liste>
 
       <Card>

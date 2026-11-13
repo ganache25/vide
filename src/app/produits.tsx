@@ -1,10 +1,11 @@
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 
 import { Bouteille } from '../components/Illustrations';
 import { Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Titre } from '../components/ui';
 import { ALCOOLS, ARTICLES, FAMILLES_ALCOOLS } from '../data/alcools';
+import { PHOTOS } from '../data/photos';
 import { normaliser } from '../lib/texte';
 import { S } from '../theme';
 
@@ -62,7 +63,13 @@ export default function CultureProduits() {
               {items.map((a) => (
                 <Ligne
                   key={a.id}
-                  visuel={<Bouteille couleur={a.couleur} taille={24} />}
+                  visuel={
+                    PHOTOS[`p-${a.id}`] ? (
+                      <Image source={PHOTOS[`p-${a.id}`].image} style={{ width: 46, height: 46, borderRadius: 23 }} resizeMode="cover" />
+                    ) : (
+                      <Bouteille couleur={a.couleur} taille={24} />
+                    )
+                  }
                   titre={a.nom}
                   sousTitre={a.accroche}
                   onPress={() => router.push(`/alcool/${a.id}`)}

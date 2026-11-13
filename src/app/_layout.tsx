@@ -38,6 +38,7 @@ export default function RootLayout() {
         <Stack.Screen name="produits" options={{ title: '' }} />
         <Stack.Screen name="culture-bar" options={{ title: '' }} />
         <Stack.Screen name="materiel" options={{ title: '' }} />
+        <Stack.Screen name="credits" options={{ title: '' }} />
         <Stack.Screen name="guide" options={{ title: '' }} />
         <Stack.Screen name="outils/quiz" options={{ title: 'Quiz du socle' }} />
         <Stack.Screen name="outils/calculs" options={{ title: 'Calculateurs' }} />

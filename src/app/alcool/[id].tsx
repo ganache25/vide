@@ -1,12 +1,14 @@
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
+import { CreditPhoto } from '../../components/FicheView';
 import { Bulles, Degrade } from '../../components/fx';
 import { Bouteille } from '../../components/Illustrations';
 import { Flux, Frise } from '../../components/visuels';
 import { Card, Chip, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
 import { ALCOOL_PAR_ID } from '../../data/alcools';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
+import { PHOTOS } from '../../data/photos';
 import { C, DEGRADE_SCENE, S } from '../../theme';
 
 export default function FicheAlcool() {
@@ -24,17 +26,29 @@ export default function FicheAlcool() {
     );
   }
 
+  const photo = PHOTOS[`p-${a.id}`];
+
   return (
     <Page>
       <Stack.Screen options={{ title: '', headerTransparent: true, headerStyle: { backgroundColor: 'transparent' }, headerTintColor: '#FFFFFF' }} />
       <View style={s.scene}>
         <Degrade couleurs={DEGRADE_SCENE} style={StyleSheet.absoluteFill} />
-        <Bulles nombre={7} />
-        <View style={s.halo} />
-        <View>
-          <Bouteille couleur={a.couleur} taille={96} />
-        </View>
+        {photo ? (
+          <>
+            <Image source={photo.image} style={[StyleSheet.absoluteFill, { width: '100%', height: '100%' }]} resizeMode="cover" accessibilityLabel={`Photo : ${a.nom}`} />
+            <Degrade couleurs={['rgba(0,0,0,0.38)', 'rgba(0,0,0,0)', 'rgba(0,0,0,0.25)']} style={StyleSheet.absoluteFill} />
+          </>
+        ) : (
+          <>
+            <Bulles nombre={7} />
+            <View style={s.halo} />
+            <View>
+              <Bouteille couleur={a.couleur} taille={96} />
+            </View>
+          </>
+        )}
       </View>
+      {photo ? <CreditPhoto cle={`p-${a.id}`} /> : null}
       <View style={{ gap: S.md, alignItems: 'flex-start' }}>
         <Tag>{a.famille}</Tag>
         <GrandTitre sousTitre={a.accroche}>{a.nom}</GrandTitre>
