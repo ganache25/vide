@@ -1,4 +1,4 @@
-# Fiches Bar
+# Knowtail
 
 Application mobile (Expo / React Native) pour les professionnels du bar : fiches techniques rapides,
 cocktails de référence et connaissance des alcools.
@@ -14,8 +14,9 @@ cocktails de référence et connaissance des alcools.
   Contenance, catégorie, TAV, grammes d'alcool pur, coût matière et prix de vente sont calculés en direct.
   Les fiches sont enregistrées sur l'appareil.
 - **Culture** (onglet) :
-  - *Culture produits* : 22 fiches (spiritueux, liqueurs, vins, bières, saké, agrumes, sucres, café) avec
-    frise de dates, étapes d'élaboration, arômes, service, plus neuf articles et des schémas d'alambics.
+  - *Culture produits* : 27 fiches (spiritueux, mezcal, genièvre et aquavit, liqueurs, vins, bières, saké,
+    agrumes, sucres, café, herbes et épices, œuf, sans alcool) avec frise, élaboration, arômes, dégustation,
+    régions, lecture d'étiquette, conservation, idées reçues et classiques associés ; neuf articles.
   - *Culture bar* : frise du cocktail, grandes époques, figures, bars mythiques, livres, brigade, service.
   - *Matériel de bar* : 21 outils et 20 verres illustrés, usage et conseils.
   - *Guide du socle* : bonnes pratiques, familles, méthodes, calcul du TAV, lexique.

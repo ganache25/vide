@@ -145,7 +145,20 @@ const AVEC_DATES = ALCOOLS.filter((a) => (a.dates?.length ?? 0) > 0);
 const TOUTES_DATES = AVEC_DATES.flatMap((a) => a.dates!.map((d) => d[0]));
 
 function questionProduits(): Question {
-  const sorte = hasard(5);
+  const sorte = hasard(6);
+  if (sorte === 5) {
+    const avec = ALCOOLS.filter((x) => (x.etiquette?.length ?? 0) >= 2);
+    const a = avec[hasard(avec.length)];
+    const e = a.etiquette![hasard(a.etiquette!.length)];
+    return {
+      theme: 'produits',
+      enonce: `Sur une étiquette (${a.nom}), que signifie « ${e.titre} » ?`,
+      bonne: e.texte,
+      choix: choix(e.texte, a.etiquette!.map((x) => x.texte), 3),
+      sujet: a.nom,
+      lien: `/alcool/${a.id}`,
+    };
+  }
   if (sorte === 0) {
     const a = AVEC_MATIERE[hasard(AVEC_MATIERE.length)];
     const bonne = a.reperes.find((r) => r[0] === 'Matière première')![1];

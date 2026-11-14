@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Fiches Bar",
-    "slug": "fiches-bar",
+    "name": "Knowtail",
+    "slug": "knowtail",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,7 +28,7 @@
       "expo-sharing",
       "expo-font"
     ],
-    "scheme": "fichesbar",
+    "scheme": "knowtail",
     "backgroundColor": "#FBF8F6",
     "experiments": {
       "baseUrl": "/vide"

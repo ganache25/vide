@@ -3,7 +3,9 @@
 // réglementation européenne sur les boissons spiritueuses (règlement UE 2019/787) ou des cahiers
 // des charges des appellations concernées.
 
+import { NOUVEAUX_2 } from './alcoolsNouveaux';
 import { NOUVEAUX, PLUS, type Plus } from './alcoolsPlus';
+import { SAVOIR, type Savoir } from './alcoolsSavoir';
 import type { Rubrique } from './guide';
 
 export type Alcool = {
@@ -18,7 +20,8 @@ export type Alcool = {
   aSavoir: string[];
   /** Identifiants des cocktails du socle qui l'utilisent. */
   cocktails: string[];
-} & Partial<Plus>;
+} & Partial<Plus> &
+  Savoir;
 
 export type Article = {
   id: string;
@@ -707,7 +710,7 @@ const BASE: Alcool[] = [
   },
 ];
 
-export const ALCOOLS: Alcool[] = [...BASE.map((a) => ({ ...a, ...PLUS[a.id] })), ...NOUVEAUX];
+export const ALCOOLS: Alcool[] = [...BASE, ...NOUVEAUX, ...NOUVEAUX_2].map((a) => ({ ...a, ...PLUS[a.id], ...SAVOIR[a.id] }));
 
 export const ALCOOL_PAR_ID: Record<string, Alcool> = Object.fromEntries(ALCOOLS.map((a) => [a.id, a]));
 

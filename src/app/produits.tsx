@@ -39,8 +39,9 @@ export default function CultureProduits() {
         <Titre>Niveau de détail des fiches</Titre>
         <Chips<NiveauDetail> valeur={niveau} onChange={(n) => void choisirNiveauDetail(n)} options={NIVEAUX} />
         <P muted>
-          Essentiel : repères, arômes et conseils de service. Standard : ajoute la frise, l’élaboration et les
-          catégories. Complet : ajoute l’histoire détaillée. Le choix est mémorisé.
+          Essentiel : repères, arômes et service. Standard : ajoute dégustation, frise, élaboration, catégories et
+          conservation. Complet : ajoute histoire, régions, lecture d’étiquette, idées reçues et autres classiques. Le
+          choix est mémorisé.
         </P>
       </Card>
       <Recherche valeur={q} onChange={setQ} placeholder="Gin, bourbon, VSOP, reposado…" />

@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
@@ -64,8 +65,8 @@ export default function FicheAlcool() {
           {niveau === 'essentiel'
             ? 'L’essentiel pour le service : repères, arômes, à savoir.'
             : niveau === 'standard'
-              ? 'Avec la frise, les étapes d’élaboration et les catégories.'
-              : 'Tout le contenu, histoire détaillée comprise.'}
+              ? 'Avec la dégustation, la frise, l’élaboration, les catégories et la conservation.'
+              : 'Tout : histoire, régions, lecture d’étiquette, idées reçues, autres classiques.'}
         </Text>
       </View>
 
@@ -89,6 +90,29 @@ export default function FicheAlcool() {
           </View>
         ))}
       </Card>
+
+      {standard && a.degustation ? (
+        <Card>
+          <Titre>Dégustation</Titre>
+          {(
+            [
+              ['eye', 'L’œil', a.degustation.oeil],
+              ['flower', 'Le nez', a.degustation.nez],
+              ['restaurant', 'La bouche', a.degustation.bouche],
+            ] as const
+          ).map(([icone, titre, texte]) => (
+            <View key={titre} style={s.sens}>
+              <View style={s.sensIcone}>
+                <Ionicons name={icone} size={17} color={C.accent} />
+              </View>
+              <View style={{ flex: 1, gap: 2 }}>
+                <Text style={s.sensTitre}>{titre}</Text>
+                <Text style={s.valeur}>{texte}</Text>
+              </View>
+            </View>
+          ))}
+        </Card>
+      ) : null}
 
       {standard && a.dates?.length ? (
         <Card>
@@ -133,6 +157,48 @@ export default function FicheAlcool() {
         ))}
       </Card>
 
+      {complet && a.regions?.length ? (
+        <Card>
+          <Titre>Régions et terroirs</Titre>
+          <Rubriques items={a.regions} />
+        </Card>
+      ) : null}
+
+      {complet && a.etiquette?.length ? (
+        <Card>
+          <Titre>Lire l’étiquette</Titre>
+          <Rubriques items={a.etiquette} />
+        </Card>
+      ) : null}
+
+      {complet && a.ideesRecues?.length ? (
+        <Card>
+          <Titre>Idées reçues</Titre>
+          <Rubriques items={a.ideesRecues} />
+        </Card>
+      ) : null}
+
+      {standard && a.conservation ? (
+        <Card>
+          <Titre>Conservation</Titre>
+          <P>{a.conservation}</P>
+        </Card>
+      ) : null}
+
+      {complet && a.classiques?.length ? (
+        <Card>
+          <Titre>Autres classiques à connaître</Titre>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: S.sm }}>
+            {a.classiques.map((x) => (
+              <Tag key={x} ton="neutre">
+                {x}
+              </Tag>
+            ))}
+          </View>
+          <P muted>Cocktails hors socle, cités pour la culture : leurs recettes ne figurent pas dans l’application.</P>
+        </Card>
+      ) : null}
+
       {a.service ? (
         <Card style={{ backgroundColor: C.accentDark, boxShadow: 'none' }}>
           <Titre>Service et usage au bar</Titre>
@@ -157,6 +223,9 @@ export default function FicheAlcool() {
 }
 
 const s = StyleSheet.create({
+  sens: { flexDirection: 'row', gap: S.md, alignItems: 'flex-start' },
+  sensIcone: { width: 34, height: 34, borderRadius: 17, backgroundColor: C.accentDark, alignItems: 'center', justifyContent: 'center' },
+  sensTitre: { color: C.accent, fontSize: 14, fontWeight: '700' },
   scene: {
     height: 290,
     marginHorizontal: -(S.lg + 2),

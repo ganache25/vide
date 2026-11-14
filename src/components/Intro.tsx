@@ -46,7 +46,7 @@ export function Intro() {
           opacity: texte,
           transform: [{ translateY: texte.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) }],
         }}>
-        <Text style={s.nom}>Fiches Bar</Text>
+        <Text style={s.nom}>Knowtail</Text>
         <View style={s.filet} />
         <Text style={s.devise}>L’atelier du barman</Text>
       </Animated.View>
