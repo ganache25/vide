@@ -29,6 +29,9 @@ cocktails de référence et connaissance des alcools.
   l'appareil, reprise dans le PDF). S'y ajoutent 16 photos d'illustration
   des produits, de Wikimedia Commons sous licences libres (`assets/photos`, crédits dans `src/data/photos.ts` et sur
   l'écran « Crédits photo »).
+- **Cartes des maisons** : pour 21 produits, une carte dessinée (contours Natural Earth, domaine public,
+  `src/data/monde.json`) situe plus de 200 distilleries, chais et brasseries avec leur histoire
+  (`src/data/maisons.ts`), plus une liste de marques de référence.
 - **Garnitures** : chaque cocktail du socle est dessiné avec sa garniture exacte (liste dans
   `src/data/cocktails.ts`, dessins dans `src/components/Illustrations.tsx`).
 - **Niveau de détail** : les fiches produits s'affichent en Essentiel, Standard ou Complet (choix mémorisé).

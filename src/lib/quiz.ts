@@ -2,6 +2,7 @@ import { ALCOOLS } from '../data/alcools';
 import { COCKTAILS } from '../data/cocktails';
 import { BARS, FIGURES, LIVRES } from '../data/cultureBar';
 import { FAMILLES, LEXIQUE } from '../data/guide';
+import { MAISONS } from '../data/maisons';
 import { OUTILS, VERRERIE_DETAIL } from '../data/materiel';
 import { LIB_CATEGORIE, LIB_METHODE, LIB_TYPE, VERRES, type Fiche } from '../data/types';
 
@@ -145,7 +146,31 @@ const AVEC_DATES = ALCOOLS.filter((a) => (a.dates?.length ?? 0) > 0);
 const TOUTES_DATES = AVEC_DATES.flatMap((a) => a.dates!.map((d) => d[0]));
 
 function questionProduits(): Question {
-  const sorte = hasard(6);
+  const sorte = hasard(8);
+  if (sorte >= 6) {
+    const ids = Object.keys(MAISONS).filter((id) => MAISONS[id].length >= 4);
+    const id = ids[hasard(ids.length)];
+    const produit = ALCOOLS.find((x) => x.id === id)!;
+    const maison = MAISONS[id][hasard(MAISONS[id].length)];
+    if (sorte === 6) {
+      return {
+        theme: 'produits',
+        enonce: `Où se trouve ${maison.nom} (${produit.nom}) ?`,
+        bonne: maison.lieu,
+        choix: choix(maison.lieu, MAISONS[id].map((x) => x.lieu)),
+        sujet: `${maison.nom} · ${produit.nom}`,
+        lien: `/alcool/${id}`,
+      };
+    }
+    return {
+      theme: 'produits',
+      enonce: `${produit.nom} : quelle maison correspond à cette description ? ${maison.texte}`,
+      bonne: maison.nom,
+      choix: choix(maison.nom, MAISONS[id].map((x) => x.nom)),
+      sujet: `${maison.nom} · ${produit.nom}`,
+      lien: `/alcool/${id}`,
+    };
+  }
   if (sorte === 5) {
     const avec = ALCOOLS.filter((x) => (x.etiquette?.length ?? 0) >= 2);
     const a = avec[hasard(avec.length)];

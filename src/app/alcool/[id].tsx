@@ -3,12 +3,14 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import { CreditPhoto } from '../../components/FicheView';
+import { CarteMaisons } from '../../components/CarteMaisons';
 import { Bulles, Degrade } from '../../components/fx';
 import { Bouteille } from '../../components/Illustrations';
 import { Flux, Frise } from '../../components/visuels';
 import { Card, Chip, Chips, GrandTitre, P, Page, Rubriques, Tag, Titre } from '../../components/ui';
 import { ALCOOL_PAR_ID } from '../../data/alcools';
 import { COCKTAIL_PAR_ID } from '../../data/cocktails';
+import { MAISONS, MARQUES } from '../../data/maisons';
 import { PHOTOS } from '../../data/photos';
 import { NIVEAUX, choisirNiveauDetail, useNiveauDetail, type NiveauDetail } from '../../lib/store';
 import { C, DEGRADE_SCENE, S } from '../../theme';
@@ -90,6 +92,36 @@ export default function FicheAlcool() {
           </View>
         ))}
       </Card>
+
+      {MAISONS[a.id] ? (
+        <Card>
+          <Titre droite={<Tag>{MAISONS[a.id].length} lieux</Tag>}>Carte des maisons</Titre>
+          {standard ? (
+            <CarteMaisons maisons={MAISONS[a.id]} />
+          ) : (
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: S.sm }}>
+              {MAISONS[a.id].map((x) => (
+                <Tag key={x.nom}>{x.nom}</Tag>
+              ))}
+            </View>
+          )}
+          {MARQUES[a.id]?.length ? (
+            <>
+              <Text style={s.sensTitre}>Autres marques de référence</Text>
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: S.sm }}>
+                {MARQUES[a.id].map((x) => (
+                  <Tag key={x} ton="neutre">
+                    {x}
+                  </Tag>
+                ))}
+              </View>
+            </>
+          ) : null}
+          <P muted>
+            Sélection de maisons de référence, non exhaustive ; emplacements approximatifs. {standard ? 'Touchez un repère pour lire son histoire.' : 'Passez en niveau Standard pour afficher la carte.'}
+          </P>
+        </Card>
+      ) : null}
 
       {standard && a.degustation ? (
         <Card>
