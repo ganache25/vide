@@ -5,7 +5,7 @@ import { Animated, Pressable, View } from 'react-native';
 
 import { FicheView } from '../../components/FicheView';
 import { Bouton, Card, P, Page } from '../../components/ui';
-import { COCKTAIL_PAR_ID } from '../../data/cocktails';
+import { FICHE_PAR_ID } from '../../data/tousCocktails';
 import { exporterFiche } from '../../lib/pdf';
 import { basculerFavori, useFavoris } from '../../lib/store';
 import { S } from '../../theme';
@@ -15,13 +15,13 @@ export default function CocktailSocle() {
   const router = useRouter();
   const favoris = useFavoris();
   const scrollY = useRef(new Animated.Value(0)).current;
-  const fiche = COCKTAIL_PAR_ID[id];
+  const fiche = FICHE_PAR_ID[id];
 
   if (!fiche) {
     return (
       <Page>
         <Card>
-          <P>Ce cocktail ne fait pas partie du socle.</P>
+          <P>Ce cocktail est introuvable.</P>
         </Card>
       </Page>
     );

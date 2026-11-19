@@ -452,6 +452,33 @@ function DecorDessus({ decor, f }: { decor: string[]; f: Forme }) {
                 ))}
               </G>
             );
+          case 'framboises':
+            return (
+              <G key={k}>
+                {[41, 52].map((x) => (
+                  <G key={x}>
+                    {[
+                      [0, 0],
+                      [3, -1.4],
+                      [1.4, -3.6],
+                      [-1.8, -2.6],
+                      [1.6, 2.2],
+                    ].map(([dx, dy], i) => (
+                      <Circle key={i} cx={x + dx} cy={f.haut - 2 + dy} r={2.4} fill="#D2304E" stroke="#8A1430" strokeWidth={0.6} />
+                    ))}
+                  </G>
+                ))}
+              </G>
+            );
+          case 'piment': {
+            const x = bordDroit();
+            return (
+              <G key={k} transform={`rotate(28 ${x} ${ry})`}>
+                <Path d={`M${x - 3} ${ry - 12} C${x + 6} ${ry - 10} ${x + 6} ${ry + 6} ${x - 1} ${ry + 14} C${x - 4} ${ry + 6} ${x - 7} ${ry - 4} ${x - 3} ${ry - 12} Z`} fill="#D3222E" {...CONTOUR} />
+                <Path d={`M${x - 3} ${ry - 12} l1 -5`} stroke="#3F7A33" strokeWidth={2.2} strokeLinecap="round" />
+              </G>
+            );
+          }
           case 'mures':
             return (
               <G key={k}>

@@ -144,6 +144,8 @@ export function FicheView({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated
         <Text style={s.nom}>{fiche.nom}</Text>
         {fiche.descripteurs ? <Text style={s.desc}>{fiche.descripteurs}</Text> : null}
         <View style={s.tags}>
+          {fiche.source === 'socle' ? <Tag>Socle</Tag> : null}
+          {fiche.categorieIBA ? <Tag>IBA · {fiche.categorieIBA}</Tag> : null}
           <Tag>{LIB_CATEGORIE[categorieDe(fiche)]}</Tag>
           <Tag>{LIB_TYPE[fiche.type]}</Tag>
           <Tag>{LIB_METHODE[fiche.methode]}</Tag>
@@ -290,7 +292,9 @@ export function FicheView({ fiche, scrollY }: { fiche: Fiche; scrollY?: Animated
           <Meta label={`Prix TTC (ratio ${nombre(fiche.ratio)} %)`} valeur={euro(c.prixTTC)} />
         </View>
         <P muted>
-          {fiche.source === 'socle'
+          {fiche.source === 'iba'
+            ? 'TAV et coûts calculés avec la mercuriale indicative de l’application (décoration comptée à 10 % du coût matière).'
+            : fiche.source === 'socle'
             ? 'TAV calculé et coûts indicatifs établis avec la mercuriale du socle (décoration comptée à 10 % du coût matière) ; le TAV publié peut s’en écarter selon les produits retenus.'
             : `Décoration comptée à 10 % du coût matière. Prix de vente HT ${euro(c.prixHT)}, TVA ${c.tva} %.`}
         </P>

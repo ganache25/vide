@@ -4,7 +4,7 @@ import { Animated, View } from 'react-native';
 
 import { FicheView } from '../../components/FicheView';
 import { Bouton, Card, P, Page, confirmer } from '../../components/ui';
-import { COCKTAIL_PAR_ID } from '../../data/cocktails';
+import { FICHE_PAR_ID } from '../../data/tousCocktails';
 import { exporterFiche } from '../../lib/pdf';
 import { supprimerPhoto } from '../../lib/photos';
 import { supprimerFiche, useFiches } from '../../lib/store';
@@ -29,7 +29,7 @@ export default function MaFiche() {
     );
   }
 
-  const base = fiche.baseId ? COCKTAIL_PAR_ID[fiche.baseId] : undefined;
+  const base = fiche.baseId ? FICHE_PAR_ID[fiche.baseId] : undefined;
 
   return (
     <Page
@@ -47,7 +47,7 @@ export default function MaFiche() {
       }>
       <Stack.Screen options={{ title: '', headerTransparent: true, headerStyle: { backgroundColor: 'transparent' }, headerTintColor: '#FFFFFF' }} />
       <FicheView fiche={fiche} scrollY={scrollY} />
-      {base ? <P muted>Revisite du cocktail de référence {base.nom}.</P> : null}
+      {base ? <P muted>Revisite du {base.source === 'socle' ? 'cocktail de référence' : 'classique IBA'} {base.nom}.</P> : null}
       <View style={{ flexDirection: 'row', gap: S.sm }}>
         <Bouton
           label="Dupliquer"

@@ -21,7 +21,7 @@ export type Variante = { nom: string; texte: string };
 
 export type Fiche = {
   id: string;
-  source: 'socle' | 'perso';
+  source: 'socle' | 'iba' | 'perso';
   nom: string;
   descripteurs: string;
   historique: string;
@@ -43,6 +43,8 @@ export type Fiche = {
   /** Cocktail du socle dont la fiche est une revisite. */
   baseId?: string;
   updatedAt?: number;
+  /** Catégorie IBA (classiques hors socle). */
+  categorieIBA?: string;
   /** Teinte du cocktail, utilisée pour l'illustration du verre. */
   couleur?: string;
   /** Garnitures à dessiner sur le verre (cocktails du socle). */

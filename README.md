@@ -9,6 +9,9 @@ cocktails de référence et connaissance des alcools.
   classiques, version finale 12-2024, édition 2025, qui remplace le carnet de cocktails contemporains de
   l'APEB) — recette en ml, historique, méthode, verre, garniture, technique, variantes, TAV. Recherche,
   filtres par catégorie, base et méthode, favoris.
+- **Hors socle** : 68 cocktails officiels de l'IBA (International Bartenders Association) absents du socle,
+  classés Inoubliables, Classiques contemporains et Nouvelle ère (`src/data/cocktailsHorsSocle.ts`). Recettes
+  reprises de la liste publiée sur iba-world.com ; historiques rédigés pour l'application.
 - **Fiche** : quantités pour N verres (batch), allergènes repérés d'après les ingrédients, coûts, export PDF.
 - **Mes fiches** : création de fiches techniques, de zéro ou en « revisite » d'un cocktail du socle.
   Contenance, catégorie, TAV, grammes d'alcool pur, coût matière et prix de vente sont calculés en direct.

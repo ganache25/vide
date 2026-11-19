@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Verre } from '../../components/Illustrations';
 import { Compteur } from '../../components/fx';
 import { Bouton, Card, GrandTitre, Ligne, Liste, P, Page, Recherche, Tag, Titre } from '../../components/ui';
-import { COCKTAIL_PAR_ID } from '../../data/cocktails';
+import { FICHE_PAR_ID } from '../../data/tousCocktails';
 import { LIB_METHODE } from '../../data/types';
 import { calculer, euro } from '../../lib/calc';
 import { exporterCarte } from '../../lib/pdf';
@@ -42,7 +42,7 @@ export default function MesFiches() {
         <Card>
           <Titre>Aucune fiche pour l’instant</Titre>
           <P>
-            Créez une fiche de zéro, ou ouvrez un cocktail du socle et touchez « Créer une revisite » : la recette,
+            Créez une fiche de zéro, ou ouvrez un cocktail du socle ou un classique et touchez « Créer une revisite » : la recette,
             la technique et les coûts sont repris, il ne reste qu’à adapter.
           </P>
           <P muted>
@@ -71,7 +71,7 @@ export default function MesFiches() {
           <Liste>
             {liste.map((f, k) => {
               const c = calculer(f.ingredients, f.ratio);
-              const base = f.baseId ? COCKTAIL_PAR_ID[f.baseId] : undefined;
+              const base = f.baseId ? FICHE_PAR_ID[f.baseId] : undefined;
               return (
                 <Ligne
                   key={f.id}

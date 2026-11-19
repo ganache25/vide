@@ -1,16 +1,19 @@
 import { ALCOOLS } from '../data/alcools';
 import { COCKTAILS } from '../data/cocktails';
+import { COCKTAILS_HS } from '../data/cocktailsHorsSocle';
 import { BARS, FIGURES, LIVRES } from '../data/cultureBar';
 import { FAMILLES, LEXIQUE } from '../data/guide';
 import { MAISONS } from '../data/maisons';
 import { OUTILS, VERRERIE_DETAIL } from '../data/materiel';
+import { categorieDe } from './calc';
 import { LIB_CATEGORIE, LIB_METHODE, LIB_TYPE, VERRES, type Fiche } from '../data/types';
 
-export type Theme = 'tout' | 'socle' | 'produits' | 'materiel' | 'culture' | 'lexique';
+export type Theme = 'tout' | 'socle' | 'iba' | 'produits' | 'materiel' | 'culture' | 'lexique';
 
 export const THEMES: { v: Theme; l: string }[] = [
   { v: 'tout', l: 'Tout' },
   { v: 'socle', l: 'Socle' },
+  { v: 'iba', l: 'Classiques IBA' },
   { v: 'produits', l: 'Produits' },
   { v: 'materiel', l: 'Matériel' },
   { v: 'culture', l: 'Culture bar' },
@@ -50,18 +53,19 @@ const min = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 
 type Gen<T> = (x: T) => Omit<Question, 'theme' | 'sujet' | 'lien'> | null;
 
-const GEN_SOCLE: Gen<Fiche>[] = [
-  (c) => ({
+// Chaque générateur reçoit le cocktail et la liste où piocher les leurres (socle ou classiques IBA).
+const GEN_SOCLE: ((c: Fiche, pool: Fiche[]) => ReturnType<Gen<Fiche>>)[] = [
+  (c, pool) => ({
     enonce: `Quelle est la méthode de réalisation du ${c.nom} ?`,
     bonne: LIB_METHODE[c.methode],
     choix: melanger(Object.values(LIB_METHODE)),
   }),
-  (c) => ({
+  (c, pool) => ({
     enonce: `Dans quel verre sert-on le ${c.nom} ?`,
     bonne: c.verre,
     choix: choix(c.verre, VERRES.slice(0, 10)),
   }),
-  (c) => {
+  (c, pool) => {
     const principal = [...c.ingredients]
       .filter((i) => i.unite === 'ml' && i.qte != null && i.tav >= 15)
       .sort((a, b) => (b.qte ?? 0) - (a.qte ?? 0))[0];
@@ -74,39 +78,39 @@ const GEN_SOCLE: Gen<Fiche>[] = [
       choix: choix(`${q} ml`, leurres),
     };
   },
-  (c) => ({
+  (c, pool) => ({
     enonce: `Quel cocktail du socle se compose de : ${c.ingredients.map((i) => min(i.nom)).join(', ')} ?`,
     bonne: c.nom,
     choix: choix(
       c.nom,
-      COCKTAILS.filter((x) => x.categorieOfficielle === c.categorieOfficielle).map((x) => x.nom),
+      pool.filter((x) => categorieDe(x) === categorieDe(c)).map((x) => x.nom),
     ),
   }),
-  (c) =>
+  (c, pool) =>
     c.garniture
       ? {
           enonce: `Quelle est la garniture du ${c.nom} ?`,
           bonne: c.garniture,
-          choix: choix(c.garniture, COCKTAILS.map((x) => x.garniture).filter(Boolean)),
+          choix: choix(c.garniture, pool.map((x) => x.garniture).filter(Boolean)),
         }
       : null,
-  (c) => ({
+  (c, pool) => ({
     enonce: `Le ${c.nom} est-il un short drink ou un long drink ?`,
-    bonne: LIB_CATEGORIE[c.categorieOfficielle ?? 'short'],
+    bonne: LIB_CATEGORIE[categorieDe(c)],
     choix: Object.values(LIB_CATEGORIE),
   }),
-  (c) => ({
+  (c, pool) => ({
     enonce: `À quel type appartient le ${c.nom} ?`,
     bonne: LIB_TYPE[c.type],
     choix: Object.values(LIB_TYPE),
   }),
-  (c) => ({
+  (c, pool) => ({
     enonce: `Quel cocktail est décrit par « ${c.descripteurs} » et servi en verre ${c.verre} ?`,
     bonne: c.nom,
     // Écarte les cocktails qui partagent descripteurs et verre : la réponse doit être unique.
-    choix: choix(c.nom, COCKTAILS.filter((x) => !(x.descripteurs === c.descripteurs && x.verre === c.verre)).map((x) => x.nom)),
+    choix: choix(c.nom, pool.filter((x) => !(x.descripteurs === c.descripteurs && x.verre === c.verre)).map((x) => x.nom)),
   }),
-  (c) =>
+  (c, pool) =>
     c.variantes.length
       ? (() => {
           const v = c.variantes[hasard(c.variantes.length)];
@@ -116,27 +120,30 @@ const GEN_SOCLE: Gen<Fiche>[] = [
           return {
             enonce: `De quel cocktail du socle le ${v.nom} est-il une variante ?`,
             bonne: c.nom,
-            choix: choix(c.nom, COCKTAILS.filter((x) => x.variantes.length).map((x) => x.nom)),
+            choix: choix(c.nom, pool.filter((x) => x.variantes.length).map((x) => x.nom)),
           };
         })()
       : null,
-  (c) => ({
+  (c) =>
+    c.tavOfficiel == null
+      ? null
+      : {
     enonce: `Quel est le TAV publié par le socle pour le ${c.nom} ?`,
     bonne: `${c.tavOfficiel} %`,
     choix: choix(
       `${c.tavOfficiel} %`,
       [-12, -7, 7, 12, 18].map((d) => (c.tavOfficiel ?? 0) + d).filter((v) => v > 0 && v <= 45).map((v) => `${v} %`),
     ),
-  }),
+  },
 ];
 
-function questionSocle(): Question {
-  const c = COCKTAILS[hasard(COCKTAILS.length)];
+function questionSocle(liste: Fiche[] = COCKTAILS, theme: 'socle' | 'iba' = 'socle'): Question {
+  const c = liste[hasard(liste.length)];
   for (const g of melanger(GEN_SOCLE)) {
-    const q = g(c);
-    if (q && q.choix.length >= 2) return { ...q, theme: 'socle', sujet: c.nom, lien: `/cocktail/${c.id}` };
+    const q = g(c, liste);
+    if (q && q.choix.length >= 2) return { ...q, theme, sujet: c.nom, lien: `/cocktail/${c.id}` };
   }
-  return { ...GEN_SOCLE[0](c)!, theme: 'socle', sujet: c.nom, lien: `/cocktail/${c.id}` };
+  return { ...GEN_SOCLE[0](c, liste)!, theme, sujet: c.nom, lien: `/cocktail/${c.id}` };
 }
 
 // ───────────── Culture produits ─────────────
@@ -373,7 +380,8 @@ function questionLexique(): Question {
 }
 
 const PAR_THEME: Record<Exclude<Theme, 'tout'>, () => Question> = {
-  socle: questionSocle,
+  socle: () => questionSocle(),
+  iba: () => questionSocle(COCKTAILS_HS, 'iba'),
   produits: questionProduits,
   materiel: questionMateriel,
   culture: questionCulture,
@@ -381,7 +389,7 @@ const PAR_THEME: Record<Exclude<Theme, 'tout'>, () => Question> = {
 };
 
 // En mode « Tout », le socle pèse double : c'est le cœur du référentiel.
-const MELANGE: Exclude<Theme, 'tout'>[] = ['socle', 'socle', 'produits', 'materiel', 'culture', 'lexique'];
+const MELANGE: Exclude<Theme, 'tout'>[] = ['socle', 'socle', 'iba', 'produits', 'materiel', 'culture', 'lexique'];
 
 export function genererQuiz(theme: Theme = 'tout', nombre = 10): Question[] {
   const questions: Question[] = [];

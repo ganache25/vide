@@ -5,7 +5,7 @@ import { Modal, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 
 
 import { Verre } from '../components/Illustrations';
 import { Bouton, Card, Champ, ChampNombre, Chips, P, Page, Recherche, Titre, st } from '../components/ui';
-import { COCKTAIL_PAR_ID } from '../data/cocktails';
+import { FICHE_PAR_ID } from '../data/tousCocktails';
 import { FAMILLES_PRODUITS, UNITES, type Produit } from '../data/produits';
 import {
   LIB_CATEGORIE,
@@ -221,7 +221,7 @@ export default function Editeur() {
     initialise.current = true;
     const existante = id ? fiches.find((f) => f.id === id) : undefined;
     const aCopier = copie ? fiches.find((f) => f.id === copie) : undefined;
-    const socle = base ? COCKTAIL_PAR_ID[base] : undefined;
+    const socle = base ? FICHE_PAR_ID[base] : undefined;
     if (existante) {
       setFiche(existante);
       setTechAuto(false);
@@ -229,7 +229,7 @@ export default function Editeur() {
       setFiche(copier(aCopier, `${aCopier.nom} (copie)`, aCopier.baseId));
       setTechAuto(false);
     } else if (socle) {
-      // Une revisite reprend la recette du socle avec les prix de la mercuriale personnelle.
+      // Une revisite reprend la recette de référence avec les prix de la mercuriale personnelle.
       setFiche({ ...copier(socle, `${socle.nom} revisité`, socle.id), ingredients: appliquerMercuriale(socle.ingredients) });
       setTechAuto(false);
     } else {

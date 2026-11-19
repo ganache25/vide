@@ -62,7 +62,9 @@ ${bloc(
 ${bloc('N.B.', f.nb.map((n) => `<p>${e(n)}</p>`).join(''))}
 ${bloc('Notes', f.notes ? `<p>${e(f.notes).replace(/\n/g, '<br>')}</p>` : '')}
 <div class="pied">${
-    f.source === 'socle'
+    f.source === 'iba'
+      ? 'Recette officielle de l’IBA (International Bartenders Association). Coûts indicatifs.'
+      : f.source === 'socle'
       ? 'Recette du Socle des cocktails de référence (édition 2025). Coûts indicatifs.'
       : 'Fiche technique personnelle.'
   } L’abus d’alcool est dangereux pour la santé, à consommer avec modération.</div>
