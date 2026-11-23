@@ -243,4 +243,41 @@ export const NOUVEAUX_2: Alcool[] = [
     ideesRecues: [{ titre: '« Un mocktail, c’est un jus de fruits »', texte: 'Un bon sans-alcool a la même construction qu’un cocktail : sucré, acide, et un élément qui donne du corps.' }],
     classiques: ['Virgin Mojito', 'Virgin Mary', 'Shirley Temple', 'Spritz sans alcool', 'Citronnade maison'],
   },
+{
+    id: 'sodas',
+    nom: 'Sodas et tonics',
+    famille: 'Produits frais et sans alcool',
+    accroche: 'Eau, sucre et gaz carbonique : les compléments des long drinks.',
+    reperes: [
+      ['Définition', 'Boisson sucrée, généralement gazeuse, de la famille des softs'],
+      ['Composition', 'Eau, sucre ou édulcorant, extraits de plantes, de fruits ou de fleurs, gaz carbonique'],
+      ['Au bar', 'Tonic, ginger ale, ginger beer, cola, limonade, bitter lemon'],
+    ],
+    histoire: [
+      'L’histoire du soda commence avec l’eau gazeuse : dans les années 1770, le chimiste anglais Joseph Priestley met au point le procédé, que Johann Jacob Schweppe reprend et industrialise à partir de 1783.',
+      'À la fin du XIXe siècle, des pharmaciens américains créent les grands sodas : Dr Pepper (1885), Coca-Cola (1886, John Stith Pemberton, à Atlanta), Pepsi-Cola (1893, Caleb Bradham).',
+    ],
+    elaboration: [
+      'On prépare un sirop (saccharose, fructose ou édulcorant) auquel on ajoute des extraits de plantes ou de fruits, puis on le mélange à l’eau selon des proportions très précises avant de gazéifier au gaz carbonique.',
+    ],
+    categories: [
+      { titre: 'Limonades', texte: 'Jus de citron, eau et sucre.' },
+      { titre: 'Sodas aux fruits', texte: 'Concentré, pulpe et extraits de fruits, gazéifiés.' },
+      { titre: 'Colas', texte: 'Sodas sucrés à base de cola.' },
+      { titre: 'Tonics', texte: 'Essences d’oranges amères et quinquina.' },
+      { titre: 'Bitter lemon', texte: 'Soda amer aux agrumes.' },
+      { titre: 'Boissons énergisantes', texte: 'Très riches en caféine et en substances dites énergisantes.' },
+    ],
+    aSavoir: [
+      'Toujours servis bien frais, ouverts au dernier moment, et jamais passés au shaker.',
+      'Le tonic « de distillerie » ou artisanal a renouvelé l’offre depuis les années 2000.',
+    ],
+    cocktails: ['moscow-mule', 'dark-and-stormy', 'horses-neck'],
+    etapes: ['Sirop', 'Arômes', 'Dilution', 'Gazéification', 'Embouteillage'],
+    aromes: ['Agrumes', 'Quinquina', 'Gingembre', 'Cola', 'Menthe'],
+    service: 'Petit format individuel, très frais ; on complète le verre puis on mélange d’un seul geste.',
+    couleur: '#D8ECEF',
+    conservation: 'Au frais et à l’abri de la lumière ; une bouteille entamée perd vite son gaz.',
+    classiques: ['Gin Tonic', 'Cuba Libre', 'Americano', 'Paloma (soda pamplemousse)'],
+  },
 ];

@@ -1,0 +1,2350 @@
+{
+ "vermouth": {
+  "pages": [
+   "P4"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Il y a plusieurs façons de procéder pour l'élaboration du vermouth. En voici un exemple mais selon les maisons, les étapes suivantes peuvent être inversées ou moins décortiquées et faites en même temps."
+     },
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Préparation du vin. Les vins utilisés présentent le plus souvent une neutralité aromatique et sont peu alcoolisés.",
+      "sous": [
+       "Vermouth blanc : base de vin blanc",
+       "Vermouth rouge : essentiellement à base de vin blanc coloré par caramélisation. Mais certaines maisons, dans certains cas, utilisent du vin rouge",
+       "Vermouth rosé : vin blanc additionné de vin rouge",
+       "Certains aromates peuvent être mis en macération dans le vin pour commencer l'aromatisation.",
+       "NB : Noilly Prat a pour habitude de laisser vieillir ses vins dans des fûts entreposés en extérieur. Les vins subissent ainsi toutes les intempéries ce qui leur confère les arômes particuliers à Noilly Prat."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Extraction des aromates. Plusieurs techniques peuvent être utilisées. Les aromates sont mélangés à de l'alcool neutre et de l'eau pure. Les arômes peuvent être ensuite extraits par infusion ou percolation ou distillation. Les techniques d'extraction dépendent des matières premières utilisées et des maisons.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Mélange. On assemble ensuite le vin avec les extraits d'arôme.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Adjonction d'alcool. Pour obtenir le degré alcoolique voulu.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Sucrage. Le sucrage peut se faire de différentes manières. Soit avec du sucre de canne, de betterave ou avec une mistelle ou encore par caramélisation.",
+      "sous": [
+       "Vermouths blancs — Sec : 40 gr / litre ; Bianco : 100 à 150 gr / litre",
+       "Vermouths rouges — 150 gr / litre ou par caramélisation"
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Brassage. Le tout est brassé pour une meilleure homogénéisation.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Repos en fût ou vieillissement. Pendant quelques semaines ou quelques mois selon les maisons.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 8,
+      "texte": "Stabilisation par le froid, filtrage et embouteillage. Collage, clarification et filtrage avant l'embouteillage afin d'éliminer les impuretés.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Le mot vermouth vient du mot wermut qui veut dire absinthe en allemand. De tout temps la plante d'absinthe était utilisée pour ses vertus médicinales. Hippocrate en l'an 5 du IVe siècle avant J.C prescrivait de l'absinthe mêlée à de l'origan et du vin doux. Il appelait cela « vinum absinthiatum » ou « vin d'Hippocrate »."
+     },
+     {
+      "t": "puce",
+      "texte": "1786 : création du premier vermouth à Turin par Antonio Benedetto Carpano."
+     },
+     {
+      "t": "puce",
+      "texte": "1813 : création du premier vermouth français par Joseph Noilly."
+     },
+     {
+      "t": "puce",
+      "texte": "1870 : création du Punt e Mes."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 14,5% à 22% vol."
+     },
+     {
+      "t": "p",
+      "texte": "Définition : Le vermouth est un Apéritif à Base de Vin (ABV). Obtenu à partir de vin, d'alcool, parfois de mistelle, de sucre et aromatisé à l'aide de substances végétales."
+     },
+     {
+      "t": "p",
+      "texte": "Principaux pays producteurs : France, Italie, Suisse."
+     },
+     {
+      "t": "p",
+      "texte": "NB : Dans les recettes de cocktails classiques, lorsque l'on parle de vermouth italien, il s'agit du vermouth rouge. Autrefois on parlait de vermouth italien pour le rouge et de vermouth français pour le blanc. De nos jours ces appellations n'ont plus vraiment lieu d'être car en général toutes les maisons de vermouth fabriquent une gamme complète."
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — Prescriptions légales",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Plantes de la famille des armoises"
+     },
+     {
+      "t": "puce",
+      "texte": "Minimum 75% de vin"
+     },
+     {
+      "t": "puce",
+      "texte": "Le caramel est le seul ingrédient autorisé pour la coloration des vins blancs de base des vermouths."
+     },
+     {
+      "t": "puce",
+      "texte": "Le « Vermouth de Chambéry » est le seul bénéficiant d'une Appellation d'origine Contrôlée ainsi il doit être produit en Savoie."
+     },
+     {
+      "t": "puce",
+      "texte": "La fabrication du « Vermouth de Turin » est également encadrée car il doit être produit dans le Piémont."
+     }
+    ]
+   },
+   {
+    "titre": "Cépages utilisés le plus souvent",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "En France : provenant essentiellement du Gers, ils sont : la Clairette, Colombard, Picquepoul, Ugni blanc, Muscat…"
+     },
+     {
+      "t": "puce",
+      "texte": "En Italie : provenant essentiellement du Piémont au nord-ouest de l'Italie et des Pouilles (lecture incertaine dans le document d’origine), ils sont : le Muscat, le Trebbiano, Nebbiolo…"
+     },
+     {
+      "t": "p",
+      "texte": "Les plantes aromatiques : Absinthe, génépi, gentiane, estragon, cannelle, cardamome, girofle, vanille, gingembre, camomille romaine, quinquina, écorce de cascarille, fève de Tonka, bois de santal, agrumes…"
+     }
+    ]
+   },
+   {
+    "titre": "Les catégories de vermouth",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Rouge"
+     },
+     {
+      "t": "puce",
+      "texte": "Blanc sweet (bianco)"
+     },
+     {
+      "t": "puce",
+      "texte": "Blanc sec (secco) ou dry"
+     },
+     {
+      "t": "puce",
+      "texte": "Rosé"
+     },
+     {
+      "t": "puce",
+      "texte": "Les vermouths aromatisés — Chambéryzette : Vermouth de Chambéry aromatisé à la fraise ; Carpano Antica Formula : aromatisé à la vanille ; Rouge plus amer : amari"
+     }
+    ]
+   },
+   {
+    "titre": "Quelques marques",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Italie : Carpano (la plus ancienne), Cinzano, Gancia, Martini"
+     },
+     {
+      "t": "puce",
+      "texte": "France : Noilly Prat, Dolin, Routin"
+     },
+     {
+      "t": "puce",
+      "texte": "USA : Vya"
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "Le Vermouth de Chambéry relèverait aujourd’hui d’une indication géographique plutôt que d’une AOC."
+  ]
+ },
+ "vins-mutes": {
+  "pages": [
+   "P5"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Vendanges. Manuelles.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Égrappage et foulage. Le foulage se fait dans les « lagares », grandes cuves en granit peu profondes. Autrefois il s'effectuait aux pieds et en rythme.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Fermentation alcoolique. Transformation du sucre en alcool.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Mutage. Le mutage se fait avec une eau-de-vie de vin à 77% vol d'alcool. L'ajout d'alcool dans un moût en fermentation a pour action de tuer les levures et donc de stopper la fermentation alcoolique, ce qui permet de garder du sucre naturel. La quantité d'eau-de-vie est d'environ 20% du volume total.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Stockage et classification. Après le mutage, le vin entre dans une période de sommeil qui dure tout l'hiver, lui permettant de se clarifier sous l'action du froid et du soutirage.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Vieillissement. Au printemps, les vins sont mis à vieillir sur place ou emmenés chez les négociants pour être mis à vieillir. Autrefois, ils étaient emmenés en barques à fond plat appelées « barco rabelo », sur le Douro, depuis les « Quintas » jusqu'à Vila Nova de Gaia pour y vieillir. Selon la qualité des vins on choisira le style de Porto que l'on veut faire. Ruby ou Tawny.",
+      "sous": [
+       "Ruby : vieillissement dans des foudres de chêne de 20000 litres. Gros foudres donc moins d'échange avec le bois et l'oxygène. Méthode dite « réductive »",
+       "Tawny : vieillissement dans des fûts de chêne de 550 litres, donc plus petits. Plus d'échange avec le bois et l'oxygène. Méthode dite « oxydative »."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Assemblage — Styles de Porto",
+      "sous": [
+       "Porto subissant un vieillissement oxydatif en fûts d'environ 550 litres : Tawny courant : 2 à 3 ans de vieillissement. Tawny réserve : 4 à 7 ans vieillissement. Tawny avec mention d'âge : 10 ans, 20 ans, 30 ans… Colheita : 7 ans de vieillissement en fût. Millésimé, l'année de récolte est mentionnée sur l'étiquette.",
+       "Porto subissant un vieillissement en foudres d'environ 20000 litres : Ruby courant : 2 à 3 ans de vieillissement. Ruby réserve : 4 à 7 ans de vieillissement. Late Bottle Vintage (LBV) : 4 à 6 ans de vieillissement en foudre, puis vieillissement en bouteille non obligatoire. Millésimé, l'année de récolte est mentionnée sur l'étiquette. Vintage : 2 ans de vieillissement en foudre puis plusieurs années en bouteille. Millésimé, l'année de récolte est mentionnée sur l'étiquette. Très rare, élaboré seulement les années exceptionnelles. En moyenne 2 ou 3 par décennie. Single Quinta Vintage : Vintage provenant d'une seule propriété. Souvent élaboré les bonnes années mais pas assez qualitatives pour faire un Vintage. Le Porto Crusted : Assemblage de vins de qualité vintage de 2 ou 3 millésimes. Mis en bouteille non filtré ni collé avant d'être mis sur le marché environ 3 ans plus tard. Le Porto Crusted crée un dépôt naturel dans la bouteille. Autrefois il était appelé le « vintage des pauvres »",
+       "Autres : Porto blanc : il peut être sec, demi-sec ou doux. Vieillissement environ 3 ans en fût. Porto rosé : créé par la marque Croft. Vinification en rosé puis fermentation à basse température."
+      ]
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Les Anglais ont exercé une influence et largement participé au développement du Porto. Le Porto a pris son nom du port de Porto duquel il était expédié vers l'Angleterre."
+     },
+     {
+      "t": "puce",
+      "texte": "1703 : traité de Methuen qui prévoyait un échange commercial entre le Portugal et l'Angleterre. Les anglais achetaient les vins de Porto et les Portugais achetaient une partie de la production de textiles anglais."
+     },
+     {
+      "t": "puce",
+      "texte": "1756 : Création et délimitation de la région de production par le Marquis de Pombal avec 335 points de repère en pierre."
+     },
+     {
+      "t": "puce",
+      "texte": "1933 : création de l'Instituto de Vinho Do Porto (IVPD)."
+     },
+     {
+      "t": "puce",
+      "texte": "2001 : région classée patrimoine mondial de l'UNESCO."
+     },
+     {
+      "t": "puce",
+      "texte": "2003 : l'Instituto de Vinho Do Porto fusionne avec la Commission Interprofessionnelle de la région délimitée du Douro pour donner l'IVPD actuel L'Instituto dos Vinhos do Douro e do Porto."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 16,5% vol minimum."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteur : Portugal dans la vallée du Douro."
+     },
+     {
+      "t": "p",
+      "texte": "Type d'appellation : DOC : Denominação de Origem Controlada (Dénomination d'Origine Contrôlée)."
+     }
+    ]
+   },
+   {
+    "titre": "Cépages",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Rouges : Bastardo, Mourisco Tinto, Tinta Amarela, Tinta Barroca, Tinta Francisca, Tinta Roriz, Tinta Cao, Touriga Francesa, Touriga Nacional, Cornifesto, Donzelinho, Malvasia, Periquita, Rufete, Tinta Barca…"
+     },
+     {
+      "t": "puce",
+      "texte": "Blancs : Esgana Cao, Fulgasao, Gouveio ou Verdelho, Malvasia Fina, Rabigato, Viosinho, Arinto, Boal, Cercial, Codega, Samarrinho, Malvasia Corada, Moscatel, Galego, Donzelinho Branco, Cedega…"
+     }
+    ]
+   },
+   {
+    "titre": "Le vignoble — Divisé en 3 régions de production.",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Baixo (inférieur) Corgo. La zone la plus à l'ouest. La plus petite mais avec les sols les plus fertiles."
+     },
+     {
+      "t": "puce",
+      "texte": "Cima Corgo. Grande superficie. C'est dit-on « la région d'origine du Porto millésimé ». Beaucoup de Quintas réputées sont implantées."
+     },
+     {
+      "t": "puce",
+      "texte": "Douro Superior. La plus vaste mais finalement la moins exploitée pour l'agriculture car c'est la zone la plus orientale, la plus chaude et la plus sèche du Douro."
+     },
+     {
+      "t": "p",
+      "texte": "Les vignes de la Vallée du Douro sont classées de A à I. A étant la meilleure classification. Les vignes classées de A à F peuvent être utilisées pour faire le Porto. G H et I sont déclassées en vin de table."
+     }
+    ]
+   }
+  ]
+ },
+ "effervescents": {
+  "pages": [
+   "P6",
+   "P7"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Vendanges. Selon les années elle débute à la mi-septembre ou fin septembre. Elle est obligatoirement faite à la main.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Pressurage : juste après la cueillette. Les pressoirs traditionnels ont une capacité de 4000 kg de raisin.",
+      "sous": [
+       "1er pressurage : appelé « la cuvée » donne 2050 litres de moût.",
+       "2ème pressurage : appelé « la taille » donne 500 litres de moût.",
+       "Le moût récolté s'écoule dans les « belons »."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Sulfitage et débourbage. Le sulfitage, ajout de SO2 (d'anhydride sulfureux ou dioxyde de soufre), a lieu en continu dès la sortie du pressoir, à des doses variant de 6 à 10 g/hl en fonction du cépage, de l'état sanitaire des raisins et de la fraction (taille ou cuvée). Le débourbage consiste en une décantation statique des jus afin d'éliminer les impuretés. Après 12 à 24 heures les jus clairs sont soutirés. Les bourbes (entre 1 et 4% du volume) font l'objet d'une déclaration et d'un envoi en distillerie.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "1ère fermentation alcoolique dite « bouillage ». 3 semaines à 1 mois, en cuve inox ou plus rarement en fût de chêne. Transformation du sucre en alcool sous l'effet des levures.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Fermentation malolactique. Elle n'est pas obligatoire. Elle transforme l'acide malique en acide lactique. Elle se déroule à l'issue de la fermentation alcoolique. Comme toutes les fermentations, elle fait évoluer les arômes du vin. On procède ensuite à une clarification par collage, filtration ou centrifugation.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Assemblage ou réalisation de la cuvée. Généralement, assemblage de vins clairs issus de terroirs, de cépages et d'années différentes, sauf pour les Champagnes spécifiques (blanc de blanc, millésimé…)",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Tirage et 2e fermentation alcoolique dite « prise de mousse ». Au printemps. A pour but de rendre le vin effervescent.",
+      "sous": [
+       "Pour réaliser cette 2ème fermentation alcoolique, on ajoute au vin une liqueur dite « de tirage », composée de sucre, de levain et d'un adjuvant de remuage. Le sucre de betterave ou de canne, préalablement dissous dans du vin, est ajouté à raison de 20 à 24 g/l selon la pression désirée.",
+       "Après remplissage, les bouteilles sont fermées hermétiquement par un obturateur en polyéthylène appelé « bidule » complété d'une capsule couronne, puis descendues en caves où elles sont disposées « sur lattes », c'est-à-dire couchées et empilées, rangée sur rangée.",
+       "Selon la réglementation, les bouteilles resteront ainsi « sur latte » à vieillir durant minimum 15 mois en cave dont 12 mois sur lies pour les vins non millésimés et 3 ans minimum pour les millésimés. Ceci est le délai légal mais en réalité les Champagnes restent plus longtemps en cave. 2 à 3 ans de moyenne pour les non millésimés et 4 à 10 ans pour les millésimés."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 8,
+      "texte": "Mise sur pupitres et remuage. 4 à 5 semaines. A pour but de faire glisser les lies dans le goulot de la bouteille une fois le vieillissement du vin terminé. Durant environ 6 semaines (pour le remuage manuel) ou une semaine (pour le remuage mécanique en gyro-palette) les bouteilles subissent une quarantaine de manipulations sur des pupitres. Elles sont tournées régulièrement d'1/8 de tour et sont progressivement redressées jusqu'à la verticale.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 9,
+      "texte": "Dégorgement. L'extrémité de la bouteille est plongée dans un bain de saumure à -27°C. Un glaçon se forme et emprisonne le dépôt. La capsule est ensuite enlevée et le glaçon est expulsé par la pression qui règne dans la bouteille. Certaines fois le dégorgement manuel, dit « à la volée », est effectué.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 10,
+      "texte": "Le dosage. La liqueur de dosage aussi appelée liqueur d'expédition est ajoutée dans la bouteille pour pallier à la perte de quantité après le dégorgement. Cette liqueur est constituée de Champagne de la même cuvée et de sucre de canne dissous dans un vieux vin de Champagne à raison de 500 à 750 g/L. La quantité de liqueur utilisée permet de définir le type de Champagne que l'on désire obtenir (brut, sec, demi-sec…) (Voir Types de Champagne)",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 11,
+      "texte": "Bouchage, poignettage, mirage. Aussitôt après le dosage, le vin est bouché. Les bouteilles sont ensuite vigoureusement agitées, c'est ce qu'on appelle le « poignettage ». La limpidité du Champagne est alors vérifiée, c'est le « mirage ». Puis retour en cave quelques mois avant la commercialisation.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Les Romains ont apporté la vigne en Champagne. Le vignoble s'est ensuite maintenu grâce au clergé et notamment aux évêchés de Reims et Châlons."
+     },
+     {
+      "t": "p",
+      "texte": "Dom Pérignon, moine à l'Abbaye d'Hautvillers et responsable des vignes et celliers de 1668 à 1715 aurait été le premier à pratiquer des assemblages et aurait préconisé l'utilisation de bouteilles plus robustes pour supporter la deuxième fermentation."
+     },
+     {
+      "t": "puce",
+      "texte": "22 Juillet 1927 : Délimitation de la Champagne viticole."
+     },
+     {
+      "t": "puce",
+      "texte": "29 Juin 1936 : Reconnaissance de l'AOC."
+     },
+     {
+      "t": "p",
+      "texte": "Terroir : Un sous-sol particulièrement calcaire, un climat océanique et continental. Le relief joue un rôle essentiel dans l'insolation de la vigne et l'écoulement des excès d'eau. On distingue 4 grandes régions :"
+     },
+     {
+      "t": "puce",
+      "texte": "La Montagne de Reims."
+     },
+     {
+      "t": "puce",
+      "texte": "La Côte des Blancs et la Côte de Sézanne."
+     },
+     {
+      "t": "puce",
+      "texte": "La Vallée de la Marne."
+     },
+     {
+      "t": "puce",
+      "texte": "La Côte des Bar."
+     }
+    ]
+   },
+   {
+    "titre": "Catégories",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Blanc : issu d'assemblage."
+     },
+     {
+      "t": "puce",
+      "texte": "Rosé : issu d'assemblage. Les rosés sont obtenus par macération des raisins noirs ou en assemblant des vins blancs et un vin rouge « tranquille » d'appellation Champagne."
+     },
+     {
+      "t": "puce",
+      "texte": "Blanc de blancs : uniquement raisin blanc donc 100% cépage Chardonnay."
+     },
+     {
+      "t": "puce",
+      "texte": "Blanc de noirs : uniquement raisin noir. Cépages Pinot Noir, Pinot Meunier."
+     },
+     {
+      "t": "p",
+      "texte": "Toutes ces catégories peuvent être millésimées, donc faites avec des vins provenant de la même année de récolte. Ou non millésimées, donc assemblage de vins provenant d'années différentes."
+     },
+     {
+      "t": "p",
+      "texte": "Cépages : Chardonnay, Pinot Noir, Pinot Meunier sont les principaux cépages utilisés. L'Arbane, le Petit Meslier, le Pinot Blanc et le Pinot Gris (tous à raisins blancs), sont également autorisés, ils représentent moins de 0,3% du vignoble."
+     },
+     {
+      "t": "p",
+      "texte": "Taille des vignes : Réglementée depuis 1938, la taille de la vigne consiste à préparer la vigne pour la saison suivante. C'est le premier travail sur la vigne après les vendanges. 4 types de tailles autorisées d'après la réglementation AOC :"
+     },
+     {
+      "t": "puce",
+      "texte": "La taille Chablis"
+     },
+     {
+      "t": "puce",
+      "texte": "La taille Cordon et Cordon permanent"
+     },
+     {
+      "t": "puce",
+      "texte": "La taille Guyot"
+     },
+     {
+      "t": "puce",
+      "texte": "La taille Vallée de la Marne (seulement pour le cépage Pinot Meunier)"
+     }
+    ]
+   },
+   {
+    "titre": "Contenance",
+    "blocs": [
+     {
+      "t": "table",
+      "entete": [
+       "Nom",
+       "Volume",
+       "Équivalent"
+      ],
+      "lignes": [
+       [
+        "Quart",
+        "20 cl"
+       ],
+       [
+        "Demie",
+        "37,5 cl"
+       ],
+       [
+        "Medium / Pinte",
+        "50 cl"
+       ],
+       [
+        "Bouteille",
+        "75 cl"
+       ],
+       [
+        "Magnum",
+        "1,5 L",
+        "2 bouteilles"
+       ],
+       [
+        "Jéroboam",
+        "3 L",
+        "4 bouteilles"
+       ],
+       [
+        "Réhoboam",
+        "4,5 L",
+        "6 bouteilles"
+       ],
+       [
+        "Mathusalem",
+        "6 L",
+        "8 bouteilles"
+       ],
+       [
+        "Salmanazar",
+        "9 L",
+        "12 bouteilles"
+       ],
+       [
+        "Balthazar",
+        "12 L",
+        "16 bouteilles"
+       ],
+       [
+        "Nabuchodonosor",
+        "15 L",
+        "20 bouteilles"
+       ],
+       [
+        "Salomon",
+        "18 L",
+        "24 bouteilles"
+       ],
+       [
+        "Souverain",
+        "26,25 L",
+        "35 bouteilles"
+       ],
+       [
+        "Primat",
+        "27 L",
+        "36 bouteilles"
+       ],
+       [
+        "Melchizedec ou Mildas",
+        "30 L",
+        "40 bouteilles"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "titre": "Types de Champagne",
+    "blocs": [
+     {
+      "t": "table",
+      "entete": [
+       "Type",
+       "Sucre"
+      ],
+      "lignes": [
+       [
+        "Brut nature, pas dosé ou zéro dosage",
+        "0 gramme de sucre par litre ou moins de 3 grammes de sucre par litre"
+       ],
+       [
+        "Extra brut",
+        "entre 0 et 6 grammes de sucre par litre"
+       ],
+       [
+        "Brut",
+        "moins de 12 grammes de sucre par litre"
+       ],
+       [
+        "Extra dry",
+        "entre 12 et 17 grammes de sucre par litre"
+       ],
+       [
+        "Sec",
+        "entre 17 et 32 grammes de sucre par litre"
+       ],
+       [
+        "Demi-sec",
+        "entre 32 et 50 grammes de sucre par litre"
+       ],
+       [
+        "Doux",
+        "plus de 50 grammes de sucre par litre"
+       ]
+      ]
+     },
+     {
+      "t": "p",
+      "texte": "Ceci est valable pour le Champagne blanc et rosé. Donc lors d'une commande, demander au client s'il désire un Champagne « brut ou rosé » est une erreur, car il peut être « brut » et rosé."
+     },
+     {
+      "t": "p",
+      "texte": "Température de service : Entre 8 et 10°C. En dessous de 8°C les vins trop froids ont un effet anesthésiant sur les papilles gustatives. Au-delà de 10°C les vins paraissent plus « lourds » et moins vifs. Cela dit, un vieux millésime peut se déguster à température de cave."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteur : France. Départements : La Marne, l'Aube, l'Aisne, la Haute Marne, la Seine et Marne. 320 communes sont dans l'aire de production, donc classées dans l'échelle des crus. 17 sont classées « Grand Cru » et 42 sont classées « 1er Cru »."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 10,5 à 13%."
+     },
+     {
+      "t": "p",
+      "texte": "CIVC : Comité Interprofessionnel du Vin de Champagne. Créé en 1941 c'est un organisme semi-public qui gère les intérêts des vignerons et négociants producteurs de Champagne."
+     }
+    ]
+   }
+  ]
+ },
+ "liqueurs": {
+  "pages": [
+   "P8"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Extraction des arômes. 3 procédés existent :",
+      "sous": [
+       "La macération (à froid) en général pour les fruits",
+       "La distillation (à chaud) en général pour les plantes, racines, fèves…",
+       "La percolation (à froid) en général pour les plantes."
+      ]
+     },
+     {
+      "t": "p",
+      "texte": "Liqueurs de fruits : Procédé d'extraction à froid."
+     },
+     {
+      "t": "puce",
+      "texte": "Préparation des fruits : Selon les cas : équeutage, dénoyautage, broyage pour extraire les parfums."
+     },
+     {
+      "t": "puce",
+      "texte": "Macération : Dans une solution hydroalcoolique composé d'alcool neutre à 96% vol. ramené à 50% vol. afin de ne pas « cuire » les fruits dans l'alcool."
+     },
+     {
+      "t": "puce",
+      "texte": "Remuage des fruits."
+     },
+     {
+      "t": "puce",
+      "texte": "Pressurage des fruits et filtrage : On obtient ainsi « l'infusion »."
+     },
+     {
+      "t": "p",
+      "texte": "Liqueurs de plantes, grains, racines, fèves : Procédé d'extraction à chaud ou percolation (à froid)."
+     },
+     {
+      "t": "puce",
+      "texte": "Préparation des plantes ou grains ou racines : Selon les cas séchage, broyage"
+     },
+     {
+      "t": "puce",
+      "texte": "Macération : Dans de l'alcool neutre (96% vol.) ou une eau-de-vie."
+     },
+     {
+      "t": "puce",
+      "texte": "Distillation ou percolation : 1ère distillation donne « le distillat ». 2ème distillation donne « l'esprit »."
+     },
+     {
+      "t": "puce",
+      "texte": "Ou percolation : C'est un procédé à froid, les plantes sont directement placées dans un réceptacle et entrent en contact avec l'alcool sous pression. L'alcool s'imprègne des arômes et de la couleur des plantes."
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Vieillissement (facultatif). Pour certaines liqueurs. Les différents esprits et infusions peuvent être assemblés et mis à vieillir ou vieillir séparément et assemblés ensuite.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Édulcoration. C'est le sucrage, tout simplement.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Dodinage (brassage). Mélange homogène de l'alcoolat, de sucre, d'eau et d'alcool ou eau-de-vie.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Repos. Dans des cuves inertes ou des foudres selon les liqueurs.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Réfrigération.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Filtrage. Filtres en cellulose afin d'éliminer les impuretés.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 8,
+      "texte": "Mise en bouteille.",
+      "sous": []
+     },
+     {
+      "t": "p",
+      "texte": "Historique : Au Moyen Âge déjà les moines concoctaient des liqueurs à base de plantes dans un but médicinal. Bon nombre de liqueurs très connues, encore aujourd'hui, ont été élaborées dans le secret des monastères."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 15% vol minimum. Sauf pour la liqueur Advokaat autorisée à 14% vol d'alcool maximum à cause du jaune d'œuf présent dans la liqueur."
+     }
+    ]
+   },
+   {
+    "titre": "Catégories",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Cream liqueurs : élaborées à partir de produits laitiers. Ex : Baileys, Songster's…"
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de fruits : crème de cassis, de fraise, de banane…"
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de plantes."
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de grains ou fèves : cacao, café…"
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de fleurs."
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de racines."
+     },
+     {
+      "t": "puce",
+      "texte": "Liqueurs ou crèmes de bonbons : crème de Bêtises de Cambrai…"
+     },
+     {
+      "t": "p",
+      "texte": "D'innombrables aromatisations sont possibles pour les liqueurs ou crèmes. Nous pouvons retrouver cette même particularité avec les sirops."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteurs : Partout dans le monde."
+     }
+    ]
+   },
+   {
+    "titre": "Composition",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Alcoolat. C'est le concentré aromatique d'une liqueur. Composé d'un assemblage d'esprits, d'infusion, ou d'esprits et d'infusions. Un esprit : (pour les plantes) est une solution alcoolique aromatisée obtenue par distillation. Une infusion : (pour les fruits) est une solution alcoolique aromatisée obtenue par macération dans de l'alcool neutre (96% vol).",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Sucre. Sucre ou sirop de sucre. Miel. Le miel était utilisé autrefois pour édulcorer les liqueurs car le sucre était trop cher. Législation européenne :",
+      "sous": [
+       "Liqueur de fruits ou de plantes : minimum 100 gr/litre.",
+       "Crème : minimum 250 gr/litre",
+       "Crème de cassis : minimum 400 gr/litre.",
+       "Crème de cassis de Bourgogne : minimum 450 gr/litre (normes INAO)."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Eau. Déminéralisée.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Alcool. Alcool neutre à 96% vol additionné parfois à une eau-de-vie. Ex : Grand Marnier à base de Cognac, Cherry ou Apricot brandy à base de brandy ou de Cognac…",
+      "sous": []
+     }
+    ]
+   }
+  ]
+ },
+ "armagnac": {
+  "pages": [
+   "P9"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Vendanges. Pressurage et Foulage en Octobre. Cépages principaux : Ugni Blanc, Folle Blanche, Colombard, Baco A 22. Cépages secondaires : (représentent un pourcentage minime de l'encépagement) Blanc Dame, Graisse, Jurançon Blanc, Mauzac Blanc, Mauzac Rosé, Meslier Saint-François.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Fermentation alcoolique. Environ 3 semaines. Naturelle. Chaptalisation interdite. Le vin blanc obtenu est acide et titre autour de 9% vol.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Distillation. 2 méthodes peuvent être utilisées",
+      "sous": [
+       "Distillation continue multi-étage avec reflux, au moyen d'alambics dits « armagnaçais » de type principal.",
+       "Distillation discontinue simple à repasse, au moyen d'alambics charentais dit de type accessoire.",
+       "Dans chaque atelier de distillation doit fonctionner au moins un alambic de type principal au cours de la campagne considérée. La chaudière des deux types d'alambic est chauffée à feu nu. Le titre alcoométrique volumique des eaux-de-vie est compris entre 52% et 72,4% maximum."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Vieillissement. Dans des « pièces » fûts de chêne de 400 litres issus essentiellement des forêts de Gascogne ou du Limousin. Ces fûts sont entreposés dans des chais qui peuvent être secs, chauds et très humides. Le Maître de chais surveille l'évolution des eaux-de-vie et peut les changer de chai ou de fût selon la qualité souhaitée.",
+      "sous": [
+       "La part des anges : Pendant tout le temps où, dans son fût, l'Armagnac vieillit, il va, en étant en permanence en contact avec l'air, perdre progressivement et sans excès sa force alcoolique et son volume. Cette perte inévitable représente plus de vingt millions de bouteilles par an mais elle est essentielle au vieillissement des eaux-de-vie.",
+       "Le paradis : C'est dans un chai obscur, en général tenu à l'écart des autres chais, que séjournent les eaux-de-vie les plus anciennes. Une fois leur maturité atteinte, le Maître de Chai décide de mettre fin à leur vieillissement et procède à leur transfert dans de très vieux fûts de chêne puis dans des bonbonnes de verre appelées « Dames-Jeannes ». Là, elles pourront séjourner à l'abri de l'air durant de nombreuses décennies sans se modifier davantage."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Assemblage ou coupe ou mariage et réduction du degré alcoolique. Assemblage d'eaux-de-vie d'âges et de crus différents afin de maîtriser la qualité voulue par le Maître de Chai. Remarque : l'âge de l'Armagnac est légalement celui de la plus jeune des eaux-de-vie entrant dans l'assemblage et non la moyenne de l'assemblage. Tout en suivant l'évolution des eaux-de-vie, le Maître de Chai procède à la réduction du degré alcoolique grâce aux assemblages et/ou en ajoutant de l'eau déminéralisée. Le degré de consommation (40% vol. au minimum) peut aussi s'obtenir par addition progressive de « petites eaux » constituées par un mélange d'eau distillée et d'Armagnac.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Mise en bouteille. Quand l'Armagnac est prêt à être commercialisé, il est mis dans des bouteilles qui ont été rincées avec de l'Armagnac. Soit à 40% d'alcool soit sans réduction du degré alcoolique pour les bruts de fût.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "En Armagnac, les Romains introduisirent la vigne, les Arabes, l'alambic et les Celtes le fût. De la confrontation de ces trois cultures est né l'Armagnac. L'Armagnac est la plus ancienne des eaux-de-vie de France : le premier témoignage de son utilisation remonte à l'an 1310, quand Maître Vital Dufour, Prieur d'Eauze et de Saint Mont, vantait en latin les 40 vertus de cette Aygue Ardente dans son livre « Pour garder la Santé et rester en bonne forme »."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIIe siècle : les Hollandais achètent les vins de la côte Atlantique."
+     },
+     {
+      "t": "puce",
+      "texte": "1870 à 1878 : le phylloxera détruit presque tout le vignoble."
+     },
+     {
+      "t": "puce",
+      "texte": "25 mai 1909 : délimitation des zones de production et des 3 crus."
+     },
+     {
+      "t": "puce",
+      "texte": "06 août 1936 : reconnue en AOC."
+     },
+     {
+      "t": "puce",
+      "texte": "27 mai 2005 : la blanche d'Armagnac reconnue en AOC."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 40% minimum."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteur : France."
+     },
+     {
+      "t": "p",
+      "texte": "Départements : Gers, Landes et Lot-et-Garonne."
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — Les 3 crus délimités",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Le Bas-Armagnac : À l'ouest du pays, il représente 67% des surfaces identifiées en Armagnac. Dans cette zone aux sols sablonneux dits « sable fauve », on obtient les meilleures eaux-de-vie délicates et très fruitées."
+     },
+     {
+      "t": "puce",
+      "texte": "L'Armagnac-Ténarèze : Autour de Condom, couvre le nord-ouest du Gers et le sud du Lot-et-Garonne. Représente 32% des surfaces identifiées en Armagnac. Les eaux-de-vie produites sur ces sols boulbènes et argilo-calcaires sont souvent puissantes et corsées."
+     },
+     {
+      "t": "puce",
+      "texte": "Le Haut-Armagnac : À l'est du Gers et une partie du Lot-et-Garonne. Possède des sols calcaires. 1500 hectares de vignes. Climat doux et tempéré, influences océaniques, humides, atténuées par la forêt des Landes dans l'ouest de l'appellation. À l'est c'est un climat méditerranéen."
+     }
+    ]
+   },
+   {
+    "titre": "Les mentions de vieillissement",
+    "blocs": [
+     {
+      "t": "table",
+      "entete": [
+       "Mention",
+       "Âge minimum"
+      ],
+      "lignes": [
+       [
+        "VS, ***",
+        "minimum 1 an (compte 1)"
+       ],
+       [
+        "VSOP",
+        "minimum 4 ans (compte 4)"
+       ],
+       [
+        "XO",
+        "minimum 10 ans depuis le 1er avril 2018 (6 ans dans la fiche ABF 2020)"
+       ],
+       [
+        "Napoléon",
+        "minimum 6 ans (compte 6)"
+       ],
+       [
+        "Hors d'âge, millésimés",
+        "minimum 10 ans (compte 10)"
+       ]
+      ]
+     },
+     {
+      "t": "p",
+      "texte": "NB : Le millésime correspond à l'année de récolte et non de distillation."
+     },
+     {
+      "t": "p",
+      "texte": "La blanche d'Armagnac est une eau-de-vie issue du même terroir mais elle est blanche ou plutôt incolore. C'est une eau-de-vie fraîche et fruitée. Juste après la distillation, elle est maturée pendant 3 mois en récipient inerte pour ne pas prendre de couleur."
+     },
+     {
+      "t": "p",
+      "texte": "Les comptes d'âge : Le système de compte est le même que le Cognac mais les mentions liées à l'âge sont différentes (voir la partie sur les mentions de vieillissement)."
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "Mention XO corrigée : 10 ans minimum depuis le 1er avril 2018, Napoléon restant à 6 ans."
+  ]
+ },
+ "calvados": {
+  "pages": [
+   "P10"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Récolte. Octobre à Novembre. Le Calvados est toujours produit avec plusieurs variétés de pommes. Les vergers sont plantés de pommiers hautes tiges et de pommiers basses tiges.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Broyage des pommes. Extraction du jus par pressurage. Tout enrichissement du jus avec du sucre est interdit.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Fermentation alcoolique. AOC Calvados : minimum 21 jours. AOC Calvados Pays d'Auge : minimum 21 jours. AOC Calvados Domfrontais : minimum 30 jours. Le cidre à distiller doit titrer au minimum 4,5% d'alcool.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Distillation. La distillation a lieu en général au printemps et en automne.",
+      "sous": [
+       "AOC Calvados : les deux méthodes de distillation sont utilisées, à repasse ou continue multi-étage avec reflux (alambic à colonne). Dans les deux cas, l'eau-de-vie obtenue ne doit pas dépasser 72% d'alcool.",
+       "AOC Calvados Pays d'Auge : double distillation en alambic à repasse. Après la 1ère distillation on obtient le « brouillis » ou « petites eaux » titrant 28% à 30% d'alcool. Après la 2e distillation dite « bonne chauffe » on obtient une eau-de-vie titrant 72% d'alcool maximum.",
+       "AOC Calvados Domfrontais : en continue multi-étage avec reflux (alambic à colonne). On obtient une eau-de-vie titrant 72% d'alcool maximum."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Vieillissement. Dans des fûts ou des foudres de chêne neufs ou plus vieux. Peu à peu les arômes du Calvados vont se développer, sa couleur s'accentuer passant du doré à une couleur plus ambrée. Au contact de l'air et au travers du bois le volume et le % d'alcool baissent par évaporation, c'est « la part des anges ». Selon les appellations le temps de vieillissement minimum n'est pas le même. AOC Calvados : 2 ans minimum. AOC Calvados Pays d'Auge : 2 ans minimum. AOC Calvados Domfrontais : 3 ans minimum.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Assemblage ou coupe ou mariage et réduction du degré alcoolique. Le maître de chai procède à de savants assemblages en mariant des eaux-de-vie d'âges et de terroirs différents afin d'obtenir la qualité souhaitée. Durant ces assemblages le degré alcoolique sera baissé petit à petit soit en mariant des eaux-de-vie aux degrés d'alcool différents, soit par apport d'eau déminéralisée. Remarque : l'âge du Calvados est légalement celui de la plus jeune des eaux-de-vie entrant dans l'assemblage et non la moyenne de l'assemblage.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Mise en bouteille. Quand le Calvados est prêt à être commercialisé, il est mis dans des bouteilles qui ont été rincées avec du Calvados. Soit à 40% d'alcool soit sans réduction du degré alcoolique pour les bruts de fût. NB : la mention « production fermière » peut être ajoutée sur l'étiquette quand les eaux-de-vie sont produites exclusivement sur l'exploitation agricole (de la récolte à la mise en bouteille).",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Entre le Xe et XVIe siècle, de nouvelles variétés de pommes venant d'Espagne arrivent en Normandie."
+     },
+     {
+      "t": "puce",
+      "texte": "28 Mars 1553 : Gilles de Gouberville relate pour la première fois avoir distillé du cidre en vue d'obtenir une eau-de-vie de bouche."
+     },
+     {
+      "t": "puce",
+      "texte": "En 1790, l'Assemblée constituante crée les départements de France et baptise celui du Calvados d'après le nom d'un rocher situé au large d'Arromanches. La légende veut que cette bande rocheuse tiendrait elle-même son nom d'un navire espagnol de l'Invincible Armada, « San Salvador » ou « El Salvador », échoué en faisant route sur les côtes anglaises en 1588. Le nom du bateau aurait été transformé en « Calvador » puis « Calvados »."
+     },
+     {
+      "t": "puce",
+      "texte": "Pour échapper aux réquisitions de la 2e guerre mondiale, les producteurs demandent l'AOC qui sera obtenue en 1942 pour le Calvados Pays d'Auge. Les Calvados produits dans les autres zones sont classés en Appellation d'Origine Réglementée."
+     },
+     {
+      "t": "puce",
+      "texte": "11 Septembre 1984 : L'Appellation d'Origine Réglementée Calvados passe en AOC."
+     },
+     {
+      "t": "puce",
+      "texte": "31 Décembre 1997 : L'Appellation d'Origine Réglementée Calvados Domfrontais passe en AOC."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 40% minimum."
+     },
+     {
+      "t": "p",
+      "texte": "Pays : France."
+     },
+     {
+      "t": "p",
+      "texte": "Cocktails classiques : Jack Rose."
+     },
+     {
+      "t": "p",
+      "texte": "Particularités : La campagne de distillation débute le 1er juillet pour se terminer le 30 juin de l'année suivante. L'âge d'un Calvados tient compte de la date de distillation. Ainsi, un cidre distillé à partir du 1er juillet d'une année est enregistré par l'IDAC en compte « 00 » jusqu'au 30 juin de l'année suivante. Au 1er juillet, ce Calvados passera en compte de vieillissement « 1 ». Le millésime correspond à l'année de distillation et non de récolte."
+     }
+    ]
+   },
+   {
+    "titre": "Les mentions de vieillissement",
+    "blocs": [
+     {
+      "t": "table",
+      "entete": [
+       "Mention",
+       "Âge minimum"
+      ],
+      "lignes": [
+       [
+        "VS, 3 pommes ou ***",
+        "minimum 2 ans (compte 2)"
+       ],
+       [
+        "Vieux, Réserve",
+        "minimum 3 ans (compte 3)"
+       ],
+       [
+        "VO, Vieille Réserve, VSOP",
+        "minimum 4 ans (compte 4)"
+       ],
+       [
+        "Hors d'Âge, XO, Très Vieux, Napoléon, Très vieille Réserve, Extra",
+        "minimum 6 ans (compte 6)"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "titre": "Les 3 appellations",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "AOC Calvados — Départements : Calvados, Eure, Manche, Mayenne, Oise, Orne, Sarthe, Seine-Maritime. Pas de mode de distillation imposé mais essentiellement en continu (alambic à colonne). Vieillit minimum 2 ans avant la commercialisation."
+     },
+     {
+      "t": "puce",
+      "texte": "AOC Calvados Pays d'Auge — Départements : Calvados, Eure, Orne. 30% maximum de poires à poiré dans le cidre à distiller. Double distillation en alambic à repasse obligatoire. Vieillit minimum 2 ans avant la commercialisation."
+     },
+     {
+      "t": "puce",
+      "texte": "AOC Calvados Domfrontais — Départements : Manche, Mayenne, Orne. 30% minimum de poires à poiré sont introduites dans le cidre à distiller. Distillation en alambic à colonne. Vieillit minimum 3 ans avant la commercialisation."
+     }
+    ]
+   }
+  ]
+ },
+ "cognac": {
+  "pages": [
+   "P11"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Vendanges. Pressurage et Foulage en Octobre. Cépages principaux : Ugni Blanc (le plus répandu), Folle Blanche et Colombard. Cépages secondaires : Montils, Sémillon, Folignan. Ces cépages représentent à peine 10% de l'encépagement.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Fermentation alcoolique. Environ 3 semaines. Naturelle. Chaptalisation interdite. Le vin blanc obtenu est acide et titre autour de 9% vol.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Distillation. Double distillation en alambic charentais.",
+      "sous": [
+       "Première distillation, dite 1ère chauffe : on obtient le « brouillis » titrant 28% à 32% vol.",
+       "Deuxième distillation, dite bonne chauffe ou repasse : le brouillis est remis à distiller, on obtient une eau-de-vie titrant 72,4% vol maximum.",
+       "Pour les deux distillations les têtes et queues de distillation sont séparées pour ne garder que le cœur."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Vieillissement. Uniquement dans des fûts de chêne du Limousin ou de la forêt du Tronçais. Les substances extraites du bois de chêne par le Cognac modifient l'aspect physique du Cognac en lui donnant une couleur qui va du jaune d'or au brun ardent. Ce transfert des caractéristiques naturelles du chêne développe le bouquet du Cognac.",
+      "sous": [
+       "La part des anges : Pendant tout le temps où, dans son fût, le Cognac vieillit, il va, en étant en permanence en contact avec l'air, perdre progressivement et sans excès sa force alcoolique et son volume. Cette perte inévitable représente plus de vingt millions de bouteilles par an mais elle est essentielle au vieillissement du Cognac.",
+       "Le paradis : C'est dans un chai obscur, en général tenu à l'écart des autres chais, que séjournent les eaux-de-vie les plus anciennes. Une fois leur maturité atteinte, le Maître de Chai décide de mettre fin à leur vieillissement et procède à leur transfert dans de très vieux fûts de chêne puis dans des bonbonnes de verre appelées « Dames-Jeannes ». Là, elles pourront séjourner à l'abri de l'air durant de nombreuses décennies sans se modifier davantage."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Assemblage ou coupe ou mariage et réduction du degré alcoolique. Assemblage d'eaux-de-vie d'âges et de crus différents afin de maîtriser la qualité voulue par le Maître de Chai. Remarque : l'âge du Cognac est légalement celui de la plus jeune des eaux-de-vie entrant dans l'assemblage et non la moyenne de l'assemblage. Tout en suivant l'évolution des eaux-de-vie, le Maître de Chai procède à la réduction du degré alcoolique grâce aux assemblages et/ou en ajoutant de l'eau déminéralisée. Le degré de consommation (40% vol au minimum) peut aussi s'obtenir par addition progressive de « petites eaux » constituées par un mélange d'eau distillée et de Cognac.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Mise en bouteille. Quand le Cognac est prêt à être commercialisé, il est mis dans des bouteilles qui ont été rincées avec du Cognac. Soit à 40% d'alcool soit sans réduction du degré alcoolique pour les bruts de fût. NB : l'appellation « Fine Champagne » est strictement réservée à des eaux-de-vie comprenant au minimum 50% de « Grande Champagne », le reste de l'assemblage étant entièrement de la « Petite Champagne ». Le mot Champagne désigne un terroir calcaire et pauvre que l'on retrouve en Charente et en Champagne.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Apparition des vignes de Cognac au IIIe siècle."
+     },
+     {
+      "t": "puce",
+      "texte": "Moyen Âge : commerce de sel et de vin avec les pays nordiques."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIe siècle : distillation des vins charentais par les Hollandais pour le conserver. Le résultat est un succès, ils le nomment « brandwijn » (vin brûlé) qui deviendra le mot « brandy ». Ils le boivent allongé d'eau."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIIe siècle : apparition de la double distillation dans la région."
+     },
+     {
+      "t": "puce",
+      "texte": "XIXe siècle : traité commercial entre la France et l'Angleterre sous Napoléon III. Ascension des ventes de Cognac."
+     },
+     {
+      "t": "puce",
+      "texte": "Fin XIXe siècle : vers 1875 apparaît en Charente le phylloxera qui détruit le vignoble."
+     },
+     {
+      "t": "puce",
+      "texte": "1909 : zone géographique de production est délimitée."
+     },
+     {
+      "t": "puce",
+      "texte": "1936 : reconnu comme Appellation d'Origine Contrôlée (AOC)."
+     },
+     {
+      "t": "puce",
+      "texte": "1938 : délimitation des « crus »."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 40% minimum."
+     },
+     {
+      "t": "p",
+      "texte": "Pays : France."
+     },
+     {
+      "t": "p",
+      "texte": "Départements : Charente, Charente-Maritime, Quelques communes de Dordogne et des Deux-Sèvres."
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — Les 6 crus délimités",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Grande Champagne : C'est le premier cru de Cognac. Elle est réputée pour produire des eaux-de-vie d'une extrême finesse."
+     },
+     {
+      "t": "puce",
+      "texte": "Petite Champagne : Provenant de sols argilo-calcaires, les eaux-de-vies issues de ces appellations présentent des eaux-de-vie fines au bouquet à dominante florale."
+     },
+     {
+      "t": "puce",
+      "texte": "Borderies : C'est le plus petit des 6 crus. Il produit des eaux-de-vie rondes au bouquet caractérisé par un parfum de violette."
+     },
+     {
+      "t": "puce",
+      "texte": "Fins bois : Le plus grand cru dont la majorité est occupé par des sols argilo-calcaires superficiels comme les champagnes, mais rouges et très caillouteux, d'un calcaire dur du Jurassique. On y trouve également des sols très argileux."
+     },
+     {
+      "t": "puce",
+      "texte": "Bons bois : Des sols sableux. Ces crus produisant des eaux-de-vie rondes, souples, vieillissant assez rapidement et dont le bouquet rappelle le raisin pressé."
+     },
+     {
+      "t": "puce",
+      "texte": "Bois ordinaires : Ce cru produit environ 2% de la production de Cognac. Le sol à dominante sableuse, se situant le long de l'Océan ou sur les îles de Ré et d'Oléron, produit des eaux-de-vie qui vieillissent vite et ont un goût de terroir caractérisé."
+     }
+    ]
+   },
+   {
+    "titre": "Les mentions de vieillissement",
+    "blocs": [
+     {
+      "t": "table",
+      "entete": [
+       "Mention",
+       "Âge minimum"
+      ],
+      "lignes": [
+       [
+        "VS, ***, millésime",
+        "minimum 2 ans (compte 2)"
+       ],
+       [
+        "Supérieur, Cuvée Supérieure",
+        "minimum 3 ans (compte 3)"
+       ],
+       [
+        "V.S.O.P, Réserve, Vieux",
+        "minimum 4 ans (compte 4)"
+       ],
+       [
+        "Vieille Réserve, Réserve Rare",
+        "minimum 5 ans (compte 5)"
+       ],
+       [
+        "Napoléon, Très Vieille Réserve",
+        "minimum 6 ans (compte 6)"
+       ],
+       [
+        "XO, Hors d'âge, Extra",
+        "minimum 10 ans (compte 10)"
+       ]
+      ]
+     },
+     {
+      "t": "p",
+      "texte": "Le millésime correspond à l'année de récolte et non de distillation."
+     },
+     {
+      "t": "p",
+      "texte": "Les comptes d'âge : La campagne de distillation commence dès la récolte et se termine au plus tard le 31/03 de l'année suivante. L'eau-de-vie produite est d'abord inscrite au compte 00 et passe en compte 0 à partir du 01/04. Après une année complète de vieillissement en fût de chêne, elle passe en compte 1 et ainsi de suite."
+     }
+    ]
+   }
+  ]
+ },
+ "gin": {
+  "pages": [
+   "P12"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "La base. L'élaboration du gin se fait à partir d'un alcool neutre à 96% d'alcool obtenu dans des alambics à colonnes. Les matières premières pour obtenir ces alcools sont variées : céréales, mélasses de canne à sucre, pommes de terre, betteraves, vin blanc ou même cidre… La plupart des grandes marques connues opteront plutôt pour un alcool neutre de céréales.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Les 2 types de gin.",
+      "sous": [
+       "Gin simple : Macération à froid des aromates dans un alcool neutre ou juste un assemblage de cet alcool neutre avec les aromates sous forme artificielle ou huiles essentielles.",
+       "Gin distillé : Plusieurs méthodes peuvent être utilisées à l'aide d'alambics différents. a. alcool neutre redistillé en présence des aromates ou d'extraits d'aromates en alambic à colonne ou en alambic à repasse. Méthode plus industrielle. b. alcool neutre redistillé dans un alambic doté d'une chambre perforée destinée à recevoir les aromates. C'est ce qu'on appelle l'alambic pour extraction à la vapeur. Les vapeurs d'alcool traversent la chambre perforée (panier Carterhead) remplie des aromates et se chargent en aromes. Méthode plus artisanale. c. la distillation sous vide peut être également utilisée. La température d'ébullition est atteinte lorsque la pression de vapeur du liquide excède la pression atmosphérique ambiante. Cette méthode aux températures plus basses permet d'extraire les arômes de façon plus délicate sans risquer de cuire ou de brûler les végétaux.",
+       "Certaines maisons distillent tous les végétaux séparément et font un assemblage ensuite."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Les plantes aromatiques. Principales : genièvre en principal, coriandre de la famille des ombellifères et angélique de la famille des ombellifères. Les autres : iris de la famille des iridacées, citron, citron vert, orange, bergamote, réglisse, anis, cannelle, cardamome, amande, concombre, rose…",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Le Genever ou Schiedam ancêtre du Gin serait né en Hollande au XVIe siècle."
+     },
+     {
+      "t": "puce",
+      "texte": "1689 : Guillaume III d'Orange devient roi d'Angleterre après avoir été gouverneur aux Pays Bas, il favorise le gin et taxe lourdement les alcools comme le Cognac, une façon de lutter contre les catholiques qui apportaient cet alcool."
+     },
+     {
+      "t": "puce",
+      "texte": "Dans les années 1700, on sert du gin dans plus de 7000 endroits rien qu'à Londres. Dans les gins shops de Londres c'était surtout les pauvres qui achetaient cette boisson peu onéreuse provenant des 1500 distilleries clandestines. On mettait dans le gin de l'essence de térébenthine provenant du pin qui était très toxique."
+     },
+     {
+      "t": "puce",
+      "texte": "1736 : le Gin Act, taxation du gin par le gouvernement pour limiter l'alcoolisme croissant. Mais cela conduisit à des émeutes et à la production de gins clandestins. C'est à cette époque que naquit le « gin de baignoire »."
+     },
+     {
+      "t": "puce",
+      "texte": "1751 : Gin Lane par William Hogarth."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 37,5% minimum en Europe. 40% minimum aux USA."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteurs : Angleterre, Hollande, Espagne, France, Ecosse, Allemagne, USA, Canada…"
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — 2 types de gin",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Le gin simple ou compound gin (gin d'assemblage) résulte d'une macération à froid des aromates dans un alcool neutre ou juste un assemblage de cet alcool neutre avec les aromates sous forme artificielle ou huiles essentielles."
+     },
+     {
+      "t": "puce",
+      "texte": "Le gin distillé est une redistillation d'un alcool neutre à 96% d'alcool en présence des aromates : Soit sous forme d'extraits pour la méthode industrielle. Soit pour la méthode artisanale les aromates sont mis directement avec l'alcool neutre dans l'alambic où ils sont mis dans un panier suspendu au-dessus de la colonne pour que les vapeurs d'alcool le traversent et s'imprègnent des saveurs. C'est ce qu'on appelle le panier Carter-Head."
+     }
+    ]
+   },
+   {
+    "titre": "Les différentes variétés de gin",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Le Gin de Mahón : Depuis 1997 le Gin de Mahón bénéficie d'une Appellation d'Origine Contrôlée. C'est un gin de l'île de Minorque qui est distillé 2 fois. Il était fabriqué avec de l'eau-de-vie de raisin plus facile à trouver sur l'île et élevé en fût de chêne blanc rappelant la tradition des vignerons. Il est interdit d'y ajouter des additifs ou des extraits de plantes."
+     },
+     {
+      "t": "puce",
+      "texte": "London Dry Gin : N'est pas forcément fabriqué à Londres en Angleterre. Les fabricants achètent l'alcool neutre de base."
+     },
+     {
+      "t": "puce",
+      "texte": "Le Plymouth Gin : Elaboré à Plymouth en Angleterre, c'était le gin de la Royal Navy. Très aromatique et légèrement sucré, il était à l'origine plus alcoolisé pour que la poudre à canon garde ses vertus explosives en cas de contact accidentel sur les bateaux."
+     },
+     {
+      "t": "puce",
+      "texte": "Old Tom Gin : Gin plus sucré."
+     },
+     {
+      "t": "puce",
+      "texte": "Sweet Gin : Gin renforcé en genièvre."
+     },
+     {
+      "t": "puce",
+      "texte": "Sloe Gin : Gin parfumé aux baies de prunelle."
+     },
+     {
+      "t": "puce",
+      "texte": "Fruit Gin : Gin parfumé aux fruits."
+     },
+     {
+      "t": "puce",
+      "texte": "Yellow Gin : Gin ayant vieilli en fût de chêne ayant contenu du Xérès."
+     },
+     {
+      "t": "puce",
+      "texte": "Cork Gin : Gin irlandais."
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "La définition légale du London Dry Gin manque : gin distillé, sans arôme ajouté après la distillation, sucre limité à 0,1 g par litre.",
+   "La ligne « Sweet Gin » paraît confuse dans la fiche d’origine."
+  ]
+ },
+ "vodka": {
+  "pages": [
+   "P14"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Broyage. Les grains sont broyés, trempés dans de l'eau chaude et cuits sous pression pour extraire le sucre fermentescible de l'amidon.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Levurage et fermentation alcoolique. Après l'ajout de levures le jus sucré subit une fermentation alcoolique et devient une sorte de bière titrant environ 8% d'alcool.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Distillation. Généralement c'est une distillation en Patent Still Process (distillation en continu) dans des colonnes de distillation. Répétée plusieurs fois (de 4 à 8 fois en général) la distillation permet d'obtenir un alcool à 95-96% d'alcool. Cependant certaines maisons préfèrent utiliser des alambics traditionnels à repasse qui engendrent plus d'arômes.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Purification. Afin d'obtenir une vodka la plus pure possible. Critère majeur de distinction entre les marques. Les secrets de cette étape sont jalousement gardés. Plusieurs composants peuvent être utilisés pour le filtre de la purification. Le plus utilisé est peut-être le charbon de bois actif qui est un excellent agent filtrant, mais en voici d'autres utilisés par des grandes marques : Quartz, sable, roche volcanique, roche glacière, billes en argent, calcaire, éclats de granite, diamant… Certaines marques ne veulent pas entendre parler de purification et comptent sur leur méthode unique de distillation afin de produire une vodka pure.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Adjonction d'eau adoucie. Afin de ramener la vodka au degré d'alcool désiré.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Mise en bouteille et expédition.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "L'origine de la vodka est encore méconnue, Russes et Polonais se battent la paternité de cette eau-de-vie. Les Polonais se réfèrent à un document administratif de Sandomierz datant de 1405, les Russes eux eurent recours à la Cour de justice européenne. Quelques dates cependant historiques à la vodka :"
+     },
+     {
+      "t": "puce",
+      "texte": "1430 : Le moine Isidor va en Italie où il a été témoin de la distillation. Il rapporte cette pratique en Russie."
+     },
+     {
+      "t": "puce",
+      "texte": "1533 : Le Tsar Ivan IV dit le Terrible ouvre la première taverne à Moscou (Kabak)."
+     },
+     {
+      "t": "puce",
+      "texte": "1789 : Le chimiste Tobias Lowitz propose l'utilisation du charbon de bois pour le nettoyage de la vodka."
+     },
+     {
+      "t": "puce",
+      "texte": "1865 : Le chimiste Dmitri Mendeleiev prouve que le meilleur % d'alcool pour la vodka est 38% d'alcool. Pour des raisons de taxes elle sera rapportée à 40% d'alcool par l'Empereur Alexandre III."
+     },
+     {
+      "t": "p",
+      "texte": "Définition : C'est le résultat, après fermentation alcoolique, de la distillation de tous produits fermentescibles d'origine agricole."
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — Types",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Vodka naturelle : Incolore, inodore et de saveur douce."
+     },
+     {
+      "t": "puce",
+      "texte": "Vodka aromatisée : Herbes, fruits, baies, épices…"
+     },
+     {
+      "t": "p",
+      "texte": "Exemples : La Zubrowka polonaise : cette Vodka pur seigle est aromatisée avec une herbe rare la « Hierochloe Odorata », très aromatique. Elle est appelée aussi l'herbe de bison car elle provient du parc naturel de Bialowieza, situé à 250 km à l'est de Varsovie. Parc dans lequel vivent les derniers bisons en liberté en Europe. On dit qu'1 à 2 kg d'herbes suffisent pour aromatiser 1000 litres de vodka."
+     },
+     {
+      "t": "p",
+      "texte": "Cas rare, certaines vodkas vieillissent en fût durant 7 ans, aromatisées au vin de Porto, comme la Starka (Vieillie en Russe) élaborée en Russie, de couleur brun clair, redistillée avec une infusion de feuilles de pommier de Crimée et de poirier."
+     },
+     {
+      "t": "p",
+      "texte": "Matières premières : Tous les produits pouvant subir une fermentation alcoolique : céréales, betterave, pomme de terre, canne à sucre, fruits, lait… Mais les céréales sont généralement la matière première la plus utilisée."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 37,5% minimum en Europe. 40% minimum aux USA."
+     },
+     {
+      "t": "p",
+      "texte": "Principaux pays producteurs : Russie, Pologne, Suède, Finlande, France, Danemark, USA…"
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "L’histoire de Mendeleïev et des 38 % est considérée comme une légende par plusieurs historiens."
+  ]
+ },
+ "tequila": {
+  "pages": [
+   "P13"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Récolte de l'agave bleue. 8 minimum à 12 ans d'âge.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Découpage de l'agave bleue. En 2 ou en 4, ces morceaux sont appelés « pina ».",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Cuisson. Transformation de l'amidon en sucre.",
+      "sous": [
+       "Traditionnelle : cuisson à la vapeur dans des fours en brique ou béton pouvant contenir jusqu'à 50 tonnes d'agaves. La température idéale est de 54°C pendant 24 à 36 heures. Puis on laisse refroidir 24 heures avant d'ouvrir les fours.",
+       "Moderne : dans des autoclaves à vapeurs, sorte de grandes citernes en acier inoxydable. Cette méthode permet une cuisson et un refroidissement plus rapides."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Broyage et pressurage. On obtient un jus appelé « agua miel ».",
+      "sous": [
+       "Moderne sur un tapis roulant muni de lames broyeuses",
+       "Ancienne à l'aide de la « tahona », dans une fosse pavée et une énorme roue en pierre pesant au moins 2 tonnes."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Chaptalisation et fermentation alcoolique. On obtient le « mosto », c'est à cette étape que l'on décide de faire une tequila mixto ou 100% agave.",
+      "sous": [
+       "Tequila 100% agave : direct en cuve de fermentation. Transformation des sucres en alcool sous l'effet de levures sélectionnées.",
+       "Tequila Mixto : réservoir de chaptalisation. Ajout de sucre, le « piloncillo » (canne à sucre diluée au jus de mélasse) et de levures sélectionnées. Transformation des sucres en alcool."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Distillation. Double distillation.",
+      "sous": [
+       "Première chauffe : on obtient le « ordinario » 20° à 30° d'alcool.",
+       "Deuxième chauffe : donne une eau-de-vie titrant 50° à 55° d'alcool."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Vieillissement. Selon le produit souhaité. Les tequilas « anejo » ou « extra anejo » sont souvent vieillies dans des fûts de bourbon de 190 litres.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 8,
+      "texte": "Adjonction d'eau déminéralisée. Pour ramener la tequila au degré d'alcool désiré.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 9,
+      "texte": "Mise en bouteille et expédition. Selon les tequilas, certaines peuvent être envoyées en vrac à 55° d'alcool. Elles seront alors abaissées au degré alcoolique et mise en bouteille dans le pays de vente. Mais attention, toute tequila ayant subi un vieillissement doit être vieillie et embouteillée au Mexique.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Avant l'arrivée des Espagnols, les Aztèques ne connaissaient pas la distillation. Ils appelaient l'agave « metl » et fabriquaient du fil, des cordes, des vêtements, des pinceaux… et le pulque obtenu à partir de la sève du Maguey."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIe siècle : arrivée des Espagnols qui expérimentent plusieurs variétés de cette plante et plusieurs distillations afin de trouver cette boisson à leur goût. Ils nomment cet alcool « le vino mezcal »."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIIe siècle : la petite ville de Tequila devient célèbre pour son mezcal de grande qualité."
+     },
+     {
+      "t": "puce",
+      "texte": "1978 : le gouvernement établit les NORMAS."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 35% à 55%"
+     },
+     {
+      "t": "p",
+      "texte": "Provenance : Mexique, des états de Jalisco, Nayarit, Tamaulipas, Michoacan, Guanajuato."
+     },
+     {
+      "t": "p",
+      "texte": "Plante : Agave Tequilana Weber appelée aussi l'agave bleue à cause de sa couleur bleutée."
+     },
+     {
+      "t": "p",
+      "texte": "Cocktails classiques : Margarita, Tequila Sunrise, Téquini."
+     },
+     {
+      "t": "p",
+      "texte": "Types de tequila : Tequila mixto ou mélangée : min 51% d'agave. Tequila 100% agave."
+     }
+    ]
+   },
+   {
+    "titre": "Âge",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Blanco, plata, blanche : pas de vieillissement ou légalement moins de 60 jours de vieillissement. Peut s'expédier en vrac et mise en bouteille dans d'autres pays sauf pour la 100% agave qui doit être mise en bouteille au Mexique."
+     },
+     {
+      "t": "puce",
+      "texte": "Reposado : minimum 60 jours de vieillissement en fût de bois. Vieillie et mise en bouteille au Mexique."
+     },
+     {
+      "t": "puce",
+      "texte": "Gold (sans rien derrière) ou joven ou joven abocado : pas de vieillissement mais une coloration artificielle. Presque toujours constituée de Tequila mixto elle est parfumée et colorée après distillation. Elle peut s'expédier en vrac mais après coloration."
+     },
+     {
+      "t": "puce",
+      "texte": "Anejo : minimum 1 an de vieillissement en fût de 600 litres maximum scellés par le gouvernement. Vieillie et mise en bouteille au Mexique."
+     },
+     {
+      "t": "puce",
+      "texte": "Extra anejo ou ultra anejo : minimum 3 ans de vieillissement en fût de 600 litres maximum scellés par le gouvernement. Vieillie et mise en bouteille au Mexique."
+     },
+     {
+      "t": "p",
+      "texte": "Remarque : Certaines bouteilles de tequila ou mezcal contiennent un ver appelé « guzano » qui fait ses galeries dans les feuilles d'agave. La tradition veut que celui qui finit la bouteille mange le « guzano »."
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "La réglementation mexicaine n’autoriserait pas de ver dans la tequila ; le « gusano » ne concernerait que certains mezcals."
+  ]
+ },
+ "rhum": {
+  "pages": [
+   "P15"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Broyage et pressage de la canne à sucre. À froid dans des moulins horizontaux, on obtient le « Vesou ».",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Filtrage. Ensuite 2 procédés d'élaboration : RHUM AGRICOLE ; RHUM INDUSTRIEL / TRADITION.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Fermentation du vesou (rhum agricole). A l'aide de levures. Rapide : maximum 120 heures pour AOC Agricole Martinique. Lente : jusqu'à 12 jours pour les rhums forts en arômes. Exemple : Rhum de Dunder. On obtient un vin de canne titrant entre 3,5% et 7,5% d'alcool. Fermentation alcoolique des mélasses issues des sucreries (rhum industriel) : A l'aide de levures. On obtient un vin de canne titrant entre 4% et 6% d'alcool.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Distillation (rhum agricole). En continu. Multi-étage avec reflux. À colonne avec une colonne d'épuisement et une de concentration. On obtient la « Grappe blanche » titrant minimum 65% d'alcool et maximum 75% d'alcool (pour l'AOC Martinique). Distillation (rhum industriel) : En continu. (Patent-Still Process). On obtient une eau-de-vie titrant 75% à 96% d'alcool (pour les rhums légers style cubains)",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Coloration par caramélisation de certains rhums. Ex : rhum ambré sans autre dénomination telle que « élevé sous-bois ».",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Vieillissement. Rhum blanc : stockage dans des foudres vitrifiés. Rhum vieilli : en fût de chêne. Au contact de l'air et au travers du bois le volume et le % d'alcool baissent par évaporation, c'est la « part des anges ». A la Martinique cela représente environ 10% de perte par an du volume total mis en vieillissement. C'est énorme mais cela permet au rhum de vieillir 2 fois plus vite que s'il était en métropole, dit-on.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Assemblage ou coupe ou mariage et réduction du degré alcoolique. Le maître de chai procède à de savants assemblages en mariant des eaux-de-vie d'âges et quelquefois même de provenances différentes afin d'obtenir la qualité souhaitée. Durant ces assemblages le degré alcoolique sera baissé petit à petit soit en mariant des eaux-de-vie au degré d'alcool différent, soit par apport d'eau déminéralisée. Rhum Agricole : 40% d'alcool minimum. Rhum Industriel / Tradition : 37,5% d'alcool minimum.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 8,
+      "texte": "Filtrage, mise en bouteille et commercialisation. Remarque : Le Brésil produit une eau-de-vie appelée « Cachaça ».",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "1492 : Christophe Colomb débarque aux Antilles et introduit la canne à sucre en 1493."
+     },
+     {
+      "t": "puce",
+      "texte": "Dans les années 1600 : les Hollandais sont les 1ers à voir un marché pour des rhums de meilleure qualité. Car à cette époque le rhum est juste un alcool de mélasse donné aux esclaves et la canne est utilisée pour la fabrication de sucre. Les propriétaires boivent des alcools importés d'Europe. Le vin de canne jadis appelé « Guildive » de l'anglais « kill the devil » ou « tafia » qui veut dire tue le démon. Le mot « rhum » viendrait de « rumbillion », un ancien mot anglais signifiant « vacarme et tumulte »."
+     },
+     {
+      "t": "puce",
+      "texte": "1635 : les colons français s'installent aux Antilles."
+     },
+     {
+      "t": "puce",
+      "texte": "1694 : le Père Labat débarque à la Martinique."
+     },
+     {
+      "t": "puce",
+      "texte": "XVIIIe siècle : La naissance du « rhum agricole » est liée à l'arrivée de la machine à vapeur. Ces machines fonctionnant à partir de la combustion des résidus du pressurage de la canne (la bagasse), elles vont permettre l'établissement dans les régions les plus accessibles de véritables usines sucrières indépendantes de l'énergie hydraulique des rivières qui était utilisée jusque-là. Entre 1884 et 1896 une grave crise de surproduction entraîne la fermeture des habitations sucrières martiniquaises les moins compétitives. Plusieurs d'entre elles, ruinées par la perte de leurs débouchés abandonnent la production de sucre pour laquelle elles ne sont plus compétitives et se convertissent alors dans la fabrication de rhum, exclusivement produit à partir du jus de la canne. C'est ainsi que débute la production de rhum agricole qui prendra en Martinique un essor considérable alors que l'économie sucrière martiniquaise aura à souffrir de la concurrence, d'autres îles disposant de meilleurs rendements sucriers."
+     },
+     {
+      "t": "puce",
+      "texte": "5 Novembre 1996 : AOC Rhum de la Martinique"
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : 37,5% minimum. 40% minimum pour le rhum agricole."
+     },
+     {
+      "t": "p",
+      "texte": "Particularités — Les 3 orthographes : « Rhum » en français, « Rum » en anglais, « Ron » en espagnol."
+     }
+    ]
+   },
+   {
+    "titre": "Les types de rhum",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Les « rhums agricoles » dits aussi « rhums de vesou »",
+      "sous": [
+       "Blanc ou Grappe blanche : dit « rhum de l'habitant », pas de coloration. 6 semaines minimum de maturation en cuve.",
+       "Élevé sous-bois : minimum 12 mois de maturation en fût de chêne.",
+       "Vieux : minimum 3 ans de vieillissement en fût de chêne de 650 litres maximum.",
+       "Millésimé : minimum 6 ans de vieillissement en fût de chêne de 650 litres maximum."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Les « rhums industriels » ou « traditionnels » ou de mélasses",
+      "sous": [
+       "Léger : de faible arôme, il peut être incolore ou ambré. Il peut aussi être vieilli et il est souvent filtré à travers du sable ou du charbon de bois.",
+       "Grand arôme : le moût destiné à la production de rhum « Grand arôme » est issu de mélasses, de vinasses issues de distillations précédentes et d'eau. Ambré et corsé il est principalement utilisé pour les assemblages.",
+       "Double arômes : très alcoolisé et ambré, il est utilisé principalement en pâtisserie."
+      ]
+     }
+    ]
+   },
+   {
+    "titre": "Autres dénominations",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Ambré : dénomination commerciale. Légalement, ce n'est pas une appellation. S'il n'y a pas d'autres inscriptions sur l'étiquette, il s'agit d'un rhum simplement coloré par caramélisation. Mais souvent le terme « ambré » complète l'appellation « élevé sous-bois ». Dans ce cas il est vieilli minimum 12 mois."
+     },
+     {
+      "t": "puce",
+      "texte": "Paille : à la base, ce rhum de couleur paille était obtenu après un séchage de la canne à sucre au soleil et un passage en fût. Aujourd'hui, employée seule cette dénomination est commerciale."
+     }
+    ]
+   }
+  ]
+ },
+ "pisco": {
+  "pages": [
+   "P16"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Vendanges. A partir du mois de mars / avril, les producteurs de Pisco effectuent un égrappage des vignes entièrement réalisé à la main. Puis, le foulage et le pressurage des raisins sont réalisés avec des machines à presser ou écraser avec les pieds pour les productions les plus artisanales.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Fermentation alcoolique. Elle a lieu dans des récipients pouvant être, dans les grands centres de production, des cuves de fermentation aujourd'hui en ciment ou, dans les petits centres de production, des grandes jarres traditionnelles en argile ou des bidons en grès. La macération du marc de raisin peut être partielle, totale ou nulle, selon le type de Pisco à élaborer à partir de chaque processus de fermentation.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Distillation — Distillation discontinue. Le Pisco a pour caractéristique d'être obtenu par distillation directe et discontinue, en séparant les « têtes et les queues » avant 38° et après 48° afin de sélectionner le « corps » ou le « cœur ». Le moût est chauffé dans des alambics de grande taille chauffés, en cuivre ou en fer-blanc.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Vieillissement. La boisson spiritueuse doit être conservée dans des récipients appropriés pendant une période minimale de trois mois avant d'être mise en bouteille. Le Pisco est gardé dans des cuves en inox.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Mise en bouteille. Avant la mise en bouteille du produit, le Pisco est filtré afin d'éliminer les particules en suspension. Des filtres de polissage sont utilisés à cet effet.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "La côte sud du Pérou, sur laquelle se situe la zone de production du Pisco, est une région sèche avec la seule source d'humidité naturelle étant les rares averses et brouillards qui surviennent en hiver. Le faible taux d'humidité offre des conditions optimales pour les raisins. La température maximale moyenne pluriannuelle dans la zone géographique de production du Pisco varie entre 24,4°C et 30,8°C. La température minimale moyenne varie entre 11,6°C et 16,7°C, tandis que la température moyenne annuelle atteint des valeurs comprises entre 18,5°C et 22,4°C."
+     },
+     {
+      "t": "p",
+      "texte": "Grâce à ce gradient thermique légèrement atypique, la vigne parvient à une maturité physiologique et technologique maximale, qui permet la bonne fermentation des moûts. La concentration des sucres des raisins atteint un niveau adéquat, ce qui permet d'augmenter la production d'alcool à partir des levures et, par conséquent, d'obtenir une teneur en alcool très élevée au cours de la distillation du produit."
+     },
+     {
+      "t": "p",
+      "texte": "La zone Pisco est caractérisée par la présence de sols mixtes argileux, sablonneux et calcaires dans des proportions équivalentes. L'eau utilisée pour l'irrigation provient des crues de cours d'eau situées à proximité du pied de la cordillère des Andes."
+     },
+     {
+      "t": "p",
+      "texte": "% alcool : Le Pisco titre entre 38 et 48 degrés."
+     },
+     {
+      "t": "p",
+      "texte": "Pays producteur : Le Pérou"
+     }
+    ]
+   },
+   {
+    "titre": "Origines",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Région de Lima, la province de Barranca, Cañete et Huaral, ainsi que les districts de Pativilca, Lunahuaná, Mala, Pacarán et Zuñiga."
+     },
+     {
+      "t": "puce",
+      "texte": "Région d'Ica, la province de Ica, Nazca et Pisco Chincha, ainsi que le district d'Ocucaje."
+     },
+     {
+      "t": "puce",
+      "texte": "Région d'Arequipa, ainsi que les districts de Majes, Vítor, Santa Rita de Siguas. Caravelí et Camaná"
+     },
+     {
+      "t": "puce",
+      "texte": "Région de Moquegua, la province d'Ilo, ainsi que le district d'Omate."
+     },
+     {
+      "t": "puce",
+      "texte": "Région de Tacna, notamment les vallées de Caplina, Locumba et Sama."
+     }
+    ]
+   },
+   {
+    "titre": "Cépages",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Pisco Puro : il est obtenu à partir d'une seule variété de raisins, le raisin de Pisco. Il existe 8 types de cépages de Pisco : Italia, Moscatel, Albilla, Torontel, Uvina, Quebranta, Mollar, Negra Criolla."
+     },
+     {
+      "t": "puce",
+      "texte": "Pisco Acholado : il est obtenu par mélange de diverses variétés de raisins de Pisco."
+     },
+     {
+      "t": "puce",
+      "texte": "Pisco Mosto Verde : il est obtenu par distillation des moûts frais de raisins de Pisco qui ont subi une fermentation interrompue."
+     },
+     {
+      "t": "p",
+      "texte": "Particularités : Au Pérou, le « Pisco » est protégé en tant qu'appellation d'origine par la Resolución Directoral no 072087-DIPI, adoptée par l'INDECOPI le 12 décembre 1990. Chaque producteur doit suivre une procédure administrative auprès de l'INDECOPI (Institut National de Défense de la Compétence et Propriété Intellectuelle) pour obtenir une autorisation d'utilisation de l'appellation « Pisco ». Les personnes désirant obtenir cette autorisation ont l'obligation de prouver que leur produit répond à la norme technique péruvienne 211.001-2006."
+     },
+     {
+      "t": "p",
+      "texte": "Étiquetage : Pour que le produit soit commercialisé sur le marché national ou international, l'étiquette doit être conforme aux spécifications techniques en vigueur conformément aux normes NTP 210.027-2004, NTP 209.038-2003 et NMP 001-1995. L'étiquette doit mentionner le type de raisins de Pisco et l'adresse du viticulteur. La zone de production peut également être indiquée sous la rubrique « Zona de Producción », mais uniquement lorsque le Pisco est fabriqué et mis en bouteille dans la zone de production du Pisco et d'origine des raisins de Pisco utilisés pour son élaboration."
+     },
+     {
+      "t": "p",
+      "texte": "Cocktail classique — Le Pisco Sour :"
+     },
+     {
+      "t": "puce",
+      "texte": "4 cl Pisco"
+     },
+     {
+      "t": "puce",
+      "texte": "1,5 cl jus de citron vert"
+     },
+     {
+      "t": "puce",
+      "texte": "1,5 cl sirop de sucre"
+     },
+     {
+      "t": "puce",
+      "texte": "2 cl blanc d'œuf ou aquafaba"
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "Le Chili produit aussi du pisco sous sa propre appellation : la fiche ne présente que le point de vue péruvien.",
+   "La recette ABF du Pisco Sour (4 / 1,5 / 1,5 / 2 cl) diffère de celle de l’IBA (6 / 3 / 2 cl et un blanc d’œuf) : vérifier celle qu’attend le jury."
+  ]
+ },
+ "cafe": {
+  "pages": [
+   "P17"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration, fabrication",
+    "blocs": [
+     {
+      "t": "etape",
+      "n": 1,
+      "texte": "Cueillette des cerises. Il existe 3 méthodes :",
+      "sous": [
+       "Mécanique : utilisée dans les grandes plantations, une machine passe dans les rangées d'arbres alignés et secoue les branches pour faire tomber les cerises.",
+       "Stripping : méthode manuelle rapide. Les cueilleurs saisissent les branches à 2 mains pour faire glisser tout ce qui s'y trouve, fruits mûrs ou non, feuilles. Ou ils passent à travers les branches avec un grand peigne.",
+       "Picking : méthode entièrement manuelle de meilleure qualité qui consiste à ne cueillir que les fruits à maturité. Cette méthode oblige à plusieurs passages étant donné que les fruits ne sont pas mûrs en même temps, elle est donc plus longue et plus coûteuse."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 2,
+      "texte": "Traitement des cerises. Consiste à extraire le grain de son enveloppe afin d'obtenir le grain vert. Il existe 2 méthodes :",
+      "sous": [
+       "La voie sèche qui produit ce que l'on appelle les « cafés natures ». Les cerises entières sont mises à sécher à même le sol au soleil puis ratissées régulièrement pour éviter leur fermentation et pour un décortiquage naturel.",
+       "La voie humide qui produit ce que l'on appelle les « cafés lavés ». Dépulpage à l'aide d'une machine pour enlever la peau et la pulpe. Rinçage à l'eau puis fermentation naturelle qui va développer l'acidité et les notes fruitées du café. Cette fermentation permet également d'éliminer le reste de pulpe encore présent sur le grain et non éliminé pendant le dépulpage. Séchage. À ce stade le café est en « parche »."
+      ]
+     },
+     {
+      "t": "etape",
+      "n": 3,
+      "texte": "Déparchage. Décorticage de la pellicule appelée « parche ».",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 4,
+      "texte": "Triage des grains. A la main ou par machine optique.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 5,
+      "texte": "Mise en sac. Elle se fait dans des sacs de jute par 60 Kg qui est considérée comme l'unité de mesure internationale. Afin de conserver ses qualités, le café Blue Mountain est - dit-on - mis dans des tonneaux de chêne ayant contenu du rhum.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 6,
+      "texte": "Torréfaction. Elle consiste à griller les grains de café vert pour en extraire les arômes. L'alchimie délicate de la torréfaction requiert une maîtrise technique mais aussi l'expertise du maître-torréfacteur. Versé dans un tambour rotatif et brassé sans discontinuer, le café vert est chauffé par un courant d'air chaud. Une succession de transformations physiques et chimiques en modifie l'apparence et détermine la qualité des arômes. Sous l'effet de la caramélisation des sucres contenus dans les grains (« Réaction Maillard »), les grains donnent naissance aux premières substances aromatiques. Il en existe plus de 700 pour composer les arômes volatils du café. Au fil des minutes, les grains passent du brun clair ambré au brun dit « robe de moine », jusqu'au brun sombre. Sous l'effet de la chaleur, le grain a perdu 20% de son poids et gonflé de 60%. Il existe des procédés plus rapides afin de traiter des cafés de moindre qualité dans de grosses quantités.",
+      "sous": []
+     },
+     {
+      "t": "etape",
+      "n": 7,
+      "texte": "Assemblage. De cafés d'origines différentes pour créer des saveurs identifiables à chaque maison. Les maisons peuvent ainsi créer des cafés pour différents moments de la journée. NB : Pour décaféiner un café, il existe une méthode chimique avec du chlorure de méthylène ou de l'acétate d'éthyle et aussi une méthode naturelle avec de l'eau et du CO2.",
+      "sous": []
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Vers le 8e siècle, un jeune berger prénommé Kadi gardait des chèvres sur les hauteurs du Yémen. Un jour, il fut intrigué par l'étrange comportement de ses chèvres après avoir brouté des baies rouges. Il cueillit quelques baies et les emmena au couvent voisin. Les prieurs du couvent en firent une décoction qui donna une vigueur à ceux qui en burent. On la nomma « Kawa » c'est-à-dire force, élan et vitalité. A partir de ce jour les prieurs en consommèrent et ne furent plus la proie de somnolences durant les prières nocturnes."
+     },
+     {
+      "t": "puce",
+      "texte": "XVe siècle : Le port de la petite ville de Moka au Yémen (la fiche ABF indique à tort l’Éthiopie) devient le 1er lieu de négoce de café."
+     },
+     {
+      "t": "puce",
+      "texte": "Vers 1669 le café fait son entrée officielle en France à la cour de Louis XIV."
+     },
+     {
+      "t": "puce",
+      "texte": "1714 : Le 1er plant de caféier est planté au Jardin Royal (actuel Jardin des Plantes à Paris)."
+     }
+    ]
+   },
+   {
+    "titre": "Botanique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "Le caféier est un arbuste de la famille des rubiacées formant le genre « Coffea ». Il faut attendre ses 3 ans pour sa 1ère floraison et 5 ans pour sa 1ère récolte de fruits. Il existe plus de 60 espèces différentes de caféiers mais 2 seulement sont cultivés :"
+     },
+     {
+      "t": "puce",
+      "texte": "Le Coffea Arabica Linné appelé plus communément l'Arabica. Il mesure 5 à 8 mètres et pousse en altitude. Originaire d'Éthiopie"
+     },
+     {
+      "t": "puce",
+      "texte": "Le Coffea Canephora Pierre appelé plus communément le Robusta. Il mesure 10 à 12 mètres et pousse en plaine jusqu'à 600 mètres d'altitude. Il est plus robuste d'où son nom et peut supporter des températures plus élevées. Originaire d'Afrique il aurait été découvert au 19ème siècle au Congo."
+     },
+     {
+      "t": "p",
+      "texte": "Le fruit du caféier est appelé la « cerise » ou « drupe »."
+     },
+     {
+      "t": "p",
+      "texte": "Le grain (de l'intérieur vers l'extérieur) : 1 Sillon central, 2 Grain de café, 3 Pellicule argentée, 4 Parche, 5 Mucilage, 6 Pulpe, 7 Peau."
+     },
+     {
+      "t": "p",
+      "texte": "Tous les grains sont d'une taille comparable sauf 3 exceptions :"
+     },
+     {
+      "t": "puce",
+      "texte": "Les Peaberry de forme plus ovale."
+     },
+     {
+      "t": "puce",
+      "texte": "Les Maragogypes. Variété d'arabica d'une taille double. Goût plus fin, raffiné, léger et parfumé."
+     },
+     {
+      "t": "puce",
+      "texte": "Les Caracolis. Cerise qui ne renferme qu'un seul grain au lieu de deux."
+     }
+    ]
+   },
+   {
+    "titre": "Pays producteurs et quelques grands crus",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Brésil : 1er producteur au monde. Cerrado, Bahia… Produit aussi le café « rioté » qui est exposé à l'air marin et prend des saveurs iodées."
+     },
+     {
+      "t": "puce",
+      "texte": "Colombie : Armenia, Naviro…"
+     },
+     {
+      "t": "puce",
+      "texte": "Costa Rica : Tarrazu, Santiago…"
+     },
+     {
+      "t": "puce",
+      "texte": "Équateur : Vilcabamba…"
+     },
+     {
+      "t": "puce",
+      "texte": "Éthiopie : Sidamo, Yrga-Cheffe…"
+     },
+     {
+      "t": "puce",
+      "texte": "Guatémala : Strictly, San Christobal…"
+     },
+     {
+      "t": "puce",
+      "texte": "Inde : Pays du café « moussoné », le café est exposé aux vents de la mousson et prend une saveur particulière."
+     },
+     {
+      "t": "puce",
+      "texte": "Jamaïque : Avec le Kenya, la Jamaïque produit peut-être les cafés les plus exceptionnels au monde. Blue Mountain, High Mountain Suprem…"
+     },
+     {
+      "t": "puce",
+      "texte": "Kenya : Sans doute le pays du café par excellence. AA, Kitale…"
+     },
+     {
+      "t": "puce",
+      "texte": "Mexique : Tapachula, Orizaba…"
+     },
+     {
+      "t": "puce",
+      "texte": "Madagascar : Grand pays du robusta. Les meilleurs sont cultivés près de la ville de Tamatave."
+     },
+     {
+      "t": "puce",
+      "texte": "Nicaragua : Jinotega"
+     },
+     {
+      "t": "puce",
+      "texte": "Pérou : Chanchamayo…"
+     },
+     {
+      "t": "puce",
+      "texte": "Vénézuéla : Puerto Cabello, Maracaibo…"
+     },
+     {
+      "t": "puce",
+      "texte": "Yémen : Yaffé, Sharki…"
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "Moka est un port du Yémen (corrigé). La légende du berger, le plus souvent nommé Kaldi, est généralement située en Éthiopie."
+  ]
+ },
+ "sodas": {
+  "pages": [
+   "P18"
+  ],
+  "sections": [
+   {
+    "titre": "Élaboration générale des sodas",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "La fabrication des sodas est relativement simple. Elle consiste à mélanger trois ingrédients : l'eau, le sucre, le gaz carbonique."
+     },
+     {
+      "t": "p",
+      "texte": "Les sucres utilisés pour la préparation du sirop sont de différentes sortes : le saccharose, le fructose ou l'aspartame (édulcorant artificiel). À cette solution sucrée vient s'ajouter un mélange d'extraits de plantes ou de fruits dont la composition reste le secret des marques. L'eau et le sirop sont ensuite mélangés selon des proportions extrêmement précises. La dernière étape de préparation est la gazéification de la boisson, par l'ajout de gaz carbonique. Divers acidifiants, édulcorants et colorants peuvent entrer dans la fabrication industrielle des sodas. Les boissons énergisantes se différencient des sodas par une teneur en caféine très élevée."
+     }
+    ]
+   },
+   {
+    "titre": "Quelques marques incontournables",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Coca-Cola : créé en 1886 par John Stith Pemberton, pharmacien d'Atlanta."
+     },
+     {
+      "t": "puce",
+      "texte": "Fanta : créée en Allemagne, cette boisson arrive sur le marché français en 1958."
+     },
+     {
+      "t": "puce",
+      "texte": "Canada Dry : créé à Toronto, en 1904, par un pharmacien chimiste, John McLaughlin. Au départ, il fabriquait de l'eau gazeuse puis a eu l'idée d'une aromatisation au gingembre."
+     },
+     {
+      "t": "puce",
+      "texte": "Sprite : boisson rafraîchissante aux arômes naturels de citron jaune et de citron vert, sans conservateur ajouté, avec sucre ou édulcorant."
+     },
+     {
+      "t": "puce",
+      "texte": "Orangina : à la Foire de Marseille en 1935, Léon Beton rencontre le Dr. Trigo Miralès, un pharmacien espagnol qui vient de mettre au point une formule à base de concentré et d'huiles essentielles d'oranges. Convaincu par son potentiel, Léon Beton a alors l'idée de créer une nouvelle boisson tirée de cette formule. Il imagine ainsi un soda prêt à boire qui mélerait dans une bouteille du concentré de jus et de pulpe d'orange, quelques huiles essentielles et de l'eau légèrement gazéifiée. Un an plus tard, il commercialise les premières bouteilles d'Orangina, « soda de Naranjina »."
+     },
+     {
+      "t": "puce",
+      "texte": "Schweppes : en 1783, Jacob Schweppe, bijoutier Suisse, crée la marque et la première boisson gazéifiée artificielle de l'histoire. En 1870, la marque Schweppes créé l'Indian Tonic, contenant des extraits de quinine et d'orange amère. Boisson inspirée de ce que buvaient les anglais en Inde pour lutter contre le paludisme."
+     },
+     {
+      "t": "puce",
+      "texte": "Gini : faisant partie de la famille des bitter lemon la marque a été créée en 1970."
+     },
+     {
+      "t": "puce",
+      "texte": "Ricqlès : créée en 1959, c'est une boisson au goût de menthe extrêmement prononcé apportant un rafraîchissement intense."
+     },
+     {
+      "t": "puce",
+      "texte": "Pepsi-Cola : créé en 1893 par Caleb D. Bradham, pharmacien à New Bern en Caroline du Nord sous le nom de Brad's Drink. Pour lutter contre la dyspepsie et les troubles de la digestion. C'est en 1898 que Brad's Drink devient Pepsi-Cola, la marque sera déposée en 1902."
+     },
+     {
+      "t": "puce",
+      "texte": "Fever Tree : Cette gamme de sodas 100% naturels, a été créée en 2004 par Charles Rolls et Tim Warrillow."
+     },
+     {
+      "t": "puce",
+      "texte": "7 Up : boisson gazeuse à la saveur de citron vert lancée en 1929 (la fiche ABF indique le début des années 1920) par Charles Leiper Grigg."
+     },
+     {
+      "t": "puce",
+      "texte": "Archibald : présenté pour la première fois à l'occasion du salon Omnivore de Paris en mars 2017 par Estelle Sauvage et Olivier Fichot les 2 co-fondateurs. Archibald est un tonic élaboré près de Cognac à partir d'extraits distillés de gentiane et de baies de genièvre récoltées en France. Archibald est le premier tonic de distillerie, il est aussi bio, sans quinine et 100 % français."
+     }
+    ]
+   },
+   {
+    "titre": "Historique",
+    "blocs": [
+     {
+      "t": "p",
+      "texte": "L'histoire du soda remonte à « l'invention » de l'eau gazeuse."
+     },
+     {
+      "t": "puce",
+      "texte": "Années 1770 : Joseph Priestley, chimiste et théologien anglais, invente le procédé."
+     },
+     {
+      "t": "puce",
+      "texte": "1780 : La technique de l'inventeur est reprise et améliorée par Johann Jacob Schweppe. Il en fera alors une boisson gazeuse proche de la limonade. C'est lui-même qui fit construire la première usine de sodas au monde à Londres et fonda la célèbre maison Schweppes, toujours en activité à l'heure actuelle."
+     },
+     {
+      "t": "puce",
+      "texte": "1885 : La plus ancienne marque américaine de soda apparaît sous le nom de Dr Pepper, qui inventa et commercialisa le tout premier soda au cola un an avant la sortie du Coca-Cola."
+     },
+     {
+      "t": "puce",
+      "texte": "8 mai 1886 : Le docteur John Stith Pemberton, pharmacien d'Atlanta (état de Géorgie), inventa une nouvelle boisson gazeuse qu'il appela, le Coca-Cola. C'est ainsi que s'enchaîna la création de milliers d'autres sodas dans le monde"
+     },
+     {
+      "t": "p",
+      "texte": "Définition : Un soda est une boisson sucrée, généralement gazeuse et classée dans la famille des softs. Elle est composée d'eau, de sucre ou d'édulcorant et de différents types d'extraits aromatiques : plantes, fruits, fleurs…"
+     }
+    ]
+   },
+   {
+    "titre": "Particularités — Les types de sodas",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "Les limonades : La limonade est une boisson froide constituée de jus de citron, d'eau et de sucre."
+     },
+     {
+      "t": "puce",
+      "texte": "Les sodas aux fruits : Les sodas aux fruits mélangent concentré de fruits, pulpe et extraits naturels de fruits aux bulles des sodas classiques."
+     },
+     {
+      "t": "puce",
+      "texte": "Les sodas au cola : Boissons sucrées à base de cola. La forme de produit au cola la plus répandue est le soda dont les plus connus sont les divers Coca-Cola."
+     },
+     {
+      "t": "puce",
+      "texte": "Les sodas tonic : Boissons à base d'essences d'oranges amères et d'extraits végétaux, comme l'écorce de quinquina."
+     },
+     {
+      "t": "puce",
+      "texte": "Les sodas bitter lemon : Boisson à base de citron vert."
+     },
+     {
+      "t": "puce",
+      "texte": "Les sodas énergisants : Boissons sucrées aromatisées de différentes façons et renforcées par des substances aux vertus énergisantes telle que la caféine, la taurine, le gluconolactone…"
+     }
+    ]
+   },
+   {
+    "titre": "Additifs",
+    "blocs": [
+     {
+      "t": "puce",
+      "texte": "L'acide phosphorique (E338) est un additif acidifiant."
+     },
+     {
+      "t": "puce",
+      "texte": "L'aspartame (E951) est un édulcorant."
+     },
+     {
+      "t": "puce",
+      "texte": "L'additif E150D est un caramel colorant. Comme les autres caramels colorants, il est issu du chauffage de sucres."
+     }
+    ]
+   }
+  ],
+  "aVerifier": [
+   "7 Up : lancement en 1929 (corrigé)."
+  ]
+ }
+}

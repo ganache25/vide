@@ -32,6 +32,9 @@ cocktails de référence et connaissance des alcools.
   l'appareil, reprise dans le PDF). S'y ajoutent 16 photos d'illustration
   des produits, de Wikimedia Commons sous licences libres (`assets/photos`, crédits dans `src/data/photos.ts` et sur
   l'écran « Crédits photo »).
+- **Fiches ABF** : au niveau Complet, 14 produits reprennent les fiches du classeur « Liste des produits » de
+  l'Association des Barmen de France (2020), d'après le dossier MAF Barman 2027 (`src/data/abf.json`), avec les
+  points à vérifier ou mis à jour depuis 2020.
 - **Cartes des maisons** : pour 21 produits, une carte dessinée (contours Natural Earth, domaine public,
   `src/data/monde.json`) situe plus de 200 distilleries, chais et brasseries avec leur histoire
   (`src/data/maisons.ts`), plus une liste de marques de référence.

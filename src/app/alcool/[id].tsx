@@ -3,6 +3,7 @@ import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 import { CreditPhoto } from '../../components/FicheView';
+import { AbfView } from '../../components/AbfView';
 import { CarteMaisons } from '../../components/CarteMaisons';
 import { Bulles, Degrade } from '../../components/fx';
 import { Bouteille } from '../../components/Illustrations';
@@ -68,7 +69,7 @@ export default function FicheAlcool() {
             ? 'L’essentiel pour le service : repères, arômes, à savoir.'
             : niveau === 'standard'
               ? 'Avec la dégustation, la frise, l’élaboration, les catégories et la conservation.'
-              : 'Tout : histoire, régions, lecture d’étiquette, idées reçues, autres classiques.'}
+              : 'Tout : histoire, régions, étiquette, idées reçues, autres classiques et fiche ABF.'}
         </Text>
       </View>
 
@@ -230,6 +231,8 @@ export default function FicheAlcool() {
           <P muted>Cocktails hors socle, cités pour la culture : leurs recettes ne figurent pas dans l’application.</P>
         </Card>
       ) : null}
+
+      {complet ? <AbfView id={a.id} /> : null}
 
       {a.service ? (
         <Card style={{ backgroundColor: C.accentDark, boxShadow: 'none' }}>
